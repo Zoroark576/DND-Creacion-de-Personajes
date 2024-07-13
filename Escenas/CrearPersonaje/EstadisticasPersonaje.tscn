@@ -1,0 +1,317 @@
+[gd_scene load_steps=5 format=3 uid="uid://qotmhd3sur3n"]
+
+[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_iluss"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.686275, 0.686275, 0.686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxak8"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrh2s"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 2
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -642.0
+offset_right = 362.0
+offset_bottom = 640.0
+color = Color(0, 0.00392157, 0.0509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -358.0
+offset_top = -640.0
+offset_right = 358.0
+offset_bottom = 638.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 47
+
+[node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scc2i")
+
+[node name="ContTitulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CabezaTitulo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Crear Personaje (Estadisticas)"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_iluss")
+theme_override_styles/panel = SubResource("StyleBoxFlat_kxak8")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_iluss")
+
+[node name="Stats Base" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base"]
+layout_mode = 2
+text = "Estadisticas Base"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base"]
+layout_mode = 2
+columns = 2
+
+[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+text = "STR"
+
+[node name="SStr" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+
+[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+text = "CON"
+
+[node name="SCon" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+
+[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+text = "DEX"
+
+[node name="SDex" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+
+[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+text = "INT"
+
+[node name="SInt" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+
+[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+text = "WIS"
+
+[node name="SWis" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+
+[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+text = "CHA"
+
+[node name="SCha" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Stats Base"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrh2s")
+text = "Aleatorio"
+
+[node name="Mas" type="CenterContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Mas"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="BonusRaciales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales"]
+layout_mode = 2
+text = "Bonus Raciales
+"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales"]
+layout_mode = 2
+theme = ExtResource("1_iluss")
+columns = 2
+
+[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+text = "STR"
+
+[node name="SStr" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+text = "CON"
+
+[node name="SCon" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+text = "DEX"
+
+[node name="SDex" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+text = "INT"
+
+[node name="SInt" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+text = "WIS"
+
+[node name="SWis" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+text = "CHA"
+
+[node name="SCha" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="Igual" type="CenterContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/Igual"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "=
+"
+
+[node name="StatsFinales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales"]
+layout_mode = 2
+text = "Estadisticas Finales
+"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales"]
+layout_mode = 2
+columns = 2
+
+[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+text = "STR"
+
+[node name="SStr" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+text = "CON"
+
+[node name="SCon" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+text = "DEX"
+
+[node name="SDex" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+text = "INT"
+
+[node name="SInt" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+text = "WIS"
+
+[node name="SWis" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+text = "CHA"
+
+[node name="SCha" type="SpinBox" parent="MarginContainer/VBoxContainer/PanelContainer/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+
+[node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 30
+text = "Siguiente"
