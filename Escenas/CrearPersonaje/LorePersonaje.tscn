@@ -78,6 +78,13 @@ size_flags_stretch_ratio = 75.0
 theme_override_font_sizes/font_size = 25
 text = "Raza"
 
+[node name="Clase" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 75.0
+theme_override_font_sizes/font_size = 25
+text = "Clase"
+
 [node name="Edad" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -122,6 +129,15 @@ placeholder_text = "Jimmy Dungeons"
 max_length = 30
 
 [node name="RInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+item_count = 1
+selected = 0
+popup/item_0/text = "Null"
+popup/item_0/id = 0
+
+[node name="CInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20

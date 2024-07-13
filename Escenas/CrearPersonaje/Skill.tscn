@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://du1dxw3t0poo6"]
+
+[sub_resource type="Theme" id="Theme_7mj57"]
+default_font_size = 20
+Label/font_sizes/font_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmht1"]
+bg_color = Color(0.0901961, 0.0862745, 0.113725, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.215686, 0, 0.0941176, 1)
+
+[node name="Habilidad" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 169.0
+offset_bottom = 47.0
+theme = SubResource("Theme_7mj57")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmht1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Entrenado" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/HBoxContainer/Entrenado"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "99"
+alignment = 1
+editable = false
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Nombre"
