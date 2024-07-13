@@ -1,0 +1,209 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfs4s0rtdwhen"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.686275, 0.686275, 0.686275, 1)
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -642.0
+offset_right = 362.0
+offset_bottom = 640.0
+color = Color(0, 0.00392157, 0.0509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -358.0
+offset_top = -640.0
+offset_right = 358.0
+offset_bottom = 638.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 47
+
+[node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scc2i")
+
+[node name="ContTitulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CabezaTitulo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Crear Personaje (Historia)"
+horizontal_alignment = 1
+
+[node name="Datos" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Labels" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+theme_override_constants/separation = 29
+
+[node name="Nombre" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 75.0
+theme_override_font_sizes/font_size = 25
+text = "Nombre"
+
+[node name="Raza" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 75.0
+theme_override_font_sizes/font_size = 25
+text = "Raza"
+
+[node name="Edad" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Edad"
+
+[node name="Tamaño" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Tamaño"
+
+[node name="Altura (M)" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Altura (M)"
+
+[node name="Peso (KG)" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Peso (KG)"
+
+[node name="Genero" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Genero"
+
+[node name="Descripcion" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Descrip."
+
+[node name="Inputs" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+theme_override_constants/separation = 29
+
+[node name="NInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Jimmy Dungeons"
+max_length = 30
+
+[node name="RInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+item_count = 1
+selected = 0
+popup/item_0/text = "Null"
+popup/item_0/id = 0
+
+[node name="EdInput" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+max_value = 10000.0
+rounded = true
+
+[node name="TInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+item_count = 5
+selected = 0
+popup/item_0/text = "SS"
+popup/item_0/id = 4
+popup/item_1/text = "S"
+popup/item_1/id = 0
+popup/item_2/text = "M"
+popup/item_2/id = 1
+popup/item_3/text = "L"
+popup/item_3/id = 2
+popup/item_4/text = "XL"
+popup/item_4/id = 3
+
+[node name="AInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 1.25
+theme_override_font_sizes/font_size = 20
+placeholder_text = "1.72"
+max_length = 10
+
+[node name="PInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 1.25
+theme_override_font_sizes/font_size = 20
+placeholder_text = "80"
+max_length = 10
+
+[node name="GInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+item_count = 3
+selected = 0
+popup/item_0/text = "M"
+popup/item_0/id = 4
+popup/item_1/text = "F"
+popup/item_1/id = 0
+popup/item_2/text = "NB"
+popup/item_2/id = 1
+
+[node name="DInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Soy Jimmy Dungeons, soy blanco"
+scroll_smooth = true
+
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+
+[node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 30
+text = "Siguiente"
