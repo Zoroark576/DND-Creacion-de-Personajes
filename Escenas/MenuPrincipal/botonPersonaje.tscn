@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg0kkp7fpp05x"]
+
+[ext_resource type="Texture2D" uid="uid://byey8nh5co516" path="res://Iconos/trash-bin-icon-1024x1024-b8uy9bpj.png" id="1_l05so"]
+
+[node name="BotonPersonaje" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 467.0
+offset_bottom = 49.0
+
+[node name="Personaje" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nombre, Clase, Nv:"
+
+[node name="Borrar" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_l05so")
