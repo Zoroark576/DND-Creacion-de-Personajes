@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=3 uid="uid://c30s5xy0rekaa"]
+
+[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_rins1"]
+[ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_s8ayg"]
+[ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="3_38e2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.686275, 0.686275, 0.686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id5am"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.541176, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1i4y"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.568627, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a6fy"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.447059, 0.447059, 0.447059, 1)
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_rins1")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -642.0
+offset_right = 362.0
+offset_bottom = 640.0
+color = Color(0, 0.00392157, 0.0509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -358.0
+offset_top = -640.0
+offset_right = 358.0
+offset_bottom = 638.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scc2i")
+
+[node name="ContTitulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CabezaTitulo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Crear Personaje (Poderes)"
+horizontal_alignment = 1
+
+[node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_s8ayg")]
+layout_mode = 2
+
+[node name="ContPoderes" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ContPoderes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_38e2l")
+
+[node name="ContPoderes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="PVoluntad" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_id5am")
+
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PVoluntad"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PVoluntad/Voluntad"]
+layout_mode = 2
+text = "Voluntad"
+horizontal_alignment = 1
+
+[node name="PEncuentro" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n1i4y")
+
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PEncuentro"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PEncuentro/Voluntad"]
+layout_mode = 2
+text = "Encuentro"
+horizontal_alignment = 1
+
+[node name="PDiario" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1a6fy")
+
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PDiario"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PDiario/Voluntad"]
+layout_mode = 2
+text = "Diarios"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Crear Poder"
+
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+
+[node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 30
+text = "Siguiente"

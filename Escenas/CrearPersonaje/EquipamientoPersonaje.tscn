@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnmk7x7ow4pa7"]
+
+[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_odjl7"]
+[ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_xgwg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.686275, 0.686275, 0.686275, 1)
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_odjl7")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -642.0
+offset_right = 362.0
+offset_bottom = 640.0
+color = Color(0, 0.00392157, 0.0509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -358.0
+offset_top = -640.0
+offset_right = 358.0
+offset_bottom = 638.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scc2i")
+
+[node name="ContTitulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CabezaTitulo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Crear Personaje (Equipamiento)"
+horizontal_alignment = 1
+
+[node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_xgwg5")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="OroInicial" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Oro Inicial"
+
+[node name="OInput" type="SpinBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Armadura Inicial
+"
+
+[node name="AInput" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Arma" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Arma Inicial
+"
+
+[node name="AInput2" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Inventario" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Inventario
+"
+
+[node name="IInput" type="TextEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+placeholder_text = "Armas, Ropa, etc."
+
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+
+[node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 30
+text = "Siguiente"

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://2etnxtwgfnv2"]
+[gd_scene load_steps=8 format=3 uid="uid://2etnxtwgfnv2"]
 
+[ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_nb4qf"]
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_1oyqg"]
 [ext_resource type="PackedScene" uid="uid://2ool10x0tggn" path="res://Escenas/CrearPersonaje/Defensa.tscn" id="3_ieqk5"]
 [ext_resource type="PackedScene" uid="uid://du1dxw3t0poo6" path="res://Escenas/CrearPersonaje/Skill.tscn" id="3_q1wfv"]
@@ -71,28 +72,8 @@ theme_override_font_sizes/font_size = 30
 text = "Crear Personaje (Habilidades)"
 horizontal_alignment = 1
 
-[node name="Clase y Raza" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_nb4qf")]
 layout_mode = 2
-theme_override_constants/h_separation = 1
-theme_override_constants/v_separation = 10
-columns = 2
-
-[node name="Clase" type="Label" parent="MarginContainer/VBoxContainer/Clase y Raza"]
-layout_mode = 2
-text = "Clase:"
-
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Clase y Raza"]
-layout_mode = 2
-editable = false
-
-[node name="Raza" type="Label" parent="MarginContainer/VBoxContainer/Clase y Raza"]
-layout_mode = 2
-text = "Raza:"
-
-[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Clase y Raza"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-editable = false
 
 [node name="Datos" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

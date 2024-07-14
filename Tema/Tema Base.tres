@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://dir05eos2th8d"]
 
 [resource]
-default_font_size = 24
+default_font_size = 25
 BoxContainer/constants/separation = 4
 GridContainer/constants/h_separation = 4
 GridContainer/constants/v_separation = 50
 HBoxContainer/constants/separation = 6
-Label/font_sizes/font_size = 23
+Label/font_sizes/font_size = 25

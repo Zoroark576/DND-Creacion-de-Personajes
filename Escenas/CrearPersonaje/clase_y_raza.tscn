@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bpi1wlmpddgdt"]
+
+[node name="Clase y Raza" type="GridContainer"]
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Clase" type="Label" parent="."]
+layout_mode = 2
+text = "Clase:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+editable = false
+
+[node name="Raza" type="Label" parent="."]
+layout_mode = 2
+text = "Raza:"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+editable = false
