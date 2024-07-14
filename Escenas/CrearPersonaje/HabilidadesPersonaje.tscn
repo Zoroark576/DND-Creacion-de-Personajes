@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://2etnxtwgfnv2"]
+[gd_scene load_steps=7 format=3 uid="uid://2etnxtwgfnv2"]
 
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_1oyqg"]
 [ext_resource type="PackedScene" uid="uid://2ool10x0tggn" path="res://Escenas/CrearPersonaje/Defensa.tscn" id="3_ieqk5"]
 [ext_resource type="PackedScene" uid="uid://du1dxw3t0poo6" path="res://Escenas/CrearPersonaje/Skill.tscn" id="3_q1wfv"]
+[ext_resource type="PackedScene" uid="uid://dqnxid783irtg" path="res://Escenas/CrearPersonaje/DefensaBonus.tscn" id="4_sd85f"]
 
 [sub_resource type="Theme" id="Theme_u8syo"]
-default_font_size = 35
+default_font_size = 25
 BoxContainer/constants/separation = 4
 Button/font_sizes/font_size = 16
 GridContainer/constants/h_separation = 4
@@ -45,7 +46,7 @@ color = Color(0, 0.00392157, 0.0509804, 1)
 layout_mode = 2
 offset_left = -358.0
 offset_top = -640.0
-offset_right = 358.0
+offset_right = 360.0
 offset_bottom = 638.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 50
@@ -95,10 +96,8 @@ editable = false
 
 [node name="Datos" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
 alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
-layout_mode = 2
 
 [node name="Habilidades" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -127,7 +126,7 @@ text = "Arcana"
 layout_mode = 2
 
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad3/MarginContainer/HBoxContainer" index="2"]
-text = "Atletico"
+text = "Atletismo"
 
 [node name="BotonHabilidad4" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
 layout_mode = 2
@@ -214,90 +213,246 @@ layout_mode = 2
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad17/MarginContainer/HBoxContainer" index="2"]
 text = "Robo"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Habilidades"]
+[node name="Defensas Y Sentidos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ContDefensas" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
-layout_mode = 2
-
-[node name="Defensas" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2"]
+[node name="Defensas" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("2_1oyqg")
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Defensas"
 horizontal_alignment = 1
 
-[node name="ClaseArm" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+[node name="ClaseArm" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/ClaseArm/MarginContainer/HBoxContainer" index="1"]
-text = "Clase Arm."
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/ClaseArm/MarginContainer/HBoxContainer" index="1"]
+text = "AC"
 
-[node name="Fortitud" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+[node name="Fortitud" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/Fortitud/MarginContainer/HBoxContainer" index="1"]
-text = "Fortitud"
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortitud/MarginContainer/HBoxContainer" index="1"]
+text = "Const."
 
-[node name="Reflejos" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+[node name="Reflejos" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/Reflejos/MarginContainer/HBoxContainer" index="1"]
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Reflejos/MarginContainer/HBoxContainer" index="1"]
 text = "Reflejos"
 
-[node name="Voluntad" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+[node name="Voluntad" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/Voluntad/MarginContainer/HBoxContainer" index="1"]
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Voluntad/MarginContainer/HBoxContainer" index="1"]
 text = "Voluntad"
 
-[node name="Sentidos" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2"]
+[node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("2_1oyqg")
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Bonus"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Bonus/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Bonus/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Bonus"
+horizontal_alignment = 1
+
+[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
+
+[node name="Defensa2" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
+
+[node name="Defensa3" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
+
+[node name="Defensa4" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
+
+[node name="ContSentidos" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
+layout_mode = 2
+
+[node name="Sentidos" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_1oyqg")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sentidos Pasivos
 "
 horizontal_alignment = 1
 
-[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
-[node name="LineEdit" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="0"]
+[node name="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="0"]
 placeholder_text = "10"
 editable = true
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="1"]
-text = "Persepcion"
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="1"]
+text = "Percep."
 
-[node name="Defensa5" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+[node name="Defensa5" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
-[node name="LineEdit" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer/Defensa5/MarginContainer/HBoxContainer" index="0"]
+[node name="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Defensa5/MarginContainer/HBoxContainer" index="0"]
 placeholder_text = "10"
 editable = true
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer/Defensa5/MarginContainer/HBoxContainer" index="1"]
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Defensa5/MarginContainer/HBoxContainer" index="1"]
 text = "Intuicion"
+
+[node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_1oyqg")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Bonus"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Bonus/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Bonus/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Bonus"
+horizontal_alignment = 1
+
+[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
+
+[node name="Defensa2" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
+
+[node name="ContVelocidad" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
+layout_mode = 2
+
+[node name="Sentidos" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_1oyqg")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Velocidad"
+horizontal_alignment = 1
+
+[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+layout_mode = 2
+
+[node name="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="0"]
+placeholder_text = "10"
+editable = true
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="1"]
+text = "Mov."
+
+[node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_1oyqg")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Bonus"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Bonus/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Bonus/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Bonus"
+horizontal_alignment = 1
+
+[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
+
+[node name="ContIniciativa" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
+layout_mode = 2
+
+[node name="Iniciativa" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_1oyqg")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Iniciativa"
+horizontal_alignment = 1
+
+[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+layout_mode = 2
+
+[node name="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="0"]
+placeholder_text = "10"
+editable = true
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer/Defensa/MarginContainer/HBoxContainer" index="1"]
+text = "Mov."
+
+[node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_1oyqg")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Bonus"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Bonus/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Bonus/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Bonus"
+horizontal_alignment = 1
+
+[node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Bonus/CenterContainer/VBoxContainer" instance=ExtResource("4_sd85f")]
+layout_mode = 2
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -333,9 +488,11 @@ text = "Siguiente"
 [editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad15"]
 [editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad16"]
 [editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad17"]
-[editable path="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/ClaseArm"]
-[editable path="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/Fortitud"]
-[editable path="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/Reflejos"]
-[editable path="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Defensas/CenterContainer/VBoxContainer/Voluntad"]
-[editable path="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer/Defensa"]
-[editable path="MarginContainer/VBoxContainer/Datos/VBoxContainer2/Sentidos/CenterContainer/VBoxContainer/Defensa5"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/ClaseArm"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortitud"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Reflejos"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Voluntad"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Defensa"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Defensa5"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Defensa"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer/Defensa"]

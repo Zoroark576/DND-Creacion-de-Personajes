@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfs4s0rtdwhen"]
+[gd_scene load_steps=3 format=3 uid="uid://bfs4s0rtdwhen"]
+
+[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_ndytd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -18,6 +20,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_ndytd")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -110,6 +113,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Genero"
 
+[node name="Idiomas" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Idiomas"
+
+[node name="Vision" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Vision"
+
 [node name="Descripcion" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -157,6 +170,7 @@ rounded = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
+disabled = true
 item_count = 5
 selected = 0
 popup/item_0/text = "SS"
@@ -200,6 +214,24 @@ popup/item_1/text = "F"
 popup/item_1/id = 0
 popup/item_2/text = "NB"
 popup/item_2/id = 1
+
+[node name="IInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 1.25
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Humano"
+max_length = 10
+
+[node name="VInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 1.25
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Normal"
+max_length = 10
 
 [node name="DInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(500, 200)

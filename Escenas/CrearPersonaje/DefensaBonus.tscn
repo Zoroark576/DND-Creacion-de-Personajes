@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqnxid783irtg"]
+
+[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_ghm1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5py60"]
+bg_color = Color(0.0901961, 0.0862745, 0.113725, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.0588235, 0.313726, 1)
+
+[node name="Defensa" type="PanelContainer"]
+offset_right = 94.0
+offset_bottom = 54.0
+theme = ExtResource("1_ghm1v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5py60")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="SpinBox" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
