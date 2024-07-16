@@ -79,7 +79,7 @@ size_flags_horizontal = 0
 
 [node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Armadura Inicial
+text = "Armadura
 "
 
 [node name="AInput" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
@@ -88,10 +88,19 @@ layout_mode = 2
 
 [node name="Arma" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Arma Inicial
+text = "1ra Mano
 "
 
 [node name="AInput2" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Arma2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "2da Mano
+"
+
+[node name="AInput3" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
