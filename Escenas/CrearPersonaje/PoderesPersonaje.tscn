@@ -88,6 +88,26 @@ horizontal_alignment = 1
 [node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_s8ayg")]
 layout_mode = 2
 
+[node name="Titulos de Poderes" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Titulos de Poderes"]
+layout_mode = 2
+text = "Voluntad"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Titulos de Poderes"]
+layout_mode = 2
+text = "Diarios"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/Titulos de Poderes"]
+layout_mode = 2
+text = "Encuentro"
+horizontal_alignment = 1
+
 [node name="ContPoderes" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -111,11 +131,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_id5am")
 [node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PVoluntad"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PVoluntad/Voluntad"]
-layout_mode = 2
-text = "Voluntad"
-horizontal_alignment = 1
-
 [node name="PEncuentro" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -124,11 +139,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_n1i4y")
 [node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PEncuentro"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PEncuentro/Voluntad"]
-layout_mode = 2
-text = "Encuentro"
-horizontal_alignment = 1
-
 [node name="PDiario" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -136,11 +146,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1a6fy")
 
 [node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PDiario"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PDiario/Voluntad"]
-layout_mode = 2
-text = "Diarios"
-horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)

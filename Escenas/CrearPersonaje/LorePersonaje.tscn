@@ -132,7 +132,7 @@ text = "Descrip."
 layout_mode = 2
 theme_override_constants/separation = 29
 
-[node name="NInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Nombre" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -141,7 +141,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Jimmy Dungeons"
 max_length = 30
 
-[node name="RInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Raza" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
@@ -150,7 +150,7 @@ selected = 0
 popup/item_0/text = "Null"
 popup/item_0/id = 0
 
-[node name="CInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Clase" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
@@ -159,14 +159,14 @@ selected = 0
 popup/item_0/text = "Null"
 popup/item_0/id = 0
 
-[node name="EdInput" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Edad" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 max_value = 10000.0
 rounded = true
 
-[node name="TInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Tamaño" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
@@ -184,7 +184,7 @@ popup/item_3/id = 2
 popup/item_4/text = "XL"
 popup/item_4/id = 3
 
-[node name="AInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Altura" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -193,7 +193,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "1.72"
 max_length = 10
 
-[node name="PInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Peso" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -202,7 +202,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "80"
 max_length = 10
 
-[node name="GInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Genero" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 20
@@ -215,7 +215,7 @@ popup/item_1/id = 0
 popup/item_2/text = "NB"
 popup/item_2/id = 1
 
-[node name="IInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Idiomas" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -224,7 +224,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Humano"
 max_length = 10
 
-[node name="VInput" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Vision" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -233,7 +233,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Normal"
 max_length = 10
 
-[node name="DInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20

@@ -1,0 +1,268 @@
+[gd_scene load_steps=8 format=3 uid="uid://bogrotirh5jqu"]
+
+[ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_lqapc"]
+[ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_dpsxl"]
+[ext_resource type="Texture2D" uid="uid://bjq5lv5ucphu" path="res://Iconos/158107.png" id="3_krmvk"]
+[ext_resource type="Texture2D" uid="uid://cj8vj8oxyf64e" path="res://Iconos/6134688.png" id="4_ebyyf"]
+[ext_resource type="Texture2D" uid="uid://byxvlh8rpy70" path="res://Iconos/13421-200.png" id="5_jriwc"]
+
+[sub_resource type="Theme" id="Theme_gcger"]
+default_font_size = 25
+BoxContainer/constants/separation = 4
+GridContainer/constants/h_separation = 4
+GridContainer/constants/v_separation = 20
+HBoxContainer/constants/separation = 6
+Label/font_sizes/font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.686275, 0.686275, 0.686275, 1)
+
+[node name="MenuPersonaje" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_gcger")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -642.0
+offset_right = 362.0
+offset_bottom = 640.0
+color = Color(0, 0.00392157, 0.0509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -358.0
+offset_top = -640.0
+offset_right = 358.0
+offset_bottom = 638.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scc2i")
+
+[node name="ContTitulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CabezaTitulo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Nombre Personaje"
+horizontal_alignment = 1
+
+[node name="TInformacion" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Historia y Clase"
+horizontal_alignment = 1
+
+[node name="Informacion" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Clase y Raza" parent="MarginContainer/VBoxContainer/Informacion" instance=ExtResource("1_lqapc")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Informacion"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "..."
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TEstadisticas" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Estadisticas e Inventario"
+horizontal_alignment = 1
+
+[node name="Estadisticas" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Estadisticas" type="PanelContainer" parent="MarginContainer/VBoxContainer/Estadisticas"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("2_dpsxl")
+
+[node name="Stats Base" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 15
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+text = "STR"
+
+[node name="SStr" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+editable = false
+
+[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+text = "CON"
+
+[node name="SCon" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+editable = false
+
+[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+text = "DEX"
+
+[node name="SDex" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+editable = false
+
+[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+text = "INT"
+
+[node name="SInt" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+editable = false
+
+[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+text = "WIS"
+
+[node name="SWis" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+editable = false
+
+[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+text = "CHA"
+
+[node name="SCha" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
+layout_mode = 2
+focus_mode = 0
+editable = false
+
+[node name="ContBotones" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Habilidades" type="Button" parent="MarginContainer/VBoxContainer/Estadisticas/ContBotones"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 2
+text = "Habilidades, Defensas, etc."
+
+[node name="Inventario" type="Button" parent="MarginContainer/VBoxContainer/Estadisticas/ContBotones"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+text = "Inventario"
+
+[node name="Poderes" type="Button" parent="MarginContainer/VBoxContainer/Estadisticas/ContBotones"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_vertical = 10
+text = "Poderes y Feats
+"
+
+[node name="XP Y AP" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
+layout_mode = 2
+text = "XP"
+horizontal_alignment = 1
+
+[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+placeholder_text = "1250"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
+layout_mode = 2
+text = "Nivel"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "1"
+editable = false
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
+layout_mode = 2
+text = "Action Points"
+horizontal_alignment = 1
+
+[node name="LineEdit2" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+value = 1.0
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TOtros" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Otros"
+horizontal_alignment = 1
+
+[node name="Opciones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Batalla" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "Batalla"
+icon = ExtResource("3_krmvk")
+icon_alignment = 1
+
+[node name="Contadores" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "Notas"
+icon = ExtResource("4_ebyyf")
+icon_alignment = 1
+
+[node name="Familiares" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "Familiar"
+icon = ExtResource("5_jriwc")
+icon_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+text = "Volver"

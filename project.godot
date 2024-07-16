@@ -15,6 +15,11 @@ config/features=PackedStringArray("4.2", "Mobile")
 run/low_processor_mode=true
 config/icon="res://icon.svg"
 
+[autoload]
+
+Personaje="*res://Escenas/Personaje.tscn"
+VariablesGlobales="*res://Escenas/VariablesGlobales.tscn"
+
 [display]
 
 window/size/viewport_width=720

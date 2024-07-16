@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://1comixqflbsm"]
+[gd_scene load_steps=5 format=3 uid="uid://1comixqflbsm"]
 
 [ext_resource type="Texture2D" uid="uid://cr5r12lliprxv" path="res://Iconos/Logo.png" id="1_6vouq"]
+[ext_resource type="Script" path="res://Scripts/MenuPrincipal/menu_principal.gd" id="1_gbq1l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -28,6 +29,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("1_gbq1l")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
