@@ -6,7 +6,7 @@
 default_font_size = 20
 BoxContainer/constants/separation = 14
 GridContainer/constants/h_separation = 4
-GridContainer/constants/v_separation = 50
+GridContainer/constants/v_separation = 20
 HBoxContainer/constants/separation = 6
 Label/font_sizes/font_size = 20
 
@@ -68,102 +68,105 @@ theme_override_font_sizes/font_size = 30
 text = "DND Creador de Personajes"
 horizontal_alignment = 1
 
-[node name="Datos" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Datos" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+columns = 2
 
-[node name="Labels" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
-layout_mode = 2
-
-[node name="Nombre" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="LNombre" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Nombre"
 
-[node name="Raza" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Nombre2" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="LRaza" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Raza"
 
-[node name="Clase" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Raza" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+
+[node name="LClase" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Clase"
 
-[node name="Tamaño" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Clase" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+
+[node name="LTamaño" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Tamaño"
 
-[node name="Edad" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Tamaño" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "SS"
+
+[node name="LEdad" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Edad"
 
-[node name="Genero" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Edad" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+size_flags_horizontal = 0
+rounded = true
+
+[node name="LGenero" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Genero"
 
-[node name="Altura" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Genero" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+
+[node name="LAltura" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Altura"
 
-[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Altura" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="LPeso" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Peso"
 
-[node name="Lenguajes" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Peso" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="LLenguajes" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Lenguajes Conocidos
 "
 
-[node name="Vision" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Lenguajes" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="LVision" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Vision"
 
-[node name="Personalidad" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Vision" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="LPersonalidad" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Personalidad"
 
-[node name="Descripcion" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
-layout_mode = 2
-text = "Descripcion"
-
-[node name="Inputs" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
-layout_mode = 2
-
-[node name="Nombre" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-
-[node name="Raza" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-
-[node name="Clase" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-
-[node name="Tamaño" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-
-[node name="Edad" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-
-[node name="Genero" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-
-[node name="Altura" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-
-[node name="Peso" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-
-[node name="Lenguajes" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-
-[node name="Vision" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-
-[node name="Personalidad" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="Personalidad" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 placeholder_text = "Personalidad"
 
-[node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+[node name="LDescripcion" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+text = "Descripcion"
+
+[node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 placeholder_text = "Descripcion"
 
