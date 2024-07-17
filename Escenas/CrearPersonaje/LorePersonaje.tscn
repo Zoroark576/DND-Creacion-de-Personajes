@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfs4s0rtdwhen"]
+[gd_scene load_steps=4 format=3 uid="uid://3e0m0ecqfskn"]
 
-[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_ndytd"]
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="2_ppeag"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_hf7qw"]
+
+[sub_resource type="Theme" id="Theme_uon3e"]
+default_font_size = 20
+BoxContainer/constants/separation = 14
+GridContainer/constants/h_separation = 4
+GridContainer/constants/v_separation = 50
+HBoxContainer/constants/separation = 6
+Label/font_sizes/font_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -11,7 +18,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs")]
+[node name="MenuPrincipal" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,9 +28,8 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme = ExtResource("1_ndytd")
-script = ExtResource("2_ppeag")
-contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos/Inputs")
+theme = SubResource("Theme_uon3e")
+script = ExtResource("1_hf7qw")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -46,7 +52,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 47
+theme_override_constants/separation = 40
 
 [node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -59,196 +65,118 @@ alignment = 1
 [node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Crear Personaje (Historia)"
+text = "DND Creador de Personajes"
 horizontal_alignment = 1
 
 [node name="Datos" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Labels" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
-theme_override_constants/separation = 29
 
 [node name="Nombre" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 75.0
-theme_override_font_sizes/font_size = 25
 text = "Nombre"
 
 [node name="Raza" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 75.0
-theme_override_font_sizes/font_size = 25
 text = "Raza"
 
 [node name="Clase" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 75.0
-theme_override_font_sizes/font_size = 25
 text = "Clase"
-
-[node name="Edad" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Edad"
 
 [node name="Tamaño" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
 text = "Tamaño"
 
-[node name="Altura (M)" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Edad" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Altura (M)"
-
-[node name="Peso (KG)" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Peso (KG)"
+text = "Edad"
 
 [node name="Genero" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
 text = "Genero"
 
-[node name="Idiomas" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+[node name="Altura" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Idiomas"
+text = "Altura"
+
+[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+text = "Peso"
+
+[node name="Lenguajes" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+text = "Lenguajes Conocidos
+"
 
 [node name="Vision" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
 text = "Vision"
+
+[node name="Personalidad" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
+layout_mode = 2
+text = "Personalidad"
 
 [node name="Descripcion" type="Label" parent="MarginContainer/VBoxContainer/Datos/Labels"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Descrip."
+text = "Descripcion"
 
 [node name="Inputs" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
-theme_override_constants/separation = 29
 
 [node name="Nombre" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.25
-theme_override_font_sizes/font_size = 20
-placeholder_text = "Jimmy Dungeons"
-max_length = 30
 
 [node name="Raza" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 20
-item_count = 1
-selected = 0
-popup/item_0/text = "Null"
-popup/item_0/id = 0
 
 [node name="Clase" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 20
-item_count = 1
-selected = 0
-popup/item_0/text = "Null"
-popup/item_0/id = 0
+
+[node name="Tamaño" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+layout_mode = 2
 
 [node name="Edad" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 0
-max_value = 10000.0
-rounded = true
-
-[node name="Tamaño" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 20
-disabled = true
-item_count = 5
-selected = 0
-popup/item_0/text = "SS"
-popup/item_0/id = 4
-popup/item_1/text = "S"
-popup/item_1/id = 0
-popup/item_2/text = "M"
-popup/item_2/id = 1
-popup/item_3/text = "L"
-popup/item_3/id = 2
-popup/item_4/text = "XL"
-popup/item_4/id = 3
-
-[node name="Altura" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_stretch_ratio = 1.25
-
-[node name="Peso" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_stretch_ratio = 1.25
 
 [node name="Genero" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 20
-item_count = 3
-selected = 0
-popup/item_0/text = "M"
-popup/item_0/id = 4
-popup/item_1/text = "F"
-popup/item_1/id = 0
-popup/item_2/text = "NB"
-popup/item_2/id = 1
 
-[node name="Idiomas" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(400, 0)
+[node name="Altura" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_stretch_ratio = 1.25
-theme_override_font_sizes/font_size = 20
-placeholder_text = "Humano"
-max_length = 10
+
+[node name="Peso" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+layout_mode = 2
+
+[node name="Lenguajes" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 
 [node name="Vision" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_stretch_ratio = 1.25
-theme_override_font_sizes/font_size = 20
-placeholder_text = "Normal"
-max_length = 10
+
+[node name="Personalidad" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
+layout_mode = 2
+placeholder_text = "Personalidad"
 
 [node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos/Inputs"]
-custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-placeholder_text = "Soy Jimmy Dungeons, soy blanco"
-scroll_smooth = true
+placeholder_text = "Descripcion"
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 10
 alignment = 1
 
 [node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
+size_flags_horizontal = 2
 text = "Volver"
 
 [node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
 layout_mode = 2
-size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 30
 text = "Siguiente"

@@ -1,9 +1,14 @@
-[gd_scene format=3 uid="uid://bpi1wlmpddgdt"]
+[gd_scene load_steps=2 format=3 uid="uid://bpi1wlmpddgdt"]
 
-[node name="Clase y Raza" type="GridContainer"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/clase_y_raza.gd" id="1_f4knb"]
+
+[node name="Clase y Raza" type="GridContainer" node_paths=PackedStringArray("clase", "raza")]
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 10
 columns = 2
+script = ExtResource("1_f4knb")
+clase = NodePath("LineEdit")
+raza = NodePath("LineEdit2")
 
 [node name="Clase" type="Label" parent="."]
 layout_mode = 2
