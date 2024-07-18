@@ -4,3 +4,4 @@
 
 [resource]
 script = ExtResource("1_hsff0")
+directorioJSON = "res://SpreadSheets/Razas.json"

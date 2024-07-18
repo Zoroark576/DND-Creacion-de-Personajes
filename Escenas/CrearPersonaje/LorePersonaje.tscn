@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://3e0m0ecqfskn"]
+[gd_scene load_steps=5 format=3 uid="uid://3e0m0ecqfskn"]
 
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_hf7qw"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_hmt7s"]
+[ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_7p1ef"]
 
 [sub_resource type="Theme" id="Theme_uon3e"]
-default_font_size = 20
+default_font_size = 26
 BoxContainer/constants/separation = 14
 GridContainer/constants/h_separation = 4
 GridContainer/constants/v_separation = 20
 HBoxContainer/constants/separation = 6
-Label/font_sizes/font_size = 20
+Label/font_sizes/font_size = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -18,7 +19,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control"]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesClase")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,7 +30,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
-script = ExtResource("1_hf7qw")
+script = ExtResource("1_hmt7s")
+contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
+opcionesClase = NodePath("MarginContainer/VBoxContainer/Datos/Clase")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -84,7 +87,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Raza"
 
-[node name="Raza" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Raza" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_7p1ef")]
 layout_mode = 2
 
 [node name="LClase" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
@@ -102,6 +105,7 @@ text = "Tamaño"
 layout_mode = 2
 size_flags_horizontal = 0
 placeholder_text = "SS"
+editable = false
 
 [node name="LEdad" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -118,6 +122,14 @@ text = "Genero"
 
 [node name="Genero" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
+size_flags_horizontal = 0
+item_count = 3
+popup/item_0/text = "M"
+popup/item_0/id = 0
+popup/item_1/text = "F"
+popup/item_1/id = 1
+popup/item_2/text = "NB"
+popup/item_2/id = 2
 
 [node name="LAltura" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -166,20 +178,26 @@ layout_mode = 2
 text = "Descripcion"
 
 [node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 placeholder_text = "Descripcion"
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
 [node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Volver"
 
 [node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Siguiente"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Siguiente" to="." method="_on_siguiente_pressed"]

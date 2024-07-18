@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bknqfi0yc6xe0"]
+
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/opcionRazaYClase.gd" id="1_m4rgp"]
+
+[node name="BotonOpcion" type="OptionButton"]
+script = ExtResource("1_m4rgp")
+tipoOpcion = "raza"

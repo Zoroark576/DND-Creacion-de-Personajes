@@ -1,6 +1,8 @@
 extends Control
 var menuPrincipal = preload("res://Escenas/MenuPrincipal/menu_principal.tscn")
-@export var contenedorInputs : VBoxContainer
+@export var contenedorInputs : GridContainer
+@export var opcionesRaza : OptionButton
+@export var opcionesClase : OptionButton
 
 func _ready():
 	pass
