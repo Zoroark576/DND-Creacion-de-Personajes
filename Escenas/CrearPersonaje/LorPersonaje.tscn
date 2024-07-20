@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "tamaño", "lenguajes", "vision")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "opcionesClase", "tamaño", "lenguajes", "vision")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,6 +34,7 @@ theme = SubResource("Theme_uon3e")
 script = ExtResource("1_hmt7s")
 contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
 opcionesRaza = NodePath("MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion")
+opcionesClase = NodePath("MarginContainer/VBoxContainer/Datos/Clase/BotonOpcion")
 recursoRaza = ExtResource("2_r4nkc")
 "tamaño" = NodePath("MarginContainer/VBoxContainer/Datos/Tamaño")
 lenguajes = NodePath("MarginContainer/VBoxContainer/Datos/Lenguajes")
@@ -211,7 +212,6 @@ layout_mode = 2
 text = "Siguiente"
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion" to="." method="_on_boton_opcion_item_selected"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Datos/Clase/BotonOpcion" to="." method="_on_boton_opcion_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="." method="_on_volver_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Siguiente" to="." method="_on_siguiente_pressed"]
 

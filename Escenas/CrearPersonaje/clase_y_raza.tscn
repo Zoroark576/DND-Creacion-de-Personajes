@@ -17,6 +17,7 @@ text = "Clase:"
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 2
 editable = false
+expand_to_text_length = true
 
 [node name="Raza" type="Label" parent="."]
 layout_mode = 2
@@ -26,3 +27,4 @@ text = "Raza:"
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 editable = false
+expand_to_text_length = true
