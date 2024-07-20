@@ -1,9 +1,9 @@
 {
   "Señor de la Guerra": {
     "Defensa": "Fortaleza 1,Voluntad 1",
-    "Vida Inicial": "CON,12",
+    "Vida Inicial": "CON 12",
     "Vida x Nivel": 5,
-    "Esfuerzos Curativos": "CON,7",
+    "Esfuerzos Curativos": "CON 7",
     "Num Hab. Entrenadas": 4,
     "Habilidades Entrenadas": "Agua,Atle,Dipl,Hist,Inti,Sana",
     "Rol (que sea gris)": "Líder",
@@ -24,9 +24,9 @@
   },
   "Brujo": {
     "Defensa": "Reflejos 1,Voluntad 1",
-    "Vida Inicial": "CON,12",
+    "Vida Inicial": "CON 12",
     "Vida x Nivel": 5,
-    "Esfuerzos Curativos": "CON,6",
+    "Esfuerzos Curativos": "CON 6",
     "Num Hab. Entrenadas": 4,
     "Habilidades Entrenadas": "Arca,Enga,Hist,Hurt,Inti,Pers,Recu,Reli",
     "Rol (que sea gris)": "Pegador",

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Clase" load_steps=2 format=3 uid="uid://clgcs5rbk24u3"]
+
+[ext_resource type="Script" path="res://Recursos/Clases/Clase.gd" id="1_kiweh"]
+
+[resource]
+script = ExtResource("1_kiweh")
+directorioJSON = "res://SpreadSheets/Clases.json"

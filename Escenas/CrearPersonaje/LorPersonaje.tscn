@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bddvsu3m0mxbc"]
+[gd_scene load_steps=6 format=3 uid="uid://3e0m0ecqfskn"]
 
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_koii3"]
-[ext_resource type="Resource" uid="uid://dfn2y7n23g8cj" path="res://Recursos/Razas/Raza.tres" id="2_i4may"]
-[ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_k3j5i"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_hmt7s"]
+[ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_7p1ef"]
+[ext_resource type="Resource" uid="uid://dfn2y7n23g8cj" path="res://Recursos/Razas/Raza.tres" id="2_r4nkc"]
 
 [sub_resource type="Theme" id="Theme_uon3e"]
-default_font_size = 22
+default_font_size = 23
 BoxContainer/constants/separation = 14
 GridContainer/constants/h_separation = 4
 GridContainer/constants/v_separation = 20
@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "opcionesClase", "tamaño", "lenguajes", "vision")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "tamaño", "lenguajes", "vision")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,11 +31,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
-script = ExtResource("1_koii3")
+script = ExtResource("1_hmt7s")
 contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
 opcionesRaza = NodePath("MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion")
-opcionesClase = NodePath("")
-recursoRaza = ExtResource("2_i4may")
+recursoRaza = ExtResource("2_r4nkc")
 "tamaño" = NodePath("MarginContainer/VBoxContainer/Datos/Tamaño")
 lenguajes = NodePath("MarginContainer/VBoxContainer/Datos/Lenguajes")
 vision = NodePath("MarginContainer/VBoxContainer/Datos/Vision")
@@ -93,7 +92,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Raza"
 
-[node name="Raza" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_k3j5i")]
+[node name="Raza" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_7p1ef")]
 layout_mode = 2
 tipoOpcion = "raza"
 
@@ -101,14 +100,13 @@ tipoOpcion = "raza"
 layout_mode = 2
 text = "Clase"
 
-[node name="Clase" parent="MarginContainer/VBoxContainer/Datos" node_paths=PackedStringArray("botonOpcion") instance=ExtResource("2_k3j5i")]
+[node name="Clase" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_7p1ef")]
 layout_mode = 2
-tipoOpcion = "raza"
-botonOpcion = NodePath("../Raza/BotonOpcion")
+tipoOpcion = "clase"
 
 [node name="LTamaño" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
-text = "Tamaño "
+text = "Tamaño"
 
 [node name="Tamaño" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -148,7 +146,7 @@ text = "Altura"
 layout_mode = 2
 size_flags_horizontal = 0
 step = 0.01
-suffix = "M"
+suffix = "KG"
 
 [node name="LPeso" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -157,6 +155,7 @@ text = "Peso"
 [node name="Peso" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 size_flags_horizontal = 0
+max_value = 1000.0
 suffix = "KG"
 
 [node name="LLenguajes" type="Label" parent="MarginContainer/VBoxContainer/Datos"]

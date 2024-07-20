@@ -2,6 +2,19 @@
 
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/opcionRazaYClase.gd" id="1_m4rgp"]
 
-[node name="BotonOpcion" type="OptionButton"]
+[node name="Opcion" type="HBoxContainer" node_paths=PackedStringArray("botonOpcion")]
+offset_right = 174.0
+offset_bottom = 40.0
 script = ExtResource("1_m4rgp")
-tipoOpcion = "raza"
+botonOpcion = NodePath("BotonOpcion")
+
+[node name="BotonOpcion" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="BotonMas" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "..."
+
+[connection signal="pressed" from="BotonMas" to="BotonOpcion" method="_on_boton_mas_pressed"]
