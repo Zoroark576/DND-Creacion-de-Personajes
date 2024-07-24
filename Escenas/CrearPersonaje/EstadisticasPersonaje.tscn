@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://qotmhd3sur3n"]
+[gd_scene load_steps=12 format=3 uid="uid://qotmhd3sur3n"]
 
 [ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_iluss"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_ve4xs"]
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_hb1ke"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/Estadisticas.gd" id="3_fm1ff"]
 [ext_resource type="Resource" uid="uid://dfn2y7n23g8cj" path="res://Recursos/Razas/Raza.tres" id="4_mogp8"]
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/StatsFinales.gd" id="6_sboqj"]
 [ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="7_o0obv"]
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="8_0c11o"]
-[ext_resource type="PackedScene" uid="uid://3e0m0ecqfskn" path="res://Escenas/CrearPersonaje/LorPersonaje.tscn" id="8_n4wa6"]
-[ext_resource type="PackedScene" uid="uid://bnmk7x7ow4pa7" path="res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn" id="10_vpefs"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/StatsFinales.gd" id="8_0c11o"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="8_s5mpj"]
 
 [sub_resource type="Theme" id="Theme_iud10"]
 default_font_size = 32
@@ -240,7 +238,7 @@ text = "=
 [node name="StatsFinales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer" node_paths=PackedStringArray("contValores", "contBonus", "contInputs")]
 layout_mode = 2
 theme_override_constants/separation = 16
-script = ExtResource("6_sboqj")
+script = ExtResource("8_0c11o")
 contValores = NodePath("GridContainer")
 contBonus = NodePath("../BonusRaciales/GridContainer")
 contInputs = NodePath("../Stats Base/GridContainer")
@@ -287,11 +285,8 @@ size_flags_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xrh2s")
 text = "Aleatorio"
 
-[node name="Botones" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contValores") instance=ExtResource("7_o0obv")]
+[node name="Botones" parent="MarginContainer/VBoxContainer" instance=ExtResource("7_o0obv")]
 layout_mode = 2
-script = ExtResource("8_0c11o")
-contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer")
-escenaVolver = ExtResource("8_n4wa6")
-escenaSiguiente = ExtResource("10_vpefs")
+script = ExtResource("8_s5mpj")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Aleatorio" to="MarginContainer/VBoxContainer/Estadisticas" method="_on_aleatorio_pressed"]
