@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qotmhd3sur3n"]
+[gd_scene load_steps=14 format=3 uid="uid://qotmhd3sur3n"]
 
 [ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_iluss"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_ve4xs"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/Estadisticas.gd" id="3_fm1ff"]
 [ext_resource type="Resource" uid="uid://dfn2y7n23g8cj" path="res://Recursos/Razas/Raza.tres" id="4_mogp8"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/StatsFinales.gd" id="6_sboqj"]
+[ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="7_o0obv"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="8_0c11o"]
+[ext_resource type="PackedScene" uid="uid://3e0m0ecqfskn" path="res://Escenas/CrearPersonaje/LorPersonaje.tscn" id="8_n4wa6"]
+[ext_resource type="PackedScene" uid="uid://bnmk7x7ow4pa7" path="res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn" id="10_vpefs"]
 
 [sub_resource type="Theme" id="Theme_iud10"]
 default_font_size = 32
@@ -254,32 +258,26 @@ theme_override_constants/separation = 50
 
 [node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
 layout_mode = 2
-max_value = 18.0
 editable = false
 
 [node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
 layout_mode = 2
-max_value = 18.0
 editable = false
 
 [node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
 layout_mode = 2
-max_value = 18.0
 editable = false
 
 [node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
 layout_mode = 2
-max_value = 18.0
 editable = false
 
 [node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
 layout_mode = 2
-max_value = 18.0
 editable = false
 
 [node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
 layout_mode = 2
-max_value = 18.0
 editable = false
 
 [node name="Aleatorio" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -289,21 +287,11 @@ size_flags_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xrh2s")
 text = "Aleatorio"
 
-[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Botones" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contValores") instance=ExtResource("7_o0obv")]
 layout_mode = 2
-size_flags_vertical = 10
-alignment = 1
-
-[node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "Volver"
-
-[node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 30
-text = "Siguiente"
+script = ExtResource("8_0c11o")
+contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer")
+escenaVolver = ExtResource("8_n4wa6")
+escenaSiguiente = ExtResource("10_vpefs")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Aleatorio" to="MarginContainer/VBoxContainer/Estadisticas" method="_on_aleatorio_pressed"]

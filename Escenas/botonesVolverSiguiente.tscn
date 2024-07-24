@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbl3lr3dapjkg"]
+
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/botonesVolverSiguiente.gd" id="1_kraed"]
+
+[node name="Botones" type="HBoxContainer"]
+size_flags_vertical = 10
+alignment = 1
+script = ExtResource("1_kraed")
+
+[node name="Volver" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+
+[node name="Siguiente" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 30
+text = "Siguiente"
+
+[connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="Siguiente" to="." method="_on_siguiente_pressed"]
