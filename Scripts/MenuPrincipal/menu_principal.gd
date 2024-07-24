@@ -1,5 +1,5 @@
 extends Control
-var crearLore = preload("res://Escenas/CrearPersonaje/LorePersonaje.tscn")
+var crearLore = preload("res://Escenas/CrearPersonaje/LorPersonaje.tscn")
 
 func _ready():
 	pass

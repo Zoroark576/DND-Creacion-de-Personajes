@@ -1,7 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnmk7x7ow4pa7"]
 
-[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_odjl7"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_xgwg5"]
+
+[sub_resource type="Theme" id="Theme_m2vak"]
+default_font_size = 23
+BoxContainer/constants/separation = 4
+GridContainer/constants/h_separation = 4
+GridContainer/constants/v_separation = 50
+HBoxContainer/constants/separation = 6
+Label/font_sizes/font_size = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -21,7 +28,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme = ExtResource("1_odjl7")
+theme = SubResource("Theme_m2vak")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0

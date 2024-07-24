@@ -285,8 +285,11 @@ size_flags_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xrh2s")
 text = "Aleatorio"
 
-[node name="Botones" parent="MarginContainer/VBoxContainer" instance=ExtResource("7_o0obv")]
+[node name="Botones" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contValores") instance=ExtResource("7_o0obv")]
 layout_mode = 2
 script = ExtResource("8_s5mpj")
+contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer")
+rutaVolver = "res://Escenas/CrearPersonaje/LorPersonaje.tscn"
+rutaSiguiente = "res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Aleatorio" to="MarginContainer/VBoxContainer/Estadisticas" method="_on_aleatorio_pressed"]

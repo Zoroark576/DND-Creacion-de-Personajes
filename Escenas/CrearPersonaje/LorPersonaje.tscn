@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://3e0m0ecqfskn"]
+[gd_scene load_steps=7 format=3 uid="uid://3e0m0ecqfskn"]
 
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_hmt7s"]
 [ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_7p1ef"]
 [ext_resource type="Resource" uid="uid://dfn2y7n23g8cj" path="res://Recursos/Razas/Raza.tres" id="2_r4nkc"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="4_hv6t4"]
 
 [sub_resource type="Theme" id="Theme_uon3e"]
 default_font_size = 23
@@ -199,6 +200,9 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
+script = ExtResource("4_hv6t4")
+rutaVolver = "res://Escenas/MenuPrincipal/menu_principal.tscn"
+rutaSiguiente = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 
 [node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
 custom_minimum_size = Vector2(150, 0)
