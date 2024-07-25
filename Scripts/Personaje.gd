@@ -15,6 +15,7 @@ var velocidad : int
 var iniciativa : int
 #Cosas que guarda el personaje
 var inventario : String
+var oro : float
 var armadura : String
 var primeraMano : String
 var segundaMano : String
