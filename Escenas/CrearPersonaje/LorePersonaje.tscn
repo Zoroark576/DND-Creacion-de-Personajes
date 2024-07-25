@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "opcionesClase", "tamaño", "lenguajes", "vision")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "tamaño", "lenguajes", "vision")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,7 +34,6 @@ theme = SubResource("Theme_uon3e")
 script = ExtResource("1_koii3")
 contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
 opcionesRaza = NodePath("MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion")
-opcionesClase = NodePath("")
 recursoRaza = ExtResource("2_i4may")
 "tamaño" = NodePath("MarginContainer/VBoxContainer/Datos/Tamaño")
 lenguajes = NodePath("MarginContainer/VBoxContainer/Datos/Lenguajes")

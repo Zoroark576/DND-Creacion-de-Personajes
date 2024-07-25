@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnmk7x7ow4pa7"]
+[gd_scene load_steps=6 format=3 uid="uid://bnmk7x7ow4pa7"]
 
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/Equipamiento.gd" id="2_iimyq"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_xgwg5"]
+[ext_resource type="Resource" uid="uid://bmfnjbp6rsxyj" path="res://Recursos/Armas/Arma.tres" id="3_7ahii"]
 
 [sub_resource type="Theme" id="Theme_m2vak"]
 default_font_size = 23
@@ -70,70 +72,62 @@ horizontal_alignment = 1
 [node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_xgwg5")]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Equipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nArmaduras", "nMano1", "nMano2")]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 20
 columns = 2
+script = ExtResource("2_iimyq")
+recursoArmas = ExtResource("3_7ahii")
+nArmaduras = NodePath("AInput")
+nMano1 = NodePath("AInput2")
+nMano2 = NodePath("AInput3")
 
-[node name="OroInicial" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="OroInicial" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 text = "Oro Inicial"
 
-[node name="OInput" type="SpinBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="OInput" type="SpinBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 size_flags_horizontal = 0
+step = 0.1
 
-[node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 text = "Armadura
 "
 
-[node name="AInput" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="AInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Arma" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Arma" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 text = "1ra Mano
 "
 
-[node name="AInput2" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="AInput2" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Arma2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Arma2" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 text = "2da Mano
 "
 
-[node name="AInput3" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="AInput3" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Inventario" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Inventario" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 text = "Inventario
 "
 
-[node name="IInput" type="TextEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="IInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Equipamiento"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 placeholder_text = "Armas, Ropa, etc."
 
-[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 10
-alignment = 1
-
-[node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "Volver"
-
-[node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_font_sizes/font_size = 30
-text = "Siguiente"
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_2_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput3" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_3_item_selected"]

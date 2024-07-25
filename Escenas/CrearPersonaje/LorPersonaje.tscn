@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://3e0m0ecqfskn"]
+[gd_scene load_steps=6 format=3 uid="uid://3e0m0ecqfskn"]
 
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_hmt7s"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_2alyc"]
 [ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_7p1ef"]
-[ext_resource type="Resource" uid="uid://dfn2y7n23g8cj" path="res://Recursos/Razas/Raza.tres" id="2_r4nkc"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="4_hv6t4"]
 
 [sub_resource type="Theme" id="Theme_uon3e"]
@@ -21,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "opcionesClase", "tamaño", "lenguajes", "vision")]
+[node name="MenuPrincipal" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,14 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
-script = ExtResource("1_hmt7s")
-contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
-opcionesRaza = NodePath("MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion")
-opcionesClase = NodePath("MarginContainer/VBoxContainer/Datos/Clase/BotonOpcion")
-recursoRaza = ExtResource("2_r4nkc")
-"tamaño" = NodePath("MarginContainer/VBoxContainer/Datos/Tamaño")
-lenguajes = NodePath("MarginContainer/VBoxContainer/Datos/Lenguajes")
-vision = NodePath("MarginContainer/VBoxContainer/Datos/Vision")
+script = ExtResource("1_2alyc")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0

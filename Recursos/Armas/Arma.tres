@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Arma" load_steps=2 format=3 uid="uid://bmfnjbp6rsxyj"]
+
+[ext_resource type="Script" path="res://Recursos/Armas/Arma.gd" id="1_cksfb"]
+
+[resource]
+script = ExtResource("1_cksfb")
+directorioJSON = "res://SpreadSheets/Armas.json"
