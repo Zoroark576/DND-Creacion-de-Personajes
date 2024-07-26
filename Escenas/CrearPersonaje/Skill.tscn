@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://du1dxw3t0poo6"]
+[gd_scene load_steps=4 format=3 uid="uid://du1dxw3t0poo6"]
+
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/Skill.gd" id="1_wye6c"]
 
 [sub_resource type="Theme" id="Theme_7mj57"]
 default_font_size = 20
@@ -12,12 +14,16 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.215686, 0, 0.0941176, 1)
 
-[node name="Habilidad" type="PanelContainer"]
+[node name="Habilidad" type="PanelContainer" node_paths=PackedStringArray("checkEntrenado", "valorHabilidadLinea", "nombreHabilidad")]
 custom_minimum_size = Vector2(100, 0)
 offset_right = 169.0
 offset_bottom = 47.0
 theme = SubResource("Theme_7mj57")
 theme_override_styles/panel = SubResource("StyleBoxFlat_qmht1")
+script = ExtResource("1_wye6c")
+checkEntrenado = NodePath("MarginContainer/HBoxContainer/Entrenado/CheckEntrenado")
+valorHabilidadLinea = NodePath("MarginContainer/HBoxContainer/LineEdit")
+nombreHabilidad = NodePath("MarginContainer/HBoxContainer/Label")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -35,17 +41,20 @@ size_flags_horizontal = 0
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/HBoxContainer/Entrenado"]
+[node name="CheckEntrenado" type="CheckButton" parent="MarginContainer/HBoxContainer/Entrenado"]
 layout_mode = 2
 size_flags_horizontal = 4
+disabled = true
 
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-placeholder_text = "99"
+text = "0"
 alignment = 1
 editable = false
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Nombre"
+
+[connection signal="toggled" from="MarginContainer/HBoxContainer/Entrenado/CheckEntrenado" to="." method="_on_check_entrenado_toggled"]

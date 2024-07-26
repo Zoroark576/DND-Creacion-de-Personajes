@@ -22,12 +22,14 @@ func razaSeleccionada():
 		var raza = recursoSeleccionado
 		raza.iterarRazas(indice)
 		botonOpcion.add_item(raza.nombre)
+	botonOpcion.select(0)
 
 func claseSeleccionada():
 	for indice in recursoSeleccionado.diccionarioClases.size():
 		var clase = recursoSeleccionado
 		clase.iterarClases(indice)
 		botonOpcion.add_item(clase.nombre)
+	botonOpcion.select(0)
 
 func _on_boton_mas_pressed():
 	pass # Replace with function body.

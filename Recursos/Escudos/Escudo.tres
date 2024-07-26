@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Escudo" load_steps=2 format=3 uid="uid://dlp2cbgtjr6yl"]
+
+[ext_resource type="Script" path="res://Recursos/Escudos/Escudo.gd" id="1_bccc6"]
+
+[resource]
+script = ExtResource("1_bccc6")
+directorioJSON = "res://SpreadSheets/Escudos.json"

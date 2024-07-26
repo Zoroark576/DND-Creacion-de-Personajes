@@ -15,8 +15,7 @@ var peso : float
 var grupo : String
 var propiedades : String
 
-func _ready():
-	diccionarioArmas = _read_json()
+
 
 func _aplicarArma():
 	competencia = armaSeleccionada["Competencia"]
@@ -37,12 +36,25 @@ func obtenerArma(nombreArma):
 		if diccionarioArmas.is_empty() or diccionarioArmas == null:
 			diccionarioArmas = _read_json()
 		_aplicarArma()
+	else: 
+		valoresDefault()
+
+func valoresDefault():
+	competencia = 0
+	manos = 1 
+	rango = "null"
+	daño = "null"
+	alcance = "null"
+	precio = 0
+	peso = 0
+	grupo = "null"
+	propiedades = "null"
 
 func iterarArmas(indice):
-	var llaves = diccionarioArmas.keys()
-	var nombreArma = llaves[indice]
 	if diccionarioArmas.is_empty() or diccionarioArmas == null:
 		diccionarioArmas = _read_json()
+	var llaves = diccionarioArmas.keys()
+	var nombreArma = llaves[indice]
 	obtenerArma(nombreArma)
 
 func _read_json():

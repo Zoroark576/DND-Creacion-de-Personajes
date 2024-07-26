@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnmk7x7ow4pa7"]
+[gd_scene load_steps=7 format=3 uid="uid://bnmk7x7ow4pa7"]
 
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/Equipamiento.gd" id="2_iimyq"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_xgwg5"]
-[ext_resource type="Resource" uid="uid://bmfnjbp6rsxyj" path="res://Recursos/Armas/Arma.tres" id="3_7ahii"]
 [ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="4_dw27m"]
 [ext_resource type="Script" path="res://Escenas/botonesVolverSiguiente.gd" id="5_hqhku"]
 
@@ -80,7 +79,6 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 20
 columns = 2
 script = ExtResource("2_iimyq")
-recursoArmas = ExtResource("3_7ahii")
 nArmaduras = NodePath("AInput")
 nMano1 = NodePath("AInput2")
 nMano2 = NodePath("AInput3")

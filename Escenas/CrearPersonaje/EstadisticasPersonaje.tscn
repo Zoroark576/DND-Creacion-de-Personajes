@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qotmhd3sur3n"]
+[gd_scene load_steps=13 format=3 uid="uid://qotmhd3sur3n"]
 
 [ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_iluss"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_ve4xs"]
@@ -6,11 +6,12 @@
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/Estadisticas.gd" id="3_fm1ff"]
 [ext_resource type="Resource" uid="uid://dfn2y7n23g8cj" path="res://Recursos/Razas/Raza.tres" id="4_mogp8"]
 [ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="7_o0obv"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/ModNivel.gd" id="7_v30hy"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/StatsFinales.gd" id="8_0c11o"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="8_s5mpj"]
 
 [sub_resource type="Theme" id="Theme_iud10"]
-default_font_size = 32
+default_font_size = 28
 BoxContainer/constants/separation = 4
 GridContainer/constants/h_separation = 4
 GridContainer/constants/v_separation = 50
@@ -88,7 +89,7 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("2_hb1ke")
 script = ExtResource("3_fm1ff")
 contEstadisticasRaciales = NodePath("CenterContainer/HBoxContainer/BonusRaciales/GridContainer")
-contInputs = NodePath("CenterContainer/HBoxContainer/Stats Base/GridContainer")
+contInputs = NodePath("CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer")
 recursoRaza = ExtResource("4_mogp8")
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Estadisticas"]
@@ -106,66 +107,69 @@ theme_override_constants/separation = 15
 layout_mode = 2
 text = "Estadisticas Base"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 2
 
-[node name="LSTR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="LSTR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 text = "STR"
 
-[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 min_value = 3.0
 max_value = 18.0
 value = 18.0
 
-[node name="LCON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="LCON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 text = "CON"
 
-[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 min_value = 3.0
 max_value = 18.0
 value = 17.0
 
-[node name="LDEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="LDEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 text = "DEX"
 
-[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 min_value = 3.0
 max_value = 18.0
 value = 16.0
 
-[node name="LINT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="LINT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 text = "INT"
 
-[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 min_value = 3.0
 max_value = 18.0
 value = 14.0
 
-[node name="LWIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="LWIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 text = "WIS"
 
-[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 min_value = 3.0
 max_value = 18.0
 value = 13.0
 
-[node name="LCHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="LCHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 text = "CHA"
 
-[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/GridContainer"]
+[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
 layout_mode = 2
 min_value = 3.0
 max_value = 18.0
@@ -239,9 +243,9 @@ text = "=
 layout_mode = 2
 theme_override_constants/separation = 16
 script = ExtResource("8_0c11o")
-contValores = NodePath("GridContainer")
+contValores = NodePath("HBoxContainer/GridContainer")
 contBonus = NodePath("../BonusRaciales/GridContainer")
-contInputs = NodePath("../Stats Base/GridContainer")
+contInputs = NodePath("../Stats Base/HBoxContainer/GridContainer")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales"]
 layout_mode = 2
@@ -249,33 +253,79 @@ text = "Estadisticas Finales
 "
 horizontal_alignment = 1
 
-[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales"]
+layout_mode = 2
+
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 50
 
-[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
 layout_mode = 2
 editable = false
 
-[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
 layout_mode = 2
 editable = false
 
-[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
 layout_mode = 2
 editable = false
 
-[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
 layout_mode = 2
 editable = false
 
-[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
 layout_mode = 2
 editable = false
 
-[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer"]
+[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
 layout_mode = 2
+editable = false
+
+[node name="Mod" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer" node_paths=PackedStringArray("contValoresFinales")]
+layout_mode = 2
+theme_override_constants/separation = 70
+alignment = 1
+script = ExtResource("7_v30hy")
+contValoresFinales = NodePath("../GridContainer")
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit5" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit6" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
 editable = false
 
 [node name="Aleatorio" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -288,7 +338,7 @@ text = "Aleatorio"
 [node name="Botones" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contValores") instance=ExtResource("7_o0obv")]
 layout_mode = 2
 script = ExtResource("8_s5mpj")
-contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinales/GridContainer")
+contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer")
 rutaVolver = "res://Escenas/CrearPersonaje/LorPersonaje.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn"
 

@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://2etnxtwgfnv2"]
+[gd_scene load_steps=11 format=3 uid="uid://2etnxtwgfnv2"]
 
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje.gd" id="1_jdr87"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_nb4qf"]
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_1oyqg"]
 [ext_resource type="PackedScene" uid="uid://2ool10x0tggn" path="res://Escenas/CrearPersonaje/Defensa.tscn" id="3_ieqk5"]
 [ext_resource type="PackedScene" uid="uid://du1dxw3t0poo6" path="res://Escenas/CrearPersonaje/Skill.tscn" id="3_q1wfv"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/SetSkills.gd" id="4_lv7in"]
 [ext_resource type="PackedScene" uid="uid://dqnxid783irtg" path="res://Escenas/CrearPersonaje/DefensaBonus.tscn" id="4_sd85f"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/Defensas Y Sentidos.gd" id="5_wmw8b"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/BotonesVolverSiguiente.gd" id="7_gv7vq"]
 
 [sub_resource type="Theme" id="Theme_u8syo"]
 default_font_size = 25
@@ -35,7 +37,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_u8syo")
-script = ExtResource("1_jdr87")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -90,115 +91,134 @@ theme_override_styles/panel = ExtResource("2_1oyqg")
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="VBoxContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer"]
+[node name="ContBotonesHabilidades" type="GridContainer" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer"]
 layout_mode = 2
+script = ExtResource("4_lv7in")
 
-[node name="BotonHabilidad" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
+[node name="BotonHabilidad" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
 layout_mode = 2
+modificadorAsociado = "STR"
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad/MarginContainer/HBoxContainer" index="2"]
-text = "Acrobacias"
-
-[node name="BotonHabilidad2" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad2/MarginContainer/HBoxContainer" index="2"]
-text = "Arcana"
-
-[node name="BotonHabilidad3" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad3/MarginContainer/HBoxContainer" index="2"]
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad/MarginContainer/HBoxContainer" index="2"]
 text = "Atletismo"
 
-[node name="BotonHabilidad4" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
+[node name="BotonHabilidad2" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
 layout_mode = 2
+modificadorAsociado = "CON"
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad4/MarginContainer/HBoxContainer" index="2"]
-text = "Engaño"
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad2/MarginContainer/HBoxContainer" index="2"]
+text = "Aguante"
 
-[node name="BotonHabilidad5" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
+[node name="BotonHabilidad3" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
 layout_mode = 2
+modificadorAsociado = "DEX"
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad5/MarginContainer/HBoxContainer" index="2"]
-text = "Diplomacia"
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad3/MarginContainer/HBoxContainer" index="2"]
+text = "Acrobacias"
 
-[node name="BotonHabilidad6" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
+[node name="BotonHabilidad4" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
 layout_mode = 2
+modificadorAsociado = "DEX"
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad6/MarginContainer/HBoxContainer" index="2"]
-text = "Mecanismos"
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad4/MarginContainer/HBoxContainer" index="2"]
+text = "Hurto"
 
-[node name="BotonHabilidad7" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
+[node name="BotonHabilidad5" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
 layout_mode = 2
+modificadorAsociado = "DEX"
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad7/MarginContainer/HBoxContainer" index="2"]
-text = "Resistencia"
-
-[node name="BotonHabilidad8" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad8/MarginContainer/HBoxContainer" index="2"]
-text = "Sanar"
-
-[node name="BotonHabilidad9" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad9/MarginContainer/HBoxContainer" index="2"]
-text = "Historia
-"
-
-[node name="BotonHabilidad10" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad10/MarginContainer/HBoxContainer" index="2"]
-text = "Perspicacia"
-
-[node name="BotonHabilidad11" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad11/MarginContainer/HBoxContainer" index="2"]
-text = "Intimidacion"
-
-[node name="BotonHabilidad12" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad12/MarginContainer/HBoxContainer" index="2"]
-text = "Naturaleza"
-
-[node name="BotonHabilidad13" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad13/MarginContainer/HBoxContainer" index="2"]
-text = "Percepcion"
-
-[node name="BotonHabilidad14" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad14/MarginContainer/HBoxContainer" index="2"]
-text = "Religion"
-
-[node name="BotonHabilidad15" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad15/MarginContainer/HBoxContainer" index="2"]
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad5/MarginContainer/HBoxContainer" index="2"]
 text = "Sigilo"
 
-[node name="BotonHabilidad16" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
+[node name="BotonHabilidad6" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
 layout_mode = 2
+modificadorAsociado = "INT"
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad16/MarginContainer/HBoxContainer" index="2"]
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad6/MarginContainer/HBoxContainer" index="2"]
+text = "Arcanos"
+
+[node name="BotonHabilidad7" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "INT"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad7/MarginContainer/HBoxContainer" index="2"]
+text = "Historia"
+
+[node name="BotonHabilidad8" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "INT"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad8/MarginContainer/HBoxContainer" index="2"]
+text = "Religion"
+
+[node name="BotonHabilidad9" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "WIS"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad9/MarginContainer/HBoxContainer" index="2"]
+text = "Dungeons
+"
+
+[node name="BotonHabilidad10" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "WIS"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad10/MarginContainer/HBoxContainer" index="2"]
+text = "Naturaleza"
+
+[node name="BotonHabilidad11" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "WIS"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad11/MarginContainer/HBoxContainer" index="2"]
+text = "Percepcion"
+
+[node name="BotonHabilidad12" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "WIS"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad12/MarginContainer/HBoxContainer" index="2"]
+text = "Perspicacia"
+
+[node name="BotonHabilidad13" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "WIS"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad13/MarginContainer/HBoxContainer" index="2"]
+text = "Sanar"
+
+[node name="BotonHabilidad14" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "CHA"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad14/MarginContainer/HBoxContainer" index="2"]
+text = "Diplomacia"
+
+[node name="BotonHabilidad15" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "CHA"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad15/MarginContainer/HBoxContainer" index="2"]
+text = "Engañar"
+
+[node name="BotonHabilidad16" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "CHA"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad16/MarginContainer/HBoxContainer" index="2"]
+text = "Intimidar"
+
+[node name="BotonHabilidad17" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades" instance=ExtResource("3_q1wfv")]
+layout_mode = 2
+modificadorAsociado = "CHA"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad17/MarginContainer/HBoxContainer" index="2"]
 text = "Recursos"
-
-[node name="BotonHabilidad17" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer" instance=ExtResource("3_q1wfv")]
-layout_mode = 2
-
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad17/MarginContainer/HBoxContainer" index="2"]
-text = "Hurto"
 
 [node name="Defensas Y Sentidos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 theme_override_constants/separation = 15
+script = ExtResource("5_wmw8b")
 
 [node name="ContDefensas" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
 layout_mode = 2
@@ -217,7 +237,7 @@ theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Defensas"
+text = "Defensas Base"
 horizontal_alignment = 1
 
 [node name="ClaseArm" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
@@ -354,7 +374,7 @@ theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Velocidad"
+text = "Velocidad Base"
 horizontal_alignment = 1
 
 [node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
@@ -404,7 +424,7 @@ theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Iniciativa"
+text = "Iniciativa Base"
 horizontal_alignment = 1
 
 [node name="Defensa" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
@@ -441,6 +461,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
+script = ExtResource("7_gv7vq")
+rutaVolver = "res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn"
+rutaSiguiente = "res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn"
 
 [node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
 layout_mode = 2
@@ -454,23 +477,23 @@ size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 30
 text = "Siguiente"
 
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad2"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad3"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad4"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad5"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad6"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad7"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad8"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad9"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad10"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad11"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad12"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad13"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad14"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad15"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad16"]
-[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/VBoxContainer/BotonHabilidad17"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad2"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad3"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad4"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad5"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad6"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad7"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad8"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad9"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad10"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad11"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad12"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad13"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad14"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad15"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad16"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad17"]
 [editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/ClaseArm"]
 [editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortitud"]
 [editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Reflejos"]

@@ -1,39 +1,54 @@
 extends GridContainer
 
-@export var recursoArmas : Arma
-@export var recursoArmadura : Arma
+var recursoArmas : Arma = preload("res://Recursos/Armas/Arma.tres")
+var recursoArmadura : Armadura = preload("res://Recursos/Armaduras/Armadura.tres")
+var recursoEscudos : Escudo = preload("res://Recursos/Escudos/Escudo.tres")
 @export var nArmaduras : OptionButton
 @export var nMano1 : OptionButton
 @export var nMano2 : OptionButton
 
 func _ready():
-	recursoArmas._read_json()
 	nArmaduras.add_item("Ninguno")
 	nMano1.add_item("Ninguno")
 	nMano2.add_item("Ninguno")
+	recursoArmadura._read_json()
+	recursoArmas._read_json()
+	recursoEscudos._read_json()
 	for indice in recursoArmas.diccionarioArmas.size():
 		recursoArmas.iterarArmas(indice)
 		nMano1.add_item(recursoArmas.nombre)
 		nMano2.add_item(recursoArmas.nombre)
+	for indice in recursoEscudos.diccionarioEscudos.size():
+		recursoEscudos.iterarEscudos(indice)
+		nMano2.add_item(recursoEscudos.nombre)
+	for indice in recursoArmadura.diccionarioArmaduras.size():
+		recursoArmadura.iterarArmaduras(indice)
+		nArmaduras.add_item(recursoArmadura.nombre)
 
 
 func _on_a_input_2_item_selected(index):
-	itemDosManos(nMano1.get_item_text(index),index)
+	var texto = nMano2.get_item_text(index)
+	itemDosManos(texto,index)
 
 func _on_a_input_3_item_selected(index):
-	itemDosManos(nMano2.get_item_text(index),index)
+	var texto = nMano2.get_item_text(index)
+	itemDosManos(texto,index)
+
+var dosManos = false
 
 func itemDosManos(nombre,index):
+	var manos
 	recursoArmas.obtenerArma(nombre)
-	if recursoArmas.manos == 2:
+	manos = recursoArmas.manos
+	if manos == 2:
 		nMano1.select(index)
 		nMano2.select(index)
 		nMano2.disabled = true
+		dosManos = true
 	else:
 		nMano2.disabled = false
 		recursoArmas.obtenerArma(nMano1.get_item_text(nMano1.get_selected_id()))
-		if recursoArmas.manos == 2:
-			nMano1.select(nMano2.get_selected_id())
-		recursoArmas.obtenerArma(nMano2.get_item_text(nMano2.get_selected_id()))
-		if recursoArmas.manos == 2:
-			nMano2.select(nMano1.get_selected_id())
+		if dosManos == true:
+			nMano2.select(0)
+			dosManos = false
+	

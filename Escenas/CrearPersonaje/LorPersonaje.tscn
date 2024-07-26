@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://3e0m0ecqfskn"]
+[gd_scene load_steps=6 format=3 uid="uid://drefcwwbarxtx"]
 
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje.gd" id="1_2alyc"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorPersonaje.gd" id="1_k7dqk"]
 [ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_7p1ef"]
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="4_hv6t4"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje/BotonesVovlerSiguiente.gd" id="4_7hiec"]
 
 [sub_resource type="Theme" id="Theme_uon3e"]
 default_font_size = 23
@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control"]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "opcionesClase", "tamaño", "lenguajes", "vision")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,7 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
-script = ExtResource("1_2alyc")
+script = ExtResource("1_k7dqk")
+contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
+opcionesRaza = NodePath("MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion")
+opcionesClase = NodePath("MarginContainer/VBoxContainer/Datos/Clase/BotonOpcion")
+"tamaño" = NodePath("MarginContainer/VBoxContainer/Datos/Tamaño")
+lenguajes = NodePath("MarginContainer/VBoxContainer/Datos/Lenguajes")
+vision = NodePath("MarginContainer/VBoxContainer/Datos/Vision")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -78,9 +84,19 @@ columns = 2
 layout_mode = 2
 text = "Nombre"
 
-[node name="Nombre2" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Nombre" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+
+[node name="LAlineamiento" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+layout_mode = 2
+text = "Alineamiento"
+
+[node name="Alineamiento" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "Verdadero Neutral"
 
 [node name="LRaza" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -187,12 +203,15 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 placeholder_text = "Descripcion"
 
-[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contenedorInputs", "opcionesClase", "opcionesRaza")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
-script = ExtResource("4_hv6t4")
+script = ExtResource("4_7hiec")
+contenedorInputs = NodePath("../Datos")
+opcionesClase = NodePath("../Datos/Clase/BotonOpcion")
+opcionesRaza = NodePath("../Datos/Raza/BotonOpcion")
 rutaVolver = "res://Escenas/MenuPrincipal/menu_principal.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 
@@ -208,8 +227,8 @@ layout_mode = 2
 text = "Siguiente"
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion" to="." method="_on_boton_opcion_item_selected"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="." method="_on_volver_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Siguiente" to="." method="_on_siguiente_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="MarginContainer/VBoxContainer/Botones" method="_on_volver_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Siguiente" to="MarginContainer/VBoxContainer/Botones" method="_on_siguiente_pressed"]
 
 [editable path="MarginContainer/VBoxContainer/Datos/Raza"]
 [editable path="MarginContainer/VBoxContainer/Datos/Clase"]

@@ -1,0 +1,18 @@
+{
+  "Escudo Ligero": {
+    "Bonificador": 1,
+    "Bon. Minimo Mejora": 0,
+    "Prueba": 0,
+    "Velocidad": 0,
+    "Precio": 5,
+    "Peso": "6 Lbs"
+  },
+  "Escudo Pesado": {
+    "Bonificador": 2,
+    "Bon. Minimo Mejora": 0,
+    "Prueba": -2,
+    "Velocidad": 0,
+    "Precio": 10,
+    "Peso": "10 Lbs"
+  }
+}

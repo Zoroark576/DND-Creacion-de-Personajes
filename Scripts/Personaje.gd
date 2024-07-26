@@ -8,7 +8,9 @@ var lore : Dictionary
 #Estadisticas (STR,DEX,etc.)
 var estadisticas : Dictionary = {"STR" : 0,"CON" : 0,"DEX" : 0, "INT" : 0,"WIS" : 0,"CHA" : 0}
 var experiencia : int
+var nivel : int = 1
 var habilidades : Dictionary
+var habilidadesEntrenadas : Dictionary
 var defensas : Dictionary = {"AC" : 0, "FOR" : 0,"REF" : 0, "VOL" : 0}
 var sentidosPasivos : Dictionary = {"Percepcion" : 0, "Perspicacia" : 0}
 var velocidad : int
