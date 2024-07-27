@@ -5,22 +5,24 @@ class_name Armadura
 var diccionarioArmaduras : Dictionary
 var armaduraSeleccionada : Dictionary
 var nombre : String
+var tipoArmadura : String
 var bonificador : int
 var bonificadorMinimo : int
 var pruebaHabilidad : int
 var velocidad : int
-var precio : String
+var precio : int
 var peso : String
 
 
 
 
 func _aplicarArmadura():
+	tipoArmadura = armaduraSeleccionada["Tipo de Armadura"]
 	bonificador = armaduraSeleccionada["Bonificador"]
 	bonificadorMinimo = armaduraSeleccionada["Bon. Minimo Mejora"]
 	pruebaHabilidad = armaduraSeleccionada["Prueba"]
 	velocidad = armaduraSeleccionada["Velocidad"]
-	precio = str(armaduraSeleccionada["Precio"])
+	precio = armaduraSeleccionada["Precio"]
 	peso = armaduraSeleccionada["Peso"]
 
 func obtenerArmadura(nombreArmadura):
@@ -30,7 +32,18 @@ func obtenerArmadura(nombreArmadura):
 		nombre = nombreArmadura
 		armaduraSeleccionada = diccionarioArmaduras.get(nombreArmadura)
 		_aplicarArmadura()
-	else: return null
+	else: 
+		valoresDefault()
+
+func valoresDefault():
+	nombre = "Ninguno"
+	tipoArmadura = "L"
+	bonificador = 0
+	bonificadorMinimo = 0
+	pruebaHabilidad = 0
+	velocidad = 0
+	precio = 0
+	peso = "Ninguno"
 
 func iterarArmaduras(indice):
 	if diccionarioArmaduras.is_empty() or diccionarioArmaduras == null:

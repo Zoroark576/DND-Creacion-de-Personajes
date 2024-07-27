@@ -4,7 +4,7 @@ var siguienteMenu = preload("res://Escenas/CrearPersonaje/EstadisticasPersonaje.
 @export var contenedorInputs : GridContainer
 @export var opcionesRaza : OptionButton
 @export var opcionesClase : OptionButton
-var recursoRaza : Raza = preload("res://Recursos/Razas/Raza.tres")
+var recursoRaza = preload("res://Recursos/Razas/Raza.tres")
 
 @export_group("Opciones Que Afecta La Raza")
 @export var tamaño : LineEdit

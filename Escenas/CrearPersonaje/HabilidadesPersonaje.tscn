@@ -218,10 +218,10 @@ text = "Recursos"
 [node name="Defensas Y Sentidos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 theme_override_constants/separation = 15
-script = ExtResource("5_wmw8b")
 
 [node name="ContDefensas" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
 layout_mode = 2
+script = ExtResource("5_wmw8b")
 
 [node name="Defensas" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas"]
 layout_mode = 2
@@ -246,10 +246,10 @@ layout_mode = 2
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/ClaseArm/MarginContainer/HBoxContainer" index="1"]
 text = "AC"
 
-[node name="Fortitud" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
+[node name="Fortaleza" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
-[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortitud/MarginContainer/HBoxContainer" index="1"]
+[node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortaleza/MarginContainer/HBoxContainer" index="1"]
 text = "Const."
 
 [node name="Reflejos" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
@@ -495,7 +495,7 @@ text = "Siguiente"
 [editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad16"]
 [editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad17"]
 [editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/ClaseArm"]
-[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortitud"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortaleza"]
 [editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Reflejos"]
 [editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Voluntad"]
 [editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Defensa"]
