@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/Skill.gd" id="1_wye6c"]
 
 [sub_resource type="Theme" id="Theme_7mj57"]
-default_font_size = 20
+default_font_size = 15
 Label/font_sizes/font_size = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmht1"]
@@ -14,20 +14,20 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.215686, 0, 0.0941176, 1)
 
-[node name="Habilidad" type="PanelContainer" node_paths=PackedStringArray("checkEntrenado", "valorHabilidadLinea", "nombreHabilidad")]
+[node name="Habilidad" type="PanelContainer" node_paths=PackedStringArray("checkEntrenado", "valorHabilidadLinea", "nombreHabilidad", "nodoBonus")]
 custom_minimum_size = Vector2(100, 0)
 offset_right = 169.0
 offset_bottom = 47.0
 theme = SubResource("Theme_7mj57")
 theme_override_styles/panel = SubResource("StyleBoxFlat_qmht1")
 script = ExtResource("1_wye6c")
-checkEntrenado = NodePath("MarginContainer/HBoxContainer/Entrenado/CheckEntrenado")
-valorHabilidadLinea = NodePath("MarginContainer/HBoxContainer/LineEdit")
-nombreHabilidad = NodePath("MarginContainer/HBoxContainer/Label")
+checkEntrenado = NodePath("MarginContainer/HBoxContainer/CheckEntrenado")
+valorHabilidadLinea = NodePath("MarginContainer/HBoxContainer/ValorHabilidad")
+nombreHabilidad = NodePath("MarginContainer/HBoxContainer/NombreHabilidad")
+nodoBonus = NodePath("MarginContainer/HBoxContainer/Bonus")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -35,26 +35,30 @@ theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="CheckEntrenado" type="CheckButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 0
-
-[node name="Entrenado" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="CheckEntrenado" type="CheckButton" parent="MarginContainer/HBoxContainer/Entrenado"]
-layout_mode = 2
-size_flags_horizontal = 4
 disabled = true
+alignment = 1
+icon_alignment = 2
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+[node name="ValorHabilidad" type="LineEdit" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 0
-text = "0"
+size_flags_horizontal = 0
 alignment = 1
 editable = false
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="NombreHabilidad" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 2
 text = "Nombre"
 
-[connection signal="toggled" from="MarginContainer/HBoxContainer/Entrenado/CheckEntrenado" to="." method="_on_check_entrenado_toggled"]
+[node name="Bonus" type="CheckBox" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+2"
+
+[connection signal="toggled" from="MarginContainer/HBoxContainer/CheckEntrenado" to="." method="_on_check_entrenado_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/Bonus" to="." method="_on_bonus_toggled"]

@@ -197,38 +197,50 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme = ExtResource("1_iluss")
-theme_override_constants/separation = 68
+theme_override_constants/separation = 58
 alignment = 1
 
 [node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
 layout_mode = 2
 max_value = 18.0
 editable = false
+update_on_text_changed = true
+select_all_on_focus = true
 
 [node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
 layout_mode = 2
 max_value = 18.0
 editable = false
+update_on_text_changed = true
+select_all_on_focus = true
 
 [node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
 layout_mode = 2
 max_value = 18.0
 editable = false
+update_on_text_changed = true
+select_all_on_focus = true
 
 [node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
 layout_mode = 2
 max_value = 18.0
 editable = false
+update_on_text_changed = true
+select_all_on_focus = true
 
 [node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
 layout_mode = 2
 max_value = 18.0
 editable = false
+update_on_text_changed = true
+select_all_on_focus = true
 
 [node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
 layout_mode = 2
 max_value = 18.0
 editable = false
+update_on_text_changed = true
+select_all_on_focus = true
 
 [node name="Igual" type="CenterContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer"]
 layout_mode = 2

@@ -11,13 +11,14 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0.0588235, 0.313726, 1)
 
-[node name="Defensa" type="PanelContainer"]
+[node name="Defensa" type="PanelContainer" node_paths=PackedStringArray("lineaValor")]
 custom_minimum_size = Vector2(250, 0)
 offset_right = 262.0
 offset_bottom = 47.0
 theme = ExtResource("1_m321h")
 theme_override_styles/panel = SubResource("StyleBoxFlat_5py60")
 script = ExtResource("2_7fqpa")
+lineaValor = NodePath("MarginContainer/HBoxContainer/LineEdit")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

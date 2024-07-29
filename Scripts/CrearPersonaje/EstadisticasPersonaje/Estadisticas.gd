@@ -7,10 +7,12 @@ extends PanelContainer
 var limiteCualquiera
 var limiteActual
 var valorAnterior = 0
+var diccionarioStats 
 
 func _ready():
 	recursoRaza.obtenerRaza(Personaje.nombreRaza)
-	var diccionarioStats = recursoRaza.puntuacionesDeCaracteristica
+	diccionarioStats = recursoRaza.puntuacionesDeCaracteristica
+	revisarOpciones(diccionarioStats.keys())
 	if !diccionarioStats.has("ANY"):
 		for contador : SpinBox in contEstadisticasRaciales.get_children():
 			if diccionarioStats.has(contador.name):
@@ -21,11 +23,13 @@ func _ready():
 		for contador : SpinBox in contEstadisticasRaciales.get_children():
 			contador.editable = true
 			contador.max_value = diccionarioStats.get("ANY")
+			contador.step = contador.max_value
 			contador.value_changed.connect(valorCambiadoBonus)
 
 func valorCambiadoBonus(valor):
 	for contador : SpinBox in contEstadisticasRaciales.get_children():
-		limiteActual -= contador.value
+		if contador.editable == true:
+			limiteActual -= contador.value
 	if limiteActual <= 0:
 		for contador : SpinBox in contEstadisticasRaciales.get_children():
 			contador.max_value = contador.value
@@ -39,3 +43,19 @@ func _on_aleatorio_pressed():
 	for input in contInputs.get_children():
 		if input is SpinBox:
 			input.value = rng.randi_range(input.min_value,input.max_value)
+
+func revisarOpciones(llavesDiccionario):
+	var opciones
+	for llave : String in llavesDiccionario:
+		if llave.contains("/"):
+			opciones = llave.split("/")
+			limiteCualquiera = diccionarioStats.get(llave)
+			limiteActual = limiteCualquiera
+			for contador : SpinBox in contEstadisticasRaciales.get_children():
+				for opcion in opciones:
+					if contador.name == opcion:
+						contador.editable = true
+						contador.value = 0
+						contador.max_value = diccionarioStats.get(llave)
+						contador.step = contador.max_value
+						contador.value_changed.connect(valorCambiadoBonus)
