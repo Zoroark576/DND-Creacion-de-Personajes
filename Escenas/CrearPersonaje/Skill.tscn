@@ -49,10 +49,14 @@ size_flags_horizontal = 0
 alignment = 1
 editable = false
 
-[node name="NombreHabilidad" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="NombreHabilidad" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Nombre"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Bonus" type="CheckBox" parent="MarginContainer/HBoxContainer"]
 visible = false

@@ -18,7 +18,7 @@ func _ready():
 			claseSeleccionada()
 
 func razaSeleccionada():
-	for indice in recursoSeleccionado.diccionarioRazas.size():
+	for indice in (recursoSeleccionado.diccionarioRazas.size() + recursoSeleccionado.diccionarioRazas2.size()):
 		var raza = recursoSeleccionado
 		raza.iterarRazas(indice)
 		botonOpcion.add_item(raza.nombre)

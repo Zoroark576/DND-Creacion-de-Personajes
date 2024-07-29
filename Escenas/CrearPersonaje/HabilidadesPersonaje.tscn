@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2etnxtwgfnv2"]
+[gd_scene load_steps=12 format=3 uid="uid://2etnxtwgfnv2"]
 
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_nb4qf"]
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_1oyqg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dqnxid783irtg" path="res://Escenas/CrearPersonaje/DefensaBonus.tscn" id="4_sd85f"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/Defensas Y Sentidos.gd" id="5_wmw8b"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/BotonesVolverSiguiente.gd" id="7_gv7vq"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/HabilidadesPersonaje/ContSentidos.gd" id="8_joyak"]
 
 [sub_resource type="Theme" id="Theme_u8syo"]
 default_font_size = 25
@@ -75,8 +76,17 @@ theme_override_font_sizes/font_size = 30
 text = "Crear Personaje (Habilidades)"
 horizontal_alignment = 1
 
-[node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_nb4qf")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="Clase y Raza" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nb4qf")]
+layout_mode = 2
+
+[node name="Advertencia" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "* = Al menos una de esas habilidades es obligatoria para tu clase"
+autowrap_mode = 2
 
 [node name="Datos" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -204,7 +214,7 @@ text = "AC"
 layout_mode = 2
 
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortaleza/MarginContainer/HBoxContainer" index="1"]
-text = "Const."
+text = "Fortaleza"
 
 [node name="Reflejos" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
@@ -219,6 +229,7 @@ layout_mode = 2
 text = "Voluntad"
 
 [node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("2_1oyqg")
@@ -249,6 +260,7 @@ layout_mode = 2
 
 [node name="ContSentidos" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
 layout_mode = 2
+script = ExtResource("8_joyak")
 
 [node name="Sentidos" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos"]
 layout_mode = 2
@@ -289,6 +301,7 @@ editable = true
 text = "Perspicacia"
 
 [node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("2_1oyqg")
@@ -342,6 +355,7 @@ editable = true
 text = "Mov."
 
 [node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("2_1oyqg")
@@ -392,6 +406,7 @@ editable = true
 text = "Mod DEX"
 
 [node name="Bonus" type="PanelContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("2_1oyqg")

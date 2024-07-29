@@ -8,9 +8,10 @@ extends HBoxContainer
 
 var recursoArmadura : Armadura = preload("res://Recursos/Armaduras/Armadura.tres")
 var recursoEscudo : Escudo = preload("res://Recursos/Escudos/Escudo.tres")
-
+var recursoClase : Clase = preload("res://Recursos/Clases/Clase.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	recursoClase.obtenerClase(Personaje.nombreClase)
 	var bonificacionArmadura
 	var bonificacionEscudo 
 	bonificacionArmadura = obtenerBonificadoresArmadura()
@@ -19,10 +20,7 @@ func _ready():
 	calcularAC(bonificacionTotal)
 	calcularFortaleza()
 	calcularReflejos(bonificacionEscudo)
-
-
-func _process(delta):
-	pass
+	calcularVoluntad()
 
 func obtenerBonificadoresArmadura():
 	recursoArmadura._read_json()
@@ -55,6 +53,10 @@ func calcularFortaleza():
 	var modCon = floor((Personaje.estadisticas["CON"] - 10)/2)
 	var fortValor = 10 + floor(Personaje.nivel/2)
 	fortValor += (compararValores(modFue,modCon))
+	if recursoClase.defensas.has("Fortaleza"):
+		fortValor += recursoClase.defensas.get("Fortaleza")
+	
+	
 	fortaleza.asignarValor(fortValor)
 
 func calcularReflejos(bonusEscudo):
@@ -62,7 +64,18 @@ func calcularReflejos(bonusEscudo):
 	var modDex = floor((Personaje.estadisticas["DEX"] - 10)/2)
 	var modInt = floor((Personaje.estadisticas["INT"] - 10)/2)
 	reflValor += bonusEscudo + compararValores(modDex,modInt)
+	if recursoClase.defensas.has("Reflejos"):
+		reflValor += recursoClase.defensas.get("Reflejos")
 	reflejos.asignarValor(reflValor)
+
+func calcularVoluntad():
+	var volValor = 10 + floor(Personaje.nivel/2)
+	var modSab = floor((Personaje.estadisticas["WIS"] - 10)/2)
+	var modCar = floor((Personaje.estadisticas["CHA"] - 10)/2)
+	volValor += compararValores(modSab,modCar)
+	if recursoClase.defensas.has("Voluntad"):
+		volValor += recursoClase.defensas.get("Voluntad")
+	voluntad.asignarValor(volValor)
 
 func compararValores(valor1,valor2):
 	if valor1 >= valor2:

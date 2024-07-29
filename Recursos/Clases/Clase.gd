@@ -2,7 +2,9 @@ extends Resource
 class_name Clase
 
 @export var directorioJSON : String
+@export var directorioJSON2 : String
 var diccionarioClases : Dictionary
+var diccionarioClases2 : Dictionary
 var claseSeleccionada : Dictionary
 var nombre : String
 var vidaInicial : Dictionary
@@ -11,6 +13,7 @@ var vidaXNivel : int
 var valorEsfuerzoCurativo : Dictionary
 var numHabEntrenadas : int
 var habilidadesEntrenadas 
+var habilidadesObligatorias = []
 var rasgos : Dictionary
 
 func _ready():
@@ -29,10 +32,22 @@ func _obtenerRasgos():
 	for indice in claseSeleccionada.size():
 		if claseSeleccionada.has("Nombre " + str(indice)) and claseSeleccionada["Nombre " + str(indice)] != "":
 			rasgos[str(indice)] = claseSeleccionada["Rasgo " + str(indice)]
+			#if claseSeleccionada["Rasgo " + str(indice)]
 
 func _obtenerHabilidadesEntrenadas():
 	var stringHabilidades : String = claseSeleccionada["Habilidades Entrenadas"]
 	habilidadesEntrenadas = stringHabilidades.split(",")
+	habilidadesObligatorias = []
+	for index in habilidadesEntrenadas.size():
+		if habilidadesEntrenadas[index].contains("*"):
+			var habilidadSinEstrella = habilidadesEntrenadas[index].trim_prefix("*")
+			numHabEntrenadas += 1
+			habilidadesEntrenadas.set(index,habilidadSinEstrella)
+			habilidadesObligatorias.append(habilidadSinEstrella)
+		elif habilidadesEntrenadas[index].contains("-"):
+			var habilidadSinEstrella = habilidadesEntrenadas[index].trim_prefix("-")
+			habilidadesEntrenadas.set(index,habilidadSinEstrella)
+			habilidadesObligatorias.append(habilidadSinEstrella)
 
 func obtenerClase(nombreClase):
 	if diccionarioClases.has(nombreClase):
@@ -54,6 +69,7 @@ func _read_json():
 	var json_object = JSON.new()
 	var parse_err = json_object.parse(f.get_as_text())
 	diccionarioClases = json_object.get_data()
+
 
 func _dividirString(string : String):
 	var diccionario : Dictionary

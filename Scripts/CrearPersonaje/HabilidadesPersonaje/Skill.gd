@@ -3,7 +3,7 @@ class_name botonHabilidad
 
 @export var checkEntrenado : CheckButton
 @export var valorHabilidadLinea : LineEdit
-@export var nombreHabilidad : Label
+@export var nombreHabilidad : RichTextLabel
 @export var nodoBonus : CheckBox
 var valorBonus : int = 2
 
@@ -17,7 +17,6 @@ var valorHabilidad = 0:
 	set(valor):
 		valorHabilidad = valor
 		valorHabilidadLinea.text = str(valorHabilidad)
-
 
 func setValue(valor : int,puedeEntrenar : bool):
 	valorHabilidad = valor

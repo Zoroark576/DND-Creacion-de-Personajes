@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://drefcwwbarxtx"]
 
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorPersonaje.gd" id="1_ewchf"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorPersonaje.gd" id="1_txo8j"]
 [ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_7p1ef"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje/BotonesVovlerSiguiente.gd" id="4_7hiec"]
 
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
-script = ExtResource("1_ewchf")
+script = ExtResource("1_txo8j")
 contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
 opcionesRaza = NodePath("MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion")
 opcionesClase = NodePath("MarginContainer/VBoxContainer/Datos/Clase/BotonOpcion")
