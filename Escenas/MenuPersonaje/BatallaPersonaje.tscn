@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_jipi5"]
 
 [sub_resource type="Theme" id="Theme_gcger"]
-default_font_size = 23
+default_font_size = 20
 BoxContainer/constants/separation = 4
 GridContainer/constants/h_separation = 4
 GridContainer/constants/v_separation = 20

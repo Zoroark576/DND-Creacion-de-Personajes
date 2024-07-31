@@ -1,12 +1,12 @@
 extends PanelContainer
-
+class_name botonDefensa
 @export var lineaValor : LineEdit
-@export var nodoBonus : CheckBox
+@export var nodoBonus : SpinBox
 var valorDefensa = 0:
 	set(valor):
 		valorDefensa = valor
 		lineaValor.text = str(valorDefensa)
-var valorBonus : int = 2
+var valorBonus : int = 0
 
 func asignarValor(valor):
 	valorDefensa = valor
@@ -16,9 +16,6 @@ func setBonus(esVisible : bool,valor):
 	nodoBonus.visible = esVisible
 	nodoBonus.text = "+" + str(valor)
 
-
-func _on_bonus_toggled(toggled_on):
-	if toggled_on:
-		valorDefensa += valorBonus
-	else:
-		valorDefensa -= valorBonus
+func _on_bonus_value_changed(value):
+	valorBonus = value
+	lineaValor.text = str(valorDefensa + valorBonus)

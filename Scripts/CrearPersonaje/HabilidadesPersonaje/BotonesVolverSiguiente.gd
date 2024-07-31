@@ -1,11 +1,12 @@
 extends botonesVolverSiguiente
+@export var contBotonesHabilidad : GridContainer
+@export var bonusVelocidad : SpinBox
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_siguiente_pressed():
+	super()
+	var habilidadesEntrenadas = []
+	for habilidad : botonHabilidad in contBotonesHabilidad.get_children():
+		if habilidad.checkEntrenado.button_pressed == true:
+			habilidadesEntrenadas.append(habilidad.obtenerNombreCorto())
+	Personaje.habilidadesEntrenadas = habilidadesEntrenadas
+	Personaje.bonusVelocidad = bonusVelocidad.value

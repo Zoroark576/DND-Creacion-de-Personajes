@@ -5,9 +5,8 @@ class_name botonHabilidad
 @export var valorHabilidadLinea : LineEdit
 @export var nombreHabilidad : RichTextLabel
 @export var nodoBonus : CheckBox
+
 var valorBonus : int = 2
-
-
 var modificadorAsociado : String
 
 signal estaEntrenado
@@ -18,8 +17,17 @@ var valorHabilidad = 0:
 		valorHabilidad = valor
 		valorHabilidadLinea.text = str(valorHabilidad)
 
+var habilidadYaEntrenada : bool = false:
+	set(booleano):
+		if booleano == true:
+			checkEntrenado.button_pressed = booleano
+		habilidadYaEntrenada = booleano
+
 func setValue(valor : int,puedeEntrenar : bool):
 	valorHabilidad = valor
+	if habilidadYaEntrenada == true:
+		valorHabilidad += 5
+		habilidadYaEntrenada = false
 	checkEntrenado.disabled = !puedeEntrenar
 	var nuevoStyleBox = get_theme_stylebox("panel").duplicate()
 	if puedeEntrenar:

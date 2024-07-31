@@ -55,8 +55,6 @@ func calcularFortaleza():
 	fortValor += (compararValores(modFue,modCon))
 	if recursoClase.defensas.has("Fortaleza"):
 		fortValor += recursoClase.defensas.get("Fortaleza")
-	
-	
 	fortaleza.asignarValor(fortValor)
 
 func calcularReflejos(bonusEscudo):
@@ -66,6 +64,8 @@ func calcularReflejos(bonusEscudo):
 	reflValor += bonusEscudo + compararValores(modDex,modInt)
 	if recursoClase.defensas.has("Reflejos"):
 		reflValor += recursoClase.defensas.get("Reflejos")
+	if !Personaje.armaduraProficiente:
+		reflValor -= 2
 	reflejos.asignarValor(reflValor)
 
 func calcularVoluntad():

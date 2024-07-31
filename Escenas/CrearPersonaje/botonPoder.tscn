@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8p2ul6ff1p5o"]
+
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/PoderesPersonaje/botonPoder.gd" id="1_pvobg"]
+[ext_resource type="Texture2D" uid="uid://byey8nh5co516" path="res://Iconos/trash-bin-icon-1024x1024-b8uy9bpj.png" id="2_ibj6l"]
+
+[node name="BotonPoder" type="HBoxContainer" node_paths=PackedStringArray("botonPoder")]
+offset_right = 268.0
+offset_bottom = 53.0
+script = ExtResource("1_pvobg")
+botonPoder = NodePath("Poder")
+
+[node name="Poder" type="Button" parent="."]
+layout_mode = 2
+text = "NombrePoder : U/A"
+
+[node name="Borrar" type="Button" parent="."]
+layout_mode = 2
+icon = ExtResource("2_ibj6l")

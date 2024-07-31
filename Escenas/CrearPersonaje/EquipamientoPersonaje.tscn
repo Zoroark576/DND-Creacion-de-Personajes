@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnmk7x7ow4pa7"]
+[gd_scene load_steps=8 format=3 uid="uid://bnmk7x7ow4pa7"]
 
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/Proficiencias.gd" id="2_bsnea"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/Equipamiento.gd" id="2_iimyq"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_xgwg5"]
 [ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="4_dw27m"]
@@ -70,14 +71,58 @@ theme_override_font_sizes/font_size = 30
 text = "Crear Personaje (Equipamiento)"
 horizontal_alignment = 1
 
-[node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_xgwg5")]
+[node name="ClaseYProficiencias" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="Clase y Raza" parent="MarginContainer/VBoxContainer/ClaseYProficiencias" instance=ExtResource("2_xgwg5")]
+layout_mode = 2
+
+[node name="Proficiencias" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ClaseYProficiencias"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/ClaseYProficiencias/Proficiencias"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Proficiencias:"
+
+[node name="Textos" type="GridContainer" parent="MarginContainer/VBoxContainer/ClaseYProficiencias/Proficiencias" node_paths=PackedStringArray("nodoArmaduras", "nodoArmas")]
+layout_mode = 2
+theme_override_constants/v_separation = 10
+columns = 2
+script = ExtResource("2_bsnea")
+nodoArmaduras = NodePath("Armaduras")
+nodoArmas = NodePath("Armaduras2")
+
+[node name="TArmaduras" type="Label" parent="MarginContainer/VBoxContainer/ClaseYProficiencias/Proficiencias/Textos"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Armaduras:"
+
+[node name="Armaduras" type="Label" parent="MarginContainer/VBoxContainer/ClaseYProficiencias/Proficiencias/Textos"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Texto, a, a, a"
+autowrap_mode = 2
+
+[node name="TArmas" type="Label" parent="MarginContainer/VBoxContainer/ClaseYProficiencias/Proficiencias/Textos"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Armas:"
+
+[node name="Armaduras2" type="Label" parent="MarginContainer/VBoxContainer/ClaseYProficiencias/Proficiencias/Textos"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Texto"
+autowrap_mode = 2
 
 [node name="Equipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nArmaduras", "nMano1", "nMano2")]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 20
-columns = 2
+columns = 3
 script = ExtResource("2_iimyq")
 nArmaduras = NodePath("AInput")
 nMano1 = NodePath("AInput2")
@@ -90,7 +135,11 @@ text = "Oro Inicial"
 [node name="OInput" type="SpinBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 size_flags_horizontal = 0
+max_value = 10000.0
 step = 0.1
+
+[node name="Dummy" type="Control" parent="MarginContainer/VBoxContainer/Equipamiento"]
+layout_mode = 2
 
 [node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
@@ -101,6 +150,11 @@ text = "Armadura
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
+[node name="ArmaduraProficiencia" type="CheckBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Proficiente"
+
 [node name="Arma" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 text = "1ra Mano
@@ -110,6 +164,11 @@ text = "1ra Mano
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
+[node name="ArmaProficiencia" type="CheckBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Proficiente"
+
 [node name="Arma2" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
 text = "2da Mano
@@ -118,6 +177,11 @@ text = "2da Mano
 [node name="AInput3" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+
+[node name="Arma2Proficiencia" type="CheckBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Proficiente"
 
 [node name="Inventario" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
@@ -129,7 +193,7 @@ custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 placeholder_text = "Armas, Ropa, etc."
 
-[node name="Botones" parent="MarginContainer" node_paths=PackedStringArray("oro", "armadura", "mano1", "mano2", "inventario") instance=ExtResource("4_dw27m")]
+[node name="Botones" parent="MarginContainer" node_paths=PackedStringArray("oro", "armadura", "mano1", "mano2", "inventario", "nPArmadura", "nPMano1", "nPMano2") instance=ExtResource("4_dw27m")]
 layout_mode = 2
 script = ExtResource("5_hqhku")
 oro = NodePath("../VBoxContainer/Equipamiento/OInput")
@@ -137,6 +201,9 @@ armadura = NodePath("../VBoxContainer/Equipamiento/AInput")
 mano1 = NodePath("../VBoxContainer/Equipamiento/AInput2")
 mano2 = NodePath("../VBoxContainer/Equipamiento/AInput3")
 inventario = NodePath("../VBoxContainer/Equipamiento/IInput")
+nPArmadura = NodePath("../VBoxContainer/Equipamiento/ArmaduraProficiencia")
+nPMano1 = NodePath("../VBoxContainer/Equipamiento/ArmaProficiencia")
+nPMano2 = NodePath("../VBoxContainer/Equipamiento/Arma2Proficiencia")
 rutaVolver = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/HabilidadesPersonaje.tscn"
 

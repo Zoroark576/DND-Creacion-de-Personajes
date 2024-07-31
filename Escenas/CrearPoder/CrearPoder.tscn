@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnocb4peikdwe"]
+[gd_scene load_steps=4 format=3 uid="uid://cnocb4peikdwe"]
 
 [ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_f4ahm"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/PoderesPersonaje/CrearPoder.gd" id="2_2fs4a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -10,7 +11,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control"]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contAtributos", "opcionesTipo")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,6 +22,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_f4ahm")
+script = ExtResource("2_2fs4a")
+contAtributos = NodePath("MarginContainer/VBoxContainer/Atributos")
+opcionesTipo = NodePath("MarginContainer/VBoxContainer/GridContainer/OpcionesTipo")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -56,26 +60,43 @@ alignment = 1
 [node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Crear Poder"
+text = "Crear Poder/Dote/Rasgo de Clase"
 horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/v_separation = 20
 columns = 2
 
 [node name="NombrePoder" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Nombre del Poder"
+text = "Nombre"
 
 [node name="NInput" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="TipoPoder" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Tipo" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Tipo de Poder"
+text = "Tipo"
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="OpcionesTipo" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+item_count = 3
+selected = 0
+popup/item_0/text = "Poder"
+popup/item_0/id = 1
+popup/item_1/text = "Dote"
+popup/item_1/id = 2
+popup/item_2/text = "Rasgo De Clase"
+popup/item_2/id = 3
+
+[node name="FrecuenciaDeUso" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Frecuencia de Uso"
+
+[node name="OpcionesFrecuencia" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 item_count = 3
@@ -98,24 +119,32 @@ placeholder_text = "Incrustas tu escudo en tu enemigo, le golpeas con el mango d
 o le hundes el hombro en el estómago. Tu ataque no causa mucho daño,
 pero tu furia inspira a un aliado tuyo para igualar tu ferocidad."
 
-[node name="Funcionalidad" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Atributos" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Poder" type="GridContainer" parent="MarginContainer/VBoxContainer/Atributos"]
+layout_mode = 2
+columns = 2
+
+[node name="Funcionalidad" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Poder"]
 layout_mode = 2
 text = "Funcionalidad"
 
-[node name="FInput" type="TextEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="FInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Atributos/Poder"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 placeholder_text = "A voluntad • Arma, marcial
 Acción estándar Cuerpo a cuerpo arma
 Objetivo: una criatura
 Ataque: Fuerza contra Fortaleza. "
 
-[node name="Impacto_Efecto" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Impacto_Efecto" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Poder"]
 layout_mode = 2
 text = "Impacto/Efecto"
 
-[node name="IEInput" type="TextEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="IEInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Atributos/Poder"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
@@ -142,3 +171,5 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 30
 text = "Crear"
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/GridContainer/OpcionesTipo" to="." method="_on_option_button_2_item_selected"]

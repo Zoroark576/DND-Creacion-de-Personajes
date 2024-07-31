@@ -16,6 +16,10 @@ var habilidadesEntrenadas
 var habilidadesObligatorias = []
 var rasgos : Dictionary
 
+var estadisticasRecomendadas : String
+var competenciasArmaduras : String
+var competenciasArmas : String
+
 func _ready():
 	diccionarioClases = _read_json()
 
@@ -27,6 +31,10 @@ func _aplicarClase():
 	numHabEntrenadas = claseSeleccionada["Num Hab. Entrenadas"]
 	_obtenerHabilidadesEntrenadas()
 	_obtenerRasgos()
+	
+	estadisticasRecomendadas = claseSeleccionada["Stats recomendados"]
+	competenciasArmaduras = claseSeleccionada["Comp. Armaduras y escudos"]
+	competenciasArmas = claseSeleccionada["Comp. Armas y Utensilios"]
 
 func _obtenerRasgos():
 	for indice in claseSeleccionada.size():

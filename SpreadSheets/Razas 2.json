@@ -2,7 +2,7 @@
   "Kalashtar": {
     "Velocidad": 6,
     "Puntuaciones de Caracteristica": "WIS 2,CHA 2",
-    "Bonificadores de Habilidad": "Pers 2,Any 2",
+    "Bonificadores de Habilidad": "Pers 2,ANY 2",
     "Nombre 1": "Alma Dual",
     "Habilidad 1": "#Al inicio de tu turno puedes hacer una tirada de salvación contra cada efecto que te tenga atontado o dominado, si fallas la tirada de salvación ya no puedes hacer tiradas de salvación al final de tu turno.#",
     "Nombre 2": "Bastión de Claridad Mental",

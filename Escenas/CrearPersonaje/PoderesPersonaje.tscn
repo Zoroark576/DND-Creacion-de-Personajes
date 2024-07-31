@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c30s5xy0rekaa"]
+[gd_scene load_steps=9 format=3 uid="uid://c30s5xy0rekaa"]
 
 [ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_rins1"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/PoderesPersonaje/MenuPrincipalPoderesPersonaje.gd" id="2_185c5"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_s8ayg"]
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="3_38e2l"]
 
@@ -47,6 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_rins1")
+script = ExtResource("2_185c5")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -88,70 +90,120 @@ horizontal_alignment = 1
 [node name="Clase y Raza" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_s8ayg")]
 layout_mode = 2
 
-[node name="Titulos de Poderes" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ContPoderes" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 700)
 layout_mode = 2
-theme_override_constants/separation = 120
+size_flags_vertical = 3
+
+[node name="Dotes,Poderes y Rasgos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Titulos de Poderes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
+layout_mode = 2
+theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Titulos de Poderes"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
 layout_mode = 2
 text = "Voluntad"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Titulos de Poderes"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
 layout_mode = 2
 text = "Diarios"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/Titulos de Poderes"]
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
 layout_mode = 2
 text = "Encuentro"
 horizontal_alignment = 1
 
-[node name="ContPoderes" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ContPoderes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes"]
+[node name="ContPoderes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_38e2l")
 
-[node name="ContPoderes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes"]
+[node name="ContPoderes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes"]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="PVoluntad" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
+[node name="PVoluntad" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_id5am")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PVoluntad"]
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PVoluntad"]
 layout_mode = 2
 
-[node name="PEncuentro" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
+[node name="PEncuentro" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1i4y")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PEncuentro"]
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro"]
 layout_mode = 2
 
-[node name="PDiario" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes"]
+[node name="PDiario" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1a6fy")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/ContPoderes/ContPoderes/PDiario"]
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="Titulos de D_R" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Dotes"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Rasgos de Clase"
+horizontal_alignment = 1
+
+[node name="ContDotes,Rasgos" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_38e2l")
+
+[node name="DotesRasgos" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Dotes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos"]
+custom_minimum_size = Vector2(223, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_id5am")
+
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes"]
+layout_mode = 2
+
+[node name="RasgosClase" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos"]
+custom_minimum_size = Vector2(223, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n1i4y")
+
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase"]
+layout_mode = 2
+
+[node name="Crear" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Crear Poder"
+text = "Crear Poder/Dote/Rasgo de Clase"
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -169,3 +221,5 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 30
 text = "Siguiente"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Crear" to="." method="_on_crear_pressed"]

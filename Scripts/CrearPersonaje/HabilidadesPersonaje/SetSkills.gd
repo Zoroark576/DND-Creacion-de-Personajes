@@ -23,13 +23,20 @@ func _ready():
 			if bonusHabilidades.has(boton.obtenerNombreCorto()):
 				var bonusHabilidad = bonusHabilidades.get(boton.obtenerNombreCorto())
 				valorFinal += bonusHabilidad
+			var habilidadYaEntrenada = false
+			if !Personaje.habilidadesEntrenadas.is_empty():
+				if Personaje.habilidadesEntrenadas.has(boton.obtenerNombreCorto()):
+					habilidadYaEntrenada = true
+					numHabilidadesEntrenadasActuales += 1
+			boton.habilidadYaEntrenada = habilidadYaEntrenada
 			if habilidadesObligatorias.has(boton.obtenerNombreCorto()):
 				boton.setNombre(boton.nombreHabilidad.text + "*",boton.modificadorAsociado)
+			boton.estaEntrenado.connect(botonEntrenado)
+			boton.bonusAnyActivado.connect(bonusAnyActivado)
 			setearBotonesParaEntrenamiento(boton,valorFinal)
 			if bonusHabilidades.has("ANY"):
 				boton.setBonus(true,bonusHabilidades.get("ANY"))
-			boton.estaEntrenado.connect(botonEntrenado)
-			boton.bonusAnyActivado.connect(bonusAnyActivado)
+
 
 func inicializarDatos():
 	recursoRaza.obtenerRaza(Personaje.nombreRaza)
@@ -51,7 +58,7 @@ func botonEntrenado(estaActivado : bool,nombreCorto : String):
 		numHabilidadesEntrenadasActuales -= 1
 		if !habilidadesQueSePuedenEntrenar.has(nombreCorto):
 			trainsExtraUsados -= 1
-	if numHabilidadesEntrenadasActuales == maxHabilidadesEntrenadas:
+	if numHabilidadesEntrenadasActuales >= maxHabilidadesEntrenadas:
 		for boton : botonHabilidad in get_children():
 			if boton.checkEntrenado.button_pressed:
 				boton.setValue(boton.valorHabilidad ,true)
@@ -68,6 +75,7 @@ func bonusAnyActivado(estaActivado : bool):
 
 func setearBotonesParaEntrenamiento(boton,valorFinal):
 	var sePuedeEntrenar = false
+	var habilidadYaEntrenada = false
 	if (cantMaxTrainsExtra != -1 and trainsExtraUsados < cantMaxTrainsExtra) or boton.checkEntrenado.button_pressed == true:
 		sePuedeEntrenar = true
 	else:

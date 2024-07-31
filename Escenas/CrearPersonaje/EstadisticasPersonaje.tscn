@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qotmhd3sur3n"]
+[gd_scene load_steps=14 format=3 uid="uid://qotmhd3sur3n"]
 
 [ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_iluss"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_ve4xs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="7_o0obv"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/ModNivel.gd" id="7_v30hy"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/StatsFinales.gd" id="8_0c11o"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/ContEstRecom.gd" id="8_jwhkj"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="8_s5mpj"]
 
 [sub_resource type="Theme" id="Theme_iud10"]
@@ -340,12 +341,28 @@ theme_override_font_sizes/font_size = 15
 placeholder_text = "00"
 editable = false
 
-[node name="Aleatorio" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Aleatorio" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xrh2s")
 text = "Aleatorio"
+
+[node name="ContEstRecom" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("nodoTexto")]
+layout_mode = 2
+size_flags_horizontal = 6
+script = ExtResource("8_jwhkj")
+nodoTexto = NodePath("EstadisticasRecomendadas")
+
+[node name="TStatsRecomendados" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ContEstRecom"]
+layout_mode = 2
+text = "Estadisticas Recomendadas:"
+
+[node name="EstadisticasRecomendadas" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/ContEstRecom"]
+layout_mode = 2
 
 [node name="Botones" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contValores") instance=ExtResource("7_o0obv")]
 layout_mode = 2
@@ -354,4 +371,4 @@ contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinal
 rutaVolver = "res://Escenas/CrearPersonaje/LorPersonaje.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Aleatorio" to="MarginContainer/VBoxContainer/Estadisticas" method="_on_aleatorio_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Aleatorio" to="MarginContainer/VBoxContainer/Estadisticas" method="_on_aleatorio_pressed"]
