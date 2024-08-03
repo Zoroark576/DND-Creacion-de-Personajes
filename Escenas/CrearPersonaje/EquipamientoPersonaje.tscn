@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnmk7x7ow4pa7"]
+[gd_scene load_steps=9 format=3 uid="uid://bnmk7x7ow4pa7"]
 
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/Proficiencias.gd" id="2_bsnea"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/Equipamiento.gd" id="2_iimyq"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_xgwg5"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/EstadisticasEquipamiento.gd" id="4_2ddke"]
 [ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="4_dw27m"]
 [ext_resource type="Script" path="res://Escenas/botonesVolverSiguiente.gd" id="5_hqhku"]
 
@@ -193,6 +194,235 @@ custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 placeholder_text = "Armas, Ropa, etc."
 
+[node name="EstadisticasEquipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 15
+columns = 2
+script = ExtResource("4_2ddke")
+
+[node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
+layout_mode = 2
+text = "Armadura: "
+
+[node name="Estadisticas" type="VBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nombres" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Prot."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Prueba"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Vel."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Precio"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Peso"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas"]
+layout_mode = 2
+
+[node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas"]
+layout_mode = 2
+
+[node name="Proteccion" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Prueba" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Velocidad" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Velocidad2" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Velocidad3" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Arma1" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
+layout_mode = 2
+text = "1ra Mano: "
+
+[node name="Estadisticas2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nombres" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Daño"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Comp"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Rango"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Peso"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Nombres"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Precio"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2"]
+layout_mode = 2
+
+[node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2"]
+layout_mode = 2
+
+[node name="Daño" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "1 D6"
+horizontal_alignment = 1
+
+[node name="Competencia" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Rango" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "CaC"
+horizontal_alignment = 1
+
+[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Arma2" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
+layout_mode = 2
+text = "2da Mano: "
+
+[node name="Estadisticas3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
+layout_mode = 2
+
+[node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
+layout_mode = 2
+
+[node name="Daño" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "1 D6"
+horizontal_alignment = 1
+
+[node name="Competencia" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Rango" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Dist 10,20"
+horizontal_alignment = 1
+
+[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
 [node name="Botones" parent="MarginContainer" node_paths=PackedStringArray("oro", "armadura", "mano1", "mano2", "inventario", "nPArmadura", "nPMano1", "nPMano2") instance=ExtResource("4_dw27m")]
 layout_mode = 2
 script = ExtResource("5_hqhku")
@@ -207,5 +437,8 @@ nPMano2 = NodePath("../VBoxContainer/Equipamiento/Arma2Proficiencia")
 rutaVolver = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/HabilidadesPersonaje.tscn"
 
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_2_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_2_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput3" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_3_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput3" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_3_item_selected"]
