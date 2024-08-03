@@ -28,6 +28,7 @@ func _ready():
 				if Personaje.habilidadesEntrenadas.has(boton.obtenerNombreCorto()):
 					habilidadYaEntrenada = true
 					numHabilidadesEntrenadasActuales += 1
+			checarLimiteNumHabilidadesEntrenadas()
 			boton.habilidadYaEntrenada = habilidadYaEntrenada
 			if habilidadesObligatorias.has(boton.obtenerNombreCorto()):
 				boton.setNombre(boton.nombreHabilidad.text + "*",boton.modificadorAsociado)
@@ -58,6 +59,10 @@ func botonEntrenado(estaActivado : bool,nombreCorto : String):
 		numHabilidadesEntrenadasActuales -= 1
 		if !habilidadesQueSePuedenEntrenar.has(nombreCorto):
 			trainsExtraUsados -= 1
+	checarLimiteNumHabilidadesEntrenadas()
+
+
+func checarLimiteNumHabilidadesEntrenadas():
 	if numHabilidadesEntrenadasActuales >= maxHabilidadesEntrenadas:
 		for boton : botonHabilidad in get_children():
 			if boton.checkEntrenado.button_pressed:

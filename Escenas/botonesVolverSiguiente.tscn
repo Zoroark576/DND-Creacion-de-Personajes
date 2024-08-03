@@ -8,6 +8,7 @@ alignment = 1
 script = ExtResource("1_kraed")
 
 [node name="Volver" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 30

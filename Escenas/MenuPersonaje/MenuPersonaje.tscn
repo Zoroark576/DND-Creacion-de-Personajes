@@ -209,6 +209,8 @@ size_flags_vertical = 10
 text = "Volver"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Informacion/bVerLore" to="." method="_on_b_ver_lore_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Estadisticas/ContBotones/Habilidades" to="." method="_on_habilidades_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Estadisticas/ContBotones/Inventario" to="." method="_on_inventario_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SXP" to="GuardarValores" method="_on_sxp_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SNivel" to="GuardarValores" method="_on_s_nivel_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SAP" to="GuardarValores" method="_on_sap_value_changed"]

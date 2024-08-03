@@ -1,6 +1,6 @@
 extends Control
-var menuPrincipal = preload("res://Escenas/MenuPrincipal/menu_principal.tscn")
-var siguienteMenu = preload("res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn")
+var menuPrincipal = load("res://Escenas/MenuPrincipal/menu_principal.tscn")
+var siguienteMenu = load("res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn")
 @export var contenedorInputs : GridContainer
 @export var opcionesRaza : OptionButton
 @export var opcionesClase : OptionButton
