@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bogrotirh5jqu"]
+[gd_scene load_steps=9 format=3 uid="uid://bogrotirh5jqu"]
 
+[ext_resource type="Script" path="res://Scripts/MenuPersonaje/MenuPersonaje.gd" id="1_05xx8"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_lqapc"]
-[ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_dpsxl"]
+[ext_resource type="Script" path="res://Scripts/MenuPersonaje/GuardarValores.gd" id="2_8pxcx"]
 [ext_resource type="Texture2D" uid="uid://bjq5lv5ucphu" path="res://Iconos/158107.png" id="3_krmvk"]
 [ext_resource type="Texture2D" uid="uid://cj8vj8oxyf64e" path="res://Iconos/6134688.png" id="4_ebyyf"]
 [ext_resource type="Texture2D" uid="uid://byxvlh8rpy70" path="res://Iconos/13421-200.png" id="5_jriwc"]
@@ -22,7 +23,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPersonaje" type="Control"]
+[node name="MenuPersonaje" type="Control" node_paths=PackedStringArray("nXP", "nNivel", "nAP")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,6 +34,16 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_gcger")
+script = ExtResource("1_05xx8")
+nXP = NodePath("MarginContainer/VBoxContainer/XP Y AP/SXP")
+nNivel = NodePath("MarginContainer/VBoxContainer/XP Y AP/SNivel")
+nAP = NodePath("MarginContainer/VBoxContainer/XP Y AP/SAP")
+
+[node name="GuardarValores" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_8pxcx")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -82,7 +93,7 @@ layout_mode = 2
 [node name="Clase y Raza" parent="MarginContainer/VBoxContainer/Informacion" instance=ExtResource("1_lqapc")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Informacion"]
+[node name="bVerLore" type="Button" parent="MarginContainer/VBoxContainer/Informacion"]
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -98,75 +109,6 @@ horizontal_alignment = 1
 
 [node name="Estadisticas" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="Estadisticas" type="PanelContainer" parent="MarginContainer/VBoxContainer/Estadisticas"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("2_dpsxl")
-
-[node name="Stats Base" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 15
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base"]
-layout_mode = 2
-size_flags_horizontal = 4
-columns = 2
-
-[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-text = "STR"
-
-[node name="SStr" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-focus_mode = 0
-editable = false
-
-[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-text = "CON"
-
-[node name="SCon" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-focus_mode = 0
-editable = false
-
-[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-text = "DEX"
-
-[node name="SDex" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-focus_mode = 0
-editable = false
-
-[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-text = "INT"
-
-[node name="SInt" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-focus_mode = 0
-editable = false
-
-[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-text = "WIS"
-
-[node name="SWis" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-focus_mode = 0
-editable = false
-
-[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-text = "CHA"
-
-[node name="SCha" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas/Stats Base/GridContainer"]
-layout_mode = 2
-focus_mode = 0
-editable = false
 
 [node name="ContBotones" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas"]
 layout_mode = 2
@@ -200,28 +142,27 @@ layout_mode = 2
 text = "XP"
 horizontal_alignment = 1
 
-[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
+[node name="SXP" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-placeholder_text = "1250"
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
 layout_mode = 2
 text = "Nivel"
 horizontal_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
+[node name="SNivel" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-text = "1"
-editable = false
+value = 1.0
+rounded = true
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
 layout_mode = 2
 text = "Action Points"
 horizontal_alignment = 1
 
-[node name="LineEdit2" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
+[node name="SAP" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 value = 1.0
@@ -266,3 +207,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
 text = "Volver"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Informacion/bVerLore" to="." method="_on_b_ver_lore_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SXP" to="GuardarValores" method="_on_sxp_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SNivel" to="GuardarValores" method="_on_s_nivel_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SAP" to="GuardarValores" method="_on_sap_value_changed"]

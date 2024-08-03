@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg6bchndv8tc2"]
+
+[ext_resource type="PackedScene" uid="uid://cnocb4peikdwe" path="res://Escenas/CrearPoder/CrearPoder.tscn" id="1_puxi0"]
+[ext_resource type="Script" path="res://Scripts/VerPersonaje/VerPoder.gd" id="2_68lfv"]
+[ext_resource type="Script" path="res://Scripts/VerPersonaje/BotonVolverVerPoder.gd" id="3_vq42q"]
+
+[node name="MenuPrincipal" node_paths=PackedStringArray("nNombre", "nTipo", "nFrecuencia", "nDescripcion", "nFuncionalidad", "nImpacto", "nUtilidad", "nAfectaEstadistica", "nEfectoPermanente", "nNombreEfecto1", "nValorEfecto1", "nNombreEfecto2", "nValorEfecto2", "nEfectoActivo", "botonVolver") instance=ExtResource("1_puxi0")]
+script = ExtResource("2_68lfv")
+nNombre = NodePath("MarginContainer/VBoxContainer/GridContainer/NInput")
+nTipo = NodePath("MarginContainer/VBoxContainer/GridContainer/OpcionesTipo")
+nFrecuencia = NodePath("MarginContainer/VBoxContainer/GridContainer/OpcionesFrecuencia")
+nDescripcion = NodePath("MarginContainer/VBoxContainer/GridContainer/DInput")
+nFuncionalidad = NodePath("MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad/FInput")
+nImpacto = NodePath("MarginContainer/VBoxContainer/Atributos/Poder/Impacto/IEInput")
+nUtilidad = NodePath("MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad/UInput")
+nAfectaEstadistica = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox")
+nEfectoPermanente = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox2")
+nNombreEfecto1 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput/OptionButton")
+nValorEfecto1 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput/SpinBox")
+nNombreEfecto2 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2/OptionButton")
+nValorEfecto2 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2/SpinBox")
+nEfectoActivo = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CEfectoActivo")
+botonVolver = NodePath("MarginContainer/VBoxContainer/Botones")
+
+[node name="Titulo" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo" index="0"]
+text = "Ver Poder/Dote/Rasgo de Clase"
+
+[node name="NInput" parent="MarginContainer/VBoxContainer/GridContainer" index="1"]
+editable = false
+
+[node name="OpcionesTipo" parent="MarginContainer/VBoxContainer/GridContainer" index="3"]
+disabled = true
+
+[node name="OpcionesFrecuencia" parent="MarginContainer/VBoxContainer/GridContainer" index="5"]
+disabled = true
+
+[node name="DInput" parent="MarginContainer/VBoxContainer/GridContainer" index="7"]
+editable = false
+
+[node name="FInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad" index="1"]
+editable = false
+
+[node name="IEInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Impacto" index="1"]
+editable = false
+
+[node name="UInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad" index="1"]
+disabled = true
+
+[node name="CheckBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="1"]
+disabled = true
+
+[node name="EfectoActivo" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="8"]
+layout_mode = 2
+text = "El Efecto Se Encuentra Activo?"
+
+[node name="CEfectoActivo" type="CheckBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="9"]
+layout_mode = 2
+
+[node name="Botones" parent="MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("nEfectoActivo")]
+script = ExtResource("3_vq42q")
+nEfectoActivo = NodePath("../Atributos/Dote o Rasgo De Clase/CEfectoActivo")
+
+[node name="Crear" parent="MarginContainer/VBoxContainer/Botones" index="1"]
+visible = false

@@ -7,7 +7,7 @@ var nombreClase : String
 var lore : Dictionary
 #Estadisticas (STR,DEX,etc.)
 var estadisticas : Dictionary = {"STR" : 0,"CON" : 0,"DEX" : 0, "INT" : 0,"WIS" : 0,"CHA" : 0}
-var experiencia : int
+var experiencia : int = 0
 var nivel : int = 1
 var habilidadesEntrenadas = []
 var bonusVelocidad : int
@@ -20,8 +20,9 @@ var primeraMano : String
 var primeraManoProficiente : bool
 var segundaMano : String
 var segundaManoProficiente : bool
-var poderes : Dictionary
-var feats : Dictionary
+var poderes : Dictionary 
+var dotes : Dictionary
+var rasgosDeClase : Dictionary
 var notas : Dictionary
 var familiar : Dictionary
 #Batalla
@@ -30,8 +31,8 @@ var urgTemp : int
 ##Defensas Temporales
 var defensasTemporales : Dictionary
 var condicionesYEfectos : String
-var deathSaves : int
-var seUsoDeathSave : String
+var deathSaves : int = 0
+var seUsoDeathSave : String = "No"
 var resistencias : String
-var actionPoints : int
-var inspiracion : int
+var actionPoints : int = 0
+var inspiracion : int = 0

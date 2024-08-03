@@ -4,7 +4,7 @@ var siguienteMenu = preload("res://Escenas/CrearPersonaje/EstadisticasPersonaje.
 @export var contenedorInputs : GridContainer
 @export var opcionesRaza : OptionButton
 @export var opcionesClase : OptionButton
-var recursoRaza = preload("res://Recursos/Razas/Raza.tres")
+var recursoRaza = load("res://Recursos/Razas/Raza.tres")
 
 @export_group("Opciones Que Afecta La Raza")
 @export var tamaño : LineEdit
@@ -17,8 +17,6 @@ func _ready():
 
 func _on_volver_pressed():
 	get_tree().change_scene_to_packed(menuPrincipal)
-
-
 
 func _on_boton_opcion_item_selected(index):
 	var nombreRaza = opcionesRaza.get_item_text(index)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://drefcwwbarxtx"]
+[gd_scene load_steps=6 format=3 uid="uid://da4pqealsmmmf"]
 
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorPersonaje.gd" id="1_15bi0"]
-[ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_7p1ef"]
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje/BotonesVovlerSiguiente.gd" id="4_7hiec"]
+[ext_resource type="Script" path="res://Scripts/VerPersonaje/VerLore.gd" id="2_ibbrv"]
+[ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_yxb4a"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje/BotonesVovlerSiguiente.gd" id="3_v0h64"]
 
 [sub_resource type="Theme" id="Theme_uon3e"]
 default_font_size = 23
@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contenedorInputs", "opcionesRaza", "opcionesClase", "tamaño", "lenguajes", "vision")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contDatos")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,13 +31,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
-script = ExtResource("1_15bi0")
-contenedorInputs = NodePath("MarginContainer/VBoxContainer/Datos")
-opcionesRaza = NodePath("MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion")
-opcionesClase = NodePath("MarginContainer/VBoxContainer/Datos/Clase/BotonOpcion")
-"tamaño" = NodePath("MarginContainer/VBoxContainer/Datos/Tamaño")
-lenguajes = NodePath("MarginContainer/VBoxContainer/Datos/Lenguajes")
-vision = NodePath("MarginContainer/VBoxContainer/Datos/Vision")
+script = ExtResource("2_ibbrv")
+contDatos = NodePath("MarginContainer/VBoxContainer/Datos")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -87,6 +82,7 @@ text = "Nombre"
 [node name="Nombre" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+editable = false
 
 [node name="LAlineamiento" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -97,22 +93,29 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 placeholder_text = "Verdadero Neutral"
+editable = false
 
 [node name="LRaza" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Raza"
 
-[node name="Raza" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_7p1ef")]
+[node name="Raza" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_yxb4a")]
 layout_mode = 2
 tipoOpcion = "raza"
+
+[node name="BotonOpcion" parent="MarginContainer/VBoxContainer/Datos/Raza" index="0"]
+disabled = true
 
 [node name="LClase" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Clase"
 
-[node name="Clase" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_7p1ef")]
+[node name="Clase" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_yxb4a")]
 layout_mode = 2
 tipoOpcion = "clase"
+
+[node name="BotonOpcion" parent="MarginContainer/VBoxContainer/Datos/Clase" index="0"]
+disabled = true
 
 [node name="LTamaño" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -132,21 +135,16 @@ text = "Edad"
 layout_mode = 2
 size_flags_horizontal = 0
 rounded = true
+editable = false
 
 [node name="LGenero" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 text = "Genero"
 
-[node name="Genero" type="OptionButton" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Genero" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
 size_flags_horizontal = 0
-item_count = 3
-popup/item_0/text = "M"
-popup/item_0/id = 0
-popup/item_1/text = "F"
-popup/item_1/id = 1
-popup/item_2/text = "NB"
-popup/item_2/id = 2
+editable = false
 
 [node name="LAltura" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -156,6 +154,7 @@ text = "Altura"
 layout_mode = 2
 size_flags_horizontal = 0
 step = 0.01
+editable = false
 suffix = "KG"
 
 [node name="LPeso" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
@@ -166,6 +165,7 @@ text = "Peso"
 layout_mode = 2
 size_flags_horizontal = 0
 max_value = 1000.0
+editable = false
 suffix = "KG"
 
 [node name="LLenguajes" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
@@ -176,6 +176,7 @@ text = "Lenguajes Conocidos
 [node name="Lenguajes" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+editable = false
 
 [node name="LVision" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -184,6 +185,7 @@ text = "Vision"
 [node name="Vision" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+editable = false
 
 [node name="LPersonalidad" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -193,6 +195,7 @@ text = "Personalidad"
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 placeholder_text = "Personalidad"
+editable = false
 
 [node name="LDescripcion" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
 layout_mode = 2
@@ -202,17 +205,18 @@ text = "Descripcion"
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 placeholder_text = "Descripcion"
+editable = false
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contenedorInputs", "opcionesClase", "opcionesRaza")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
-script = ExtResource("4_7hiec")
+script = ExtResource("3_v0h64")
 contenedorInputs = NodePath("../Datos")
 opcionesClase = NodePath("../Datos/Clase/BotonOpcion")
 opcionesRaza = NodePath("../Datos/Raza/BotonOpcion")
-rutaVolver = "res://Escenas/MenuPrincipal/menu_principal.tscn"
+rutaVolver = "res://Escenas/MenuPersonaje/MenuPersonaje.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 
 [node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
@@ -222,6 +226,7 @@ size_flags_horizontal = 2
 text = "Volver"
 
 [node name="Siguiente" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+visible = false
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Siguiente"

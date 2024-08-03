@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c30s5xy0rekaa"]
+[gd_scene load_steps=13 format=3 uid="uid://c30s5xy0rekaa"]
 
 [ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_rins1"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/PoderesPersonaje/MenuPrincipalPoderesPersonaje.gd" id="2_185c5"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="2_s8ayg"]
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="3_38e2l"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/PoderesPersonaje/BotonesVolverSiguiente.gd" id="5_t83p0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -37,7 +38,31 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.447059, 0.447059, 0.447059, 1)
 
-[node name="MenuPrincipal" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roj50"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.603922, 0.00392157, 0.945098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou8g4"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.545098, 0.427451, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnejo"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.156863, 0.678431, 1)
+
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contPVoluntad", "contPEncuentro", "contPDiarios", "contPUtilidad", "contDotes", "contRasgosClase")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,6 +74,12 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_rins1")
 script = ExtResource("2_185c5")
+contPVoluntad = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PVoluntad/Voluntad")
+contPEncuentro = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro/Encuentro")
+contPDiarios = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario/Diario")
+contPUtilidad = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad/Utilidad")
+contDotes = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes/Dotes")
+contRasgosClase = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase/Rasgos")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -144,7 +175,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1i4y")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro"]
+[node name="Encuentro" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro"]
 layout_mode = 2
 
 [node name="PDiario" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes"]
@@ -152,15 +183,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1a6fy")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario"]
+[node name="Diario" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario"]
 layout_mode = 2
 
 [node name="Titulos de D_R" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 130
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Pod. de Utilidad"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Dotes"
@@ -183,20 +220,28 @@ layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
+[node name="PoderesDeUtilidad" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos"]
+custom_minimum_size = Vector2(223, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_roj50")
+
+[node name="Utilidad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad"]
+layout_mode = 2
+
 [node name="Dotes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos"]
 custom_minimum_size = Vector2(223, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_id5am")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ou8g4")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes"]
+[node name="Dotes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes"]
 layout_mode = 2
 
 [node name="RasgosClase" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos"]
 custom_minimum_size = Vector2(223, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_n1i4y")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnejo")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase"]
+[node name="Rasgos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase"]
 layout_mode = 2
 
 [node name="Crear" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -209,6 +254,9 @@ text = "Crear Poder/Dote/Rasgo de Clase"
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
+script = ExtResource("5_t83p0")
+rutaVolver = "res://Escenas/CrearPersonaje/HabilidadesPersonaje.tscn"
+rutaSiguiente = "res://Escenas/MenuPersonaje/MenuPersonaje.tscn"
 
 [node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
 layout_mode = 2
@@ -223,3 +271,5 @@ theme_override_font_sizes/font_size = 30
 text = "Siguiente"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Crear" to="." method="_on_crear_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="MarginContainer/VBoxContainer/Botones" method="_on_volver_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Siguiente" to="MarginContainer/VBoxContainer/Botones" method="_on_siguiente_pressed"]

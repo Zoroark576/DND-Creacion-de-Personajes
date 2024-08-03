@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name opcionRazaClase
 
 @export var tipoOpcion : String
 @export var botonOpcion : OptionButton
@@ -30,6 +31,11 @@ func claseSeleccionada():
 		clase.iterarClases(indice)
 		botonOpcion.add_item(clase.nombre)
 	botonOpcion.select(0)
+
+func seleccionarOpcion(nombre):
+	for index in botonOpcion.item_count:
+		if botonOpcion.get_item_text(index) == nombre:
+			botonOpcion.select(index)
 
 func _on_boton_mas_pressed():
 	pass # Replace with function body.
