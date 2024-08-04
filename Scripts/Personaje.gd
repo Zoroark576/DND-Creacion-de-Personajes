@@ -1,7 +1,7 @@
 extends Control
 
 #Lore
-var nombre : String
+var nombre : String = ""
 var nombreRaza : String
 var nombreClase : String
 var lore : Dictionary
@@ -26,13 +26,14 @@ var rasgosDeClase : Dictionary
 var notas : Dictionary
 var familiar : Dictionary
 #Batalla
-var vidaTemp : int
-var urgTemp : int
+var vidaTemp : int = -1000
+var urgTemp : int = -1000
 ##Defensas Temporales
 var defensasTemporales : Dictionary
-var condicionesYEfectos : String
+var condicionesYEfectos : String = ""
 var deathSaves : int = 0
-var seUsoDeathSave : String = "No"
-var resistencias : String
-var actionPoints : int = 0
+var deathSaveMod = 0
+var seUso2ndoViento : String = "No"
+var resistencias : String = ""
+var actionPoints : int = 1
 var inspiracion : int = 0

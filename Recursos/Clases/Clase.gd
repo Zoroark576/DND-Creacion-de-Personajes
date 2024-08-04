@@ -10,7 +10,7 @@ var nombre : String
 var vidaInicial : Dictionary
 var defensas : Dictionary
 var vidaXNivel : int
-var valorEsfuerzoCurativo : Dictionary
+var numEsfuerzosCurativos : Dictionary
 var numHabEntrenadas : int
 var habilidadesEntrenadas 
 var habilidadesObligatorias = []
@@ -27,7 +27,7 @@ func _aplicarClase():
 	vidaInicial = _dividirString(claseSeleccionada["Vida Inicial"])
 	defensas = _dividirString(claseSeleccionada["Defensa"])
 	vidaXNivel = claseSeleccionada["Vida x Nivel"]
-	valorEsfuerzoCurativo = _dividirString(claseSeleccionada["Esfuerzos Curativos"])
+	numEsfuerzosCurativos = _dividirString(claseSeleccionada["Esfuerzos Curativos"])
 	numHabEntrenadas = claseSeleccionada["Num Hab. Entrenadas"]
 	_obtenerHabilidadesEntrenadas()
 	_obtenerRasgos()

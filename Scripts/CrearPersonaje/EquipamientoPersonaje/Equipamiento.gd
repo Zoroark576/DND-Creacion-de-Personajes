@@ -7,6 +7,8 @@ var recursoEscudos : Escudo = preload("res://Recursos/Escudos/Escudo.tres")
 @export var nMano1 : OptionButton
 @export var nMano2 : OptionButton
 
+@export var nNombreEstadMano2 : Label
+@export var nContEstadMano2 : VBoxContainer
 
 func _ready():
 	nArmaduras.add_item("Ninguno")

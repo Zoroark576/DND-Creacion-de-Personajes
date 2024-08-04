@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf0du1c0bb0fr"]
+
+[ext_resource type="PackedScene" uid="uid://2etnxtwgfnv2" path="res://Escenas/CrearPersonaje/HabilidadesPersonaje.tscn" id="1_wmcun"]
+
+[node name="MenuPrincipal" instance=ExtResource("1_wmcun")]
+
+[node name="Titulo" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo" index="0"]
+text = "Habilidades"
+
+[node name="Advertencia" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+visible = false
+
+[node name="Botones" parent="MarginContainer/VBoxContainer" index="3"]
+rutaSiguiente = "res://Escenas/MenuPersonaje/BatallaPersonaje.tscn"
+
+[node name="Volver" parent="MarginContainer/VBoxContainer/Botones" index="0"]
+visible = false
+custom_minimum_size = Vector2(150, 80)
+
+[node name="Siguiente" parent="MarginContainer/VBoxContainer/Botones" index="1"]
+custom_minimum_size = Vector2(150, 80)
+text = "Volver"
+
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad2"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad3"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad4"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad5"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad6"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad7"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad8"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad9"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad10"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad11"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad12"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad13"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad14"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad15"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad16"]
+[editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad17"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/ClaseArm"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortaleza"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Reflejos"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Voluntad"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Percepcion"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Perspicacia"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Velocidad"]
+[editable path="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer/Iniciativa"]

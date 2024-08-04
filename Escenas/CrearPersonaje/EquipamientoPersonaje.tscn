@@ -56,7 +56,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 34
 
 [node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -194,11 +194,17 @@ custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 placeholder_text = "Armas, Ropa, etc."
 
-[node name="EstadisticasEquipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="EstadisticasEquipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contArmadura", "contMano1", "contMano2", "opcionArmadura", "opcionMano1", "opcionMano2")]
 layout_mode = 2
 theme_override_constants/v_separation = 15
 columns = 2
 script = ExtResource("4_2ddke")
+contArmadura = NodePath("Estadisticas/Valores")
+contMano1 = NodePath("Estadisticas2/Valores")
+contMano2 = NodePath("Estadisticas3/Valores")
+opcionArmadura = NodePath("../Equipamiento/AInput")
+opcionMano1 = NodePath("../Equipamiento/AInput2")
+opcionMano2 = NodePath("../Equipamiento/AInput3")
 
 [node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
 layout_mode = 2
@@ -252,7 +258,7 @@ layout_mode = 2
 [node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas"]
 layout_mode = 2
 
-[node name="Proteccion" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+[node name="Bonificador" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
@@ -273,14 +279,14 @@ theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Velocidad2" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Velocidad3" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
@@ -343,7 +349,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "1 D6"
+text = "Null"
 horizontal_alignment = 1
 
 [node name="Competencia" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
@@ -357,7 +363,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "CaC"
+text = "0"
 horizontal_alignment = 1
 
 [node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
@@ -392,7 +398,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "1 D6"
+text = "Null"
 horizontal_alignment = 1
 
 [node name="Competencia" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
@@ -406,7 +412,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "Dist 10,20"
+text = "0"
 horizontal_alignment = 1
 
 [node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]

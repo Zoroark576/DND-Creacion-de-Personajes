@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwndxm3t5ukvd"]
+[gd_scene load_steps=11 format=3 uid="uid://dwndxm3t5ukvd"]
 
-[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="2_bydj6"]
+[ext_resource type="Script" path="res://Scripts/BatallaPersonaje/VidaYNombre.gd" id="1_2c78i"]
+[ext_resource type="Script" path="res://Scripts/BatallaPersonaje/BatallaPersonajePrincipal.gd" id="1_e4r5v"]
 [ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_jipi5"]
+[ext_resource type="Script" path="res://Scripts/BatallaPersonaje/CambiarEscenas.gd" id="2_nnedm"]
+[ext_resource type="Script" path="res://Scripts/BatallaPersonaje/EstadisticasYMods.gd" id="3_pv7kl"]
+[ext_resource type="Script" path="res://Scripts/BatallaPersonaje/BatallaDatos.gd" id="4_kdmyo"]
+[ext_resource type="Script" path="res://Scripts/BatallaPersonaje/XP Y AP.gd" id="7_lweh1"]
 
 [sub_resource type="Theme" id="Theme_gcger"]
 default_font_size = 20
@@ -9,7 +14,7 @@ BoxContainer/constants/separation = 4
 GridContainer/constants/h_separation = 4
 GridContainer/constants/v_separation = 20
 HBoxContainer/constants/separation = 6
-Label/font_sizes/font_size = 25
+Label/font_sizes/font_size = 18
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
 draw_center = false
@@ -22,23 +27,7 @@ border_color = Color(0.686275, 0.686275, 0.686275, 1)
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_mppcb"]
 color = Color(0.929412, 0, 0.2, 1)
 
-[sub_resource type="Theme" id="Theme_21mry"]
-default_font_size = 25
-BoxContainer/constants/separation = 4
-GridContainer/constants/h_separation = 4
-GridContainer/constants/v_separation = 50
-HBoxContainer/constants/separation = 6
-Label/font_sizes/font_size = 22
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5py60"]
-bg_color = Color(0.0901961, 0.0862745, 0.113725, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0.0588235, 0.313726, 1)
-
-[node name="MenuPersonaje" type="Control"]
+[node name="MenuBatalla" type="Control" node_paths=PackedStringArray("nContVida", "nContDatosBatalla", "nContOtrosDatos")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,6 +38,19 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_gcger")
+script = ExtResource("1_e4r5v")
+nContVida = NodePath("MarginContainer/VBoxContainer/Vida")
+nContDatosBatalla = NodePath("MarginContainer/VBoxContainer/Batalla")
+nContOtrosDatos = NodePath("MarginContainer/VBoxContainer/XP Y AP")
+
+[node name="CambiarEscenas" type="Control" parent="." node_paths=PackedStringArray("contVida", "contDatosBatalla", "contOtrosDatosBatalla")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_nnedm")
+contVida = NodePath("../MarginContainer/VBoxContainer/Vida")
+contDatosBatalla = NodePath("../MarginContainer/VBoxContainer/Batalla")
+contOtrosDatosBatalla = NodePath("../MarginContainer/VBoxContainer/XP Y AP")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -89,23 +91,28 @@ horizontal_alignment = 1
 
 [node name="TVida" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Vida"
-horizontal_alignment = 1
+text = "                      Vida"
 
-[node name="Vida" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Vida" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nNombre", "nVidaAct", "nVidaMax", "nEnsang", "nValEsf", "nNumEsfuerzos", "nMaxNumEsfuerzos")]
 layout_mode = 2
 alignment = 1
+script = ExtResource("1_2c78i")
+nNombre = NodePath("../CabezaTitulo/ContTitulo/Titulo")
+nVidaAct = NodePath("VidaAct")
+nVidaMax = NodePath("VidaMax")
+nEnsang = NodePath("VBoxContainer/Valores/Ensangrentado")
+nValEsf = NodePath("VBoxContainer/Valores/ValUrg")
+nNumEsfuerzos = NodePath("VBoxContainer/Valores/Num Urgidas")
+nMaxNumEsfuerzos = NodePath("VBoxContainer/Valores/NumUrgidasMax")
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida"]
+[node name="VidaAct" type="SpinBox" parent="MarginContainer/VBoxContainer/Vida"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-placeholder_text = "10"
 
 [node name="Division" type="Label" parent="MarginContainer/VBoxContainer/Vida"]
 layout_mode = 2
 text = "/"
 
-[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida"]
+[node name="VidaMax" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
@@ -118,26 +125,27 @@ layout_mode = 2
 [node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer"]
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
+[node name="Ensangrentado" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 placeholder_text = "5"
+editable = false
 
-[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
+[node name="ValUrg" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 placeholder_text = "2"
+editable = false
 
-[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
+[node name="Num Urgidas" type="SpinBox" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-placeholder_text = "10"
+value = 10.0
 
 [node name="Division" type="Label" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
 layout_mode = 2
 text = "/"
 
-[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
+[node name="NumUrgidasMax" type="LineEdit" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Valores"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
@@ -146,19 +154,20 @@ editable = false
 
 [node name="Textos" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Bloodied" type="Label" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Textos"]
 layout_mode = 2
-text = "Ensang."
+text = "Maltrecho"
 
 [node name="Valor Urg_" type="Label" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Textos"]
 layout_mode = 2
-text = "Val. Urg."
+text = "Val. Esf. Cur."
 
 [node name="Valor Urg_2" type="Label" parent="MarginContainer/VBoxContainer/Vida/VBoxContainer/Textos"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Urgidas"
+text = "Num. Esfuerzos Cur."
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
@@ -170,74 +179,78 @@ layout_mode = 2
 text = "Batalla"
 horizontal_alignment = 1
 
-[node name="Batalla" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Batalla" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nCondicionesYEfectos", "nDeathSaves", "nDeathSaveMod", "nSegundoViento", "nResistencias")]
 layout_mode = 2
+script = ExtResource("4_kdmyo")
+nCondicionesYEfectos = NodePath("Def y Cond Cont/TextEdit")
+nDeathSaves = NodePath("Otros/SpinBox")
+nDeathSaveMod = NodePath("Otros/SpinBox2")
+nSegundoViento = NodePath("Otros/SpinBox3")
+nResistencias = NodePath("Otros/SpinBox4")
 
 [node name="Estadisticas" type="PanelContainer" parent="MarginContainer/VBoxContainer/Batalla"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = ExtResource("2_jipi5")
 
-[node name="Estadisticas" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas"]
+[node name="Estadisticas" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas" node_paths=PackedStringArray("contScores", "contMods", "contModsNiveles")]
 layout_mode = 2
+script = ExtResource("3_pv7kl")
+contScores = NodePath("Estadisticas")
+contMods = NodePath("Mod")
+contModsNiveles = NodePath("Mod+Nivel")
 
 [node name="Estadisticas" type="GridContainer" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 2
 
-[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="LSTR" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
 text = "STR"
 
-[node name="SStr" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="STR" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
-rounded = true
 editable = false
 
-[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="LCON" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
 text = "CON"
 
-[node name="SCon" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="CON" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
-rounded = true
 editable = false
 
-[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="LDEX" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
 text = "DEX"
 
-[node name="SDex" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="DEX" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
-rounded = true
 editable = false
 
-[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="LINT" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
 text = "INT"
 
-[node name="SInt" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="INT" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
-rounded = true
 editable = false
 
-[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="LWIS" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
 text = "WIS"
 
-[node name="SWis" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="WIS" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
-rounded = true
 editable = false
 
-[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="LCHA" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
 text = "CHA"
 
-[node name="SCha" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
+[node name="CHA" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Estadisticas"]
 layout_mode = 2
-rounded = true
 editable = false
 
 [node name="Mod" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas"]
@@ -245,37 +258,37 @@ layout_mode = 2
 theme_override_constants/separation = 36
 alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
+[node name="STR" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
+[node name="CON" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
+[node name="DEX" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
+[node name="INT" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit5" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
+[node name="WIS" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit6" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
+[node name="CHA" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
@@ -286,202 +299,43 @@ layout_mode = 2
 theme_override_constants/separation = 36
 alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
+[node name="STR" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
+[node name="CON" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
+[node name="DEX" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
+[node name="INT" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit5" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
+[node name="WIS" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
-[node name="LineEdit6" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
+[node name="CHA" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Estadisticas/Estadisticas/Mod+Nivel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 placeholder_text = "00"
 editable = false
 
 [node name="Def y Cond Cont" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Batalla"]
-layout_mode = 2
-
-[node name="Defensas" type="PanelContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = SubResource("Theme_21mry")
-theme_override_styles/panel = ExtResource("2_jipi5")
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Defensas"
-horizontal_alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-
-[node name="ClaseArm" type="PanelContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_bydj6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_5py60")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/ClaseArm"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/ClaseArm/MarginContainer"]
-layout_mode = 2
-
-[node name="LineEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/ClaseArm/MarginContainer/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/ClaseArm/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "/"
-
-[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/ClaseArm/MarginContainer/HBoxContainer"]
-layout_mode = 2
-placeholder_text = "99"
-alignment = 1
-editable = false
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/ClaseArm/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "AC"
-
-[node name="Fortitud" type="PanelContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_bydj6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_5py60")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Fortitud"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Fortitud/MarginContainer"]
-layout_mode = 2
-
-[node name="LineEdit2" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Fortitud/MarginContainer/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Fortitud/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "/"
-
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Fortitud/MarginContainer/HBoxContainer"]
-layout_mode = 2
-placeholder_text = "99"
-alignment = 1
-editable = false
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Fortitud/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Const."
-
-[node name="Reflejos" type="PanelContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_bydj6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_5py60")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Reflejos"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Reflejos/MarginContainer"]
-layout_mode = 2
-
-[node name="LineEdit2" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Reflejos/MarginContainer/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Reflejos/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "/"
-
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Reflejos/MarginContainer/HBoxContainer"]
-layout_mode = 2
-placeholder_text = "99"
-alignment = 1
-editable = false
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Reflejos/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Ref."
-
-[node name="Voluntad" type="PanelContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-theme = ExtResource("2_bydj6")
-theme_override_styles/panel = SubResource("StyleBoxFlat_5py60")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Voluntad"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Voluntad/MarginContainer"]
-layout_mode = 2
-
-[node name="LineEdit2" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Voluntad/MarginContainer/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Voluntad/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "/"
-
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Voluntad/MarginContainer/HBoxContainer"]
-layout_mode = 2
-placeholder_text = "99"
-alignment = 1
-editable = false
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer/GridContainer/Voluntad/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Vol."
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont/Defensas/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="TCondiciones" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Def y Cond Cont"]
@@ -497,11 +351,12 @@ wrap_mode = 1
 
 [node name="Otros" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Batalla"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="DSText" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Death Sav"
+text = "Death Saves"
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
 layout_mode = 2
@@ -509,7 +364,7 @@ layout_mode = 2
 [node name="DSModText2" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "DS Modific."
+text = "Death Sav. Modificadores"
 
 [node name="SpinBox2" type="SpinBox" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
 layout_mode = 2
@@ -517,7 +372,7 @@ layout_mode = 2
 [node name="SVientoText3" type="Label" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Seg. Viento"
+text = "Segundo Viento Usado"
 
 [node name="SpinBox3" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
 layout_mode = 2
@@ -529,11 +384,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Resistencias"
 
-[node name="SpinBox4" type="LineEdit" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
+[node name="SpinBox4" type="TextEdit" parent="MarginContainer/VBoxContainer/Batalla/Otros"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 placeholder_text = "Sin Res"
+wrap_mode = 1
 
 [node name="ContBotones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -543,62 +399,55 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_vertical = 2
-text = "Habilidades"
+text = "Habilidades, Defensas, etc"
+
+[node name="PoderesYFeats" type="Button" parent="MarginContainer/VBoxContainer/ContBotones"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Poderes y Feats"
 
 [node name="Inventario" type="Button" parent="MarginContainer/VBoxContainer/ContBotones"]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 text = "Inventario"
 
-[node name="Inventario2" type="Button" parent="MarginContainer/VBoxContainer/ContBotones"]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Poderes y Feats"
-
-[node name="XP Y AP" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="XP Y AP" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nNivel", "nAP", "nInspiracion")]
 layout_mode = 2
 columns = 6
+script = ExtResource("7_lweh1")
+nNivel = NodePath("Nivel")
+nAP = NodePath("AP")
+nInspiracion = NodePath("Inspiracion")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
+layout_mode = 2
+text = "Nivel"
+horizontal_alignment = 1
+
+[node name="Nivel" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+editable = false
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
 layout_mode = 2
 text = "Action Points"
 horizontal_alignment = 1
 
-[node name="LineEdit2" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
+[node name="AP" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 value = 1.0
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
-layout_mode = 2
-text = "Iniciativa"
-horizontal_alignment = 1
-
-[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-placeholder_text = "0"
-
-[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
-layout_mode = 2
-text = "Vel."
-horizontal_alignment = 1
-
-[node name="LineEdit5" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-placeholder_text = "0"
 
 [node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/XP Y AP"]
 layout_mode = 2
 text = "Inspiracion"
 horizontal_alignment = 1
 
-[node name="LineEdit6" type="LineEdit" parent="MarginContainer/VBoxContainer/XP Y AP"]
+[node name="Inspiracion" type="SpinBox" parent="MarginContainer/VBoxContainer/XP Y AP"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-placeholder_text = "0"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -612,9 +461,15 @@ custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
-text = "Volver"
+text = "Volver Y Guardar"
 
 [node name="RValores" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 8
 text = "Reiniciar Valores"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContBotones/Habilidades" to="CambiarEscenas" method="_on_habilidades_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContBotones/PoderesYFeats" to="CambiarEscenas" method="_on_poderes_y_feats_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContBotones/Inventario" to="CambiarEscenas" method="_on_inventario_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/RValores" to="." method="_on_r_valores_pressed"]
