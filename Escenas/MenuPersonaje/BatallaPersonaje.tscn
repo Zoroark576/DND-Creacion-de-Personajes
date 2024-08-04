@@ -472,4 +472,5 @@ text = "Reiniciar Valores"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ContBotones/Habilidades" to="CambiarEscenas" method="_on_habilidades_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ContBotones/PoderesYFeats" to="CambiarEscenas" method="_on_poderes_y_feats_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ContBotones/Inventario" to="CambiarEscenas" method="_on_inventario_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="CambiarEscenas" method="_on_volver_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/RValores" to="." method="_on_r_valores_pressed"]

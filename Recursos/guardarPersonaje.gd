@@ -1,0 +1,45 @@
+extends Resource
+class_name guardarPersonaje
+
+
+func guardarPersonaje():
+	var archivoConfig = ConfigFile.new()
+	var nombre = Personaje.nombre+"," + "Nv. " + str(Personaje.nivel) + ","+Personaje.nombreClase+","+Personaje.nombreRaza+","+str(Personaje.id)
+	archivoConfig.set_value(nombre,"Nombre",Personaje.nombre)
+	archivoConfig.set_value(nombre,"ID",Personaje.id)
+	archivoConfig.set_value(nombre,"Clase",Personaje.nombreClase)
+	archivoConfig.set_value(nombre,"Raza",Personaje.nombreRaza)
+	archivoConfig.set_value(nombre,"Lore",Personaje.lore)
+	archivoConfig.set_value(nombre,"Estadisticas",Personaje.estadisticas)
+	archivoConfig.set_value(nombre,"Experiencia",Personaje.experiencia)
+	archivoConfig.set_value(nombre,"Nivel",Personaje.nivel)
+	archivoConfig.set_value(nombre,"Habilidades Entrenadas",Personaje.habilidadesEntrenadas)
+	archivoConfig.set_value(nombre,"Bonus Velocidad",Personaje.bonusVelocidad)
+	archivoConfig.set_value(nombre,"Inventario",Personaje.inventario)
+	archivoConfig.set_value(nombre,"Oro",Personaje.oro)
+	archivoConfig.set_value(nombre,"Armadura",Personaje.armadura)
+	archivoConfig.set_value(nombre,"Armadura Proficiente",Personaje.armaduraProficiente)
+	archivoConfig.set_value(nombre,"Primera Mano",Personaje.primeraMano)
+	archivoConfig.set_value(nombre,"Primera Mano Proficiente",Personaje.primeraManoProficiente)
+	archivoConfig.set_value(nombre,"Segunda Mano",Personaje.segundaMano)
+	archivoConfig.set_value(nombre,"Segunda Mano Proficiente",Personaje.segundaManoProficiente)
+	archivoConfig.set_value(nombre,"Poderes",Personaje.poderes)
+	archivoConfig.set_value(nombre,"Dotes",Personaje.dotes)
+	archivoConfig.set_value(nombre,"Rasgos De Clase",Personaje.rasgosDeClase)
+	archivoConfig.set_value(nombre,"Notas",Personaje.notas)
+	archivoConfig.set_value(nombre,"Familiar",Personaje.familiar)
+	archivoConfig.set_value(nombre,"Vida Temporal",Personaje.vidaTemp)
+	archivoConfig.set_value(nombre,"Urgida Temporal",Personaje.urgTemp)
+	archivoConfig.set_value(nombre,"Defensas Temporales",Personaje.defensasTemporales)
+	archivoConfig.set_value(nombre,"Condiciones y Efectos",Personaje.condicionesYEfectos)
+	archivoConfig.set_value(nombre,"Death Saves",Personaje.deathSaves)
+	archivoConfig.set_value(nombre,"Death Save Mod",Personaje.deathSaveMod)
+	archivoConfig.set_value(nombre,"Se Uso 2ndo Viento",Personaje.seUso2ndoViento)
+	archivoConfig.set_value(nombre,"Resistencias",Personaje.resistencias)
+	archivoConfig.set_value(nombre,"Action Points",Personaje.actionPoints)
+	archivoConfig.set_value(nombre,"Inspiracion",Personaje.inspiracion)
+	
+	var error := archivoConfig.save("user://" + nombre +".ini")
+	if error:
+		print("An error happened while saving data: ", error)
+

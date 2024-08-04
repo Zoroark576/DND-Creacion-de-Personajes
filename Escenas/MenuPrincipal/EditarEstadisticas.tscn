@@ -1,0 +1,372 @@
+[gd_scene load_steps=9 format=3 uid="uid://d6jmefox3d1y"]
+
+[ext_resource type="StyleBox" uid="uid://cohqjr851bmxo" path="res://Tema/StyleBoxMenu.tres" id="2_3c6bp"]
+[ext_resource type="Script" path="res://Scripts/MenuPersonaje/EditarEstadisticas.gd" id="2_e8i37"]
+[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="5_wsqa3"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/ModNivel.gd" id="7_pkaxn"]
+[ext_resource type="PackedScene" uid="uid://bbl3lr3dapjkg" path="res://Escenas/botonesVolverSiguiente.tscn" id="9_p2rb1"]
+[ext_resource type="Script" path="res://Scripts/CrearPersonaje/EstadisticasPersonaje/botonesVolverSiguiente.gd" id="10_e2ivn"]
+
+[sub_resource type="Theme" id="Theme_iud10"]
+default_font_size = 28
+BoxContainer/constants/separation = 4
+GridContainer/constants/h_separation = 4
+GridContainer/constants/v_separation = 50
+HBoxContainer/constants/separation = 6
+Label/font_sizes/font_size = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.686275, 0.686275, 0.686275, 1)
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_iud10")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -642.0
+offset_right = 362.0
+offset_bottom = 640.0
+color = Color(0, 0.00392157, 0.0509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -358.0
+offset_top = -639.0
+offset_right = 371.0
+offset_bottom = 638.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 47
+
+[node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scc2i")
+
+[node name="ContTitulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CabezaTitulo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
+layout_mode = 2
+text = "Editar Estadisticas"
+horizontal_alignment = 1
+
+[node name="Estadisticas" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contVariables", "contVariablesAnteriores")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_3c6bp")
+script = ExtResource("2_e8i37")
+contVariables = NodePath("CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer")
+contVariablesAnteriores = NodePath("CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer2")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/Estadisticas"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Estadisticas "
+
+[node name="Stats Base" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="LSTR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "STR"
+
+[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+min_value = 3.0
+max_value = 18.0
+value = 18.0
+
+[node name="LCON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "CON"
+
+[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+min_value = 3.0
+max_value = 18.0
+value = 17.0
+
+[node name="LDEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "DEX"
+
+[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+min_value = 3.0
+max_value = 18.0
+value = 16.0
+
+[node name="LINT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "INT"
+
+[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+min_value = 3.0
+max_value = 18.0
+value = 14.0
+
+[node name="LWIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "WIS"
+
+[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+min_value = 3.0
+max_value = 18.0
+value = 13.0
+
+[node name="LCHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "CHA"
+
+[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Stats Base/HBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+min_value = 3.0
+max_value = 18.0
+value = 12.0
+
+[node name="Mas" type="CenterContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Mas"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="BonusRaciales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales"]
+layout_mode = 2
+text = "Bonus Raciales
+"
+
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("5_wsqa3")
+theme_override_constants/separation = 58
+alignment = 1
+
+[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/BonusRaciales/GridContainer"]
+layout_mode = 2
+max_value = 18.0
+editable = false
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="Igual" type="CenterContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/Igual"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "=
+"
+
+[node name="StatsFinales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales"]
+visible = false
+layout_mode = 2
+text = "Estadisticas Finales
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales"]
+layout_mode = 2
+
+[node name="GridContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 33
+
+[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer2"]
+layout_mode = 2
+editable = false
+
+[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer2"]
+layout_mode = 2
+editable = false
+
+[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer2"]
+layout_mode = 2
+editable = false
+
+[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer2"]
+layout_mode = 2
+editable = false
+
+[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer2"]
+layout_mode = 2
+editable = false
+
+[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer2"]
+layout_mode = 2
+editable = false
+
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 33
+
+[node name="STR" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="CON" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="DEX" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="INT" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="WIS" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="CHA" type="SpinBox" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Mod" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer" node_paths=PackedStringArray("contValoresFinales")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 52
+alignment = 1
+script = ExtResource("7_pkaxn")
+contValoresFinales = NodePath("../GridContainer")
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit5" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="LineEdit6" type="LineEdit" parent="MarginContainer/VBoxContainer/Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/Mod"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "00"
+editable = false
+
+[node name="Botones" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contValores") instance=ExtResource("9_p2rb1")]
+layout_mode = 2
+script = ExtResource("10_e2ivn")
+contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer")
+rutaVolver = "res://Escenas/CrearPersonaje/LorPersonaje.tscn"
+rutaSiguiente = "res://Escenas/MenuPersonaje/MenuPersonaje.tscn"
+
+[node name="Volver" parent="MarginContainer/VBoxContainer/Botones" index="0"]
+visible = false
+
+[node name="Siguiente" parent="MarginContainer/VBoxContainer/Botones" index="1"]
+text = "Guardar"
+
+[editable path="MarginContainer/VBoxContainer/Botones"]

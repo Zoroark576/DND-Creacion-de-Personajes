@@ -19,6 +19,8 @@ func asignarPoderes():
 			var poder = Personaje.poderes.get(nombrePoder)
 			var frecuencia = poder["Frecuencia"]
 			var nuevoBoton = crearBoton(nombrePoder,frecuencia,false)
+			var ruta = get_tree().current_scene.scene_file_path
+			nuevoBoton.rutaVolver = ruta
 			if poder["Tipo"] == "Ataque":
 				match frecuencia:
 					"Voluntad":
@@ -32,8 +34,10 @@ func asignarPoderes():
 
 func asignarDotes():
 	for nombreDote in Personaje.dotes:
+		var ruta = get_tree().current_scene.scene_file_path
 		var dote : Dictionary = Personaje.dotes.get(nombreDote)
 		var nuevoBoton = crearBoton(nombreDote,"Dote",dote["Activo"])
+		nuevoBoton.rutaVolver = ruta
 		contDotes.add_child(nuevoBoton)
 
 
@@ -41,10 +45,16 @@ func asignarRasgosDeClase():
 	for nombreRasgo in Personaje.rasgosDeClase:
 		var rasgo : Dictionary = Personaje.rasgosDeClase.get(nombreRasgo)
 		var nuevoBoton = crearBoton(nombreRasgo,"Rasgo De Clase",rasgo["Activo"])
+		var ruta = get_tree().current_scene.scene_file_path
+		nuevoBoton.rutaVolver = ruta
 		contRasgosClase.add_child(nuevoBoton)
 
 func _on_crear_pressed():
-	get_tree().change_scene_to_packed(menuCrear)
+	var nuevaEscena = menuCrear.instantiate()
+	var ruta = str(get_tree().current_scene.scene_file_path)
+	nuevaEscena.asignarVolver(ruta)
+	get_tree().root.add_child(nuevaEscena)
+	get_tree().root.remove_child(self)
 
 func crearBoton(nombre,frecuencia,doteRasgoActivo : bool):
 	var nuevoBoton : botonPoderRasgo = botonPoder.instantiate()

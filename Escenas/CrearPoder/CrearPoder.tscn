@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contAtributos", "opcionesTipo", "checkAfectaDote", "efectosDote", "efectosDote2", "nEsPermanente")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contAtributos", "opcionesTipo", "checkAfectaDote", "efectosDote", "efectosDote2", "nEsPermanente", "botonesVolver")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,6 +38,7 @@ checkAfectaDote = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo
 efectosDote = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput")
 efectosDote2 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2")
 nEsPermanente = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox2")
+botonesVolver = NodePath("MarginContainer/VBoxContainer/Botones")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0

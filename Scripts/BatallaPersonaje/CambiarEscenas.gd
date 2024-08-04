@@ -6,6 +6,7 @@ extends Control
 var verHabilidades = preload("res://Escenas/VerPersonaje/VerHabilidadesYDefensas(Batalla).tscn")
 var verPoderes = preload("res://Escenas/VerPersonaje/VerPoderes(Batalla).tscn")
 var verInventario = preload("res://Escenas/VerPersonaje/VerEquipamiento(Batalla).tscn")
+var menuPrincipal = preload("res://Escenas/MenuPrincipal/menu_principal.tscn")
 
 func _on_habilidades_pressed():
 	guardarValores()
@@ -23,3 +24,7 @@ func guardarValores():
 	contVida.guardarValores()
 	contDatosBatalla.guardarValores()
 	contOtrosDatosBatalla.guardarValores()
+
+func _on_volver_pressed():
+	guardarValores()
+	get_tree().change_scene_to_packed(menuPrincipal)

@@ -341,6 +341,7 @@ placeholder_text = "10"
 text = "Mod DEX"
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contBotonesHabilidad", "bonusVelocidad")]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1

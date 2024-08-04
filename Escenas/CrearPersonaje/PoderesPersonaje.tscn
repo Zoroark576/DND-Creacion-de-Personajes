@@ -251,6 +251,7 @@ size_flags_horizontal = 0
 text = "Crear Poder/Dote/Rasgo de Clase"
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1

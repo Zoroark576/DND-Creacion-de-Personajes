@@ -41,10 +41,10 @@ func guardarPoder():
 @export var nOpcionEstad2 : OptionButton
 @export var nValorEstad2 : SpinBox
 func guardarDoteRasgo(tipo):
+	diccionario["Permanente"] = nCheckPermanente.button_pressed
+	var estaActivo = nCheckPermanente.button_pressed
+	diccionario["Activo"] = estaActivo
 	if nCheckEfecto.button_pressed:
-		diccionario["Permanente"] = nCheckPermanente.button_pressed
-		var estaActivo = nCheckPermanente.button_pressed
-		diccionario["Activo"] = estaActivo
 		diccionario[nOpcionEstad.get_item_text(nOpcionEstad.get_selected_id())] = nValorEstad.value
 		diccionario[nOpcionEstad2.get_item_text(nOpcionEstad2.get_selected_id())] = nValorEstad2.value
 	if tipo == "Dote":

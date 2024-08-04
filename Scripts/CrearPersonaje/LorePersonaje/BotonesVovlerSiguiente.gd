@@ -8,7 +8,9 @@ func _on_siguiente_pressed():
 	super()
 	for input in contenedorInputs.get_children():
 		var valor
-		if input is LineEdit or input is TextEdit:
+		if input.name == "Nombre":
+			Personaje.nombre = input.text
+		elif input is LineEdit or input is TextEdit:
 			valor = input.text
 			Personaje.lore[input.name] = valor
 		elif input is SpinBox:
@@ -17,6 +19,9 @@ func _on_siguiente_pressed():
 		elif input is OptionButton:
 			valor = input.get_item_text(input.get_selected_id())
 			Personaje.lore[input.name] = valor
-		
+	var random = RandomNumberGenerator.new()
+	var id = random.randi_range(100,999)
+	if Personaje.id == 0:
+		Personaje.id = id
 	Personaje.nombreClase = opcionesClase.get_item_text(opcionesClase.get_selected_id())
 	Personaje.nombreRaza = opcionesRaza.get_item_text(opcionesRaza.get_selected_id())

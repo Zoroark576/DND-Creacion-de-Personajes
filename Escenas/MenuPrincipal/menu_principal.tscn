@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1comixqflbsm"]
+[gd_scene load_steps=6 format=3 uid="uid://1comixqflbsm"]
 
 [ext_resource type="Texture2D" uid="uid://cr5r12lliprxv" path="res://Iconos/Logo.png" id="1_6vouq"]
+[ext_resource type="Theme" uid="uid://dir05eos2th8d" path="res://Tema/Tema Base.tres" id="1_7ymoi"]
 [ext_resource type="Script" path="res://Scripts/MenuPrincipal/menu_principal.gd" id="1_gbq1l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
@@ -29,6 +30,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_7ymoi")
 script = ExtResource("1_gbq1l")
 
 [node name="BG" type="ColorRect" parent="."]
@@ -99,7 +101,7 @@ text = "Crear Personaje"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 6
-text = "Ver: 0.0.1"
+text = "Ver: 0.9.0"
 horizontal_alignment = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CrearPersonaje" to="." method="_on_crear_personaje_pressed"]

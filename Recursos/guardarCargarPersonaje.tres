@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="guardarPersonaje" load_steps=2 format=3 uid="uid://crmcsglfusgqp"]
+
+[ext_resource type="Script" path="res://Recursos/guardarPersonaje.gd" id="1_b73kt"]
+
+[resource]
+script = ExtResource("1_b73kt")

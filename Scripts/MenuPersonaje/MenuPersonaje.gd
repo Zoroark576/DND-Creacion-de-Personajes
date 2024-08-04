@@ -5,8 +5,14 @@ var verEquipamiento = preload("res://Escenas/VerPersonaje/VerEquipamiento.tscn")
 var verPoderes = preload("res://Escenas/VerPersonaje/VerPoderes.tscn")
 var menuPersonajes = preload("res://Escenas/MenuPrincipal/menu_principal.tscn")
 var menuBatalla = preload("res://Escenas/MenuPersonaje/BatallaPersonaje.tscn")
+var subirEstadisticas = preload("res://Escenas/MenuPrincipal/EditarEstadisticas.tscn")
 
+var recursoGuardar = preload("res://Recursos/guardarCargarPersonaje.tres")
+
+@export var nNombre : Label
 func _ready():
+	nNombre.text = Personaje.nombre
+	recursoGuardar.guardarPersonaje()
 	asignarDatos()
 
 func _on_b_ver_lore_pressed():
@@ -35,3 +41,6 @@ func _on_button_pressed():
 
 func _on_batalla_pressed():
 	get_tree().change_scene_to_packed(menuBatalla)
+
+func _on_subir_estadisticas_pressed():
+	get_tree().change_scene_to_packed(subirEstadisticas)

@@ -22,6 +22,11 @@ extends "res://Scripts/CrearPersonaje/PoderesPersonaje/CrearPoder.gd"
 
 var poder
 
+
+func asignarVolver(ruta):
+	if ruta != null:
+		botonVolver.rutaVolver = ruta
+
 func _ready():
 	botonVolver.poder = poder
 	nAfectaEstadistica.disabled = true

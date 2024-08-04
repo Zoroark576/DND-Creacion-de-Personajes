@@ -6,6 +6,7 @@ var nombre : String
 var categoria : String
 
 var verPoder = preload("res://Escenas/VerPersonaje/VerPoder.tscn")
+var rutaVolver
 
 func crearBoton(nombreBoton : String,unSoloUso : bool):
 	nombre = nombreBoton
@@ -18,6 +19,7 @@ func _ready():
 func _on_poder_pressed():
 	var nuevaEscena = verPoder.instantiate()
 	nuevaEscena.mirarPoder(nombre,obtenerCategoria().get(nombre))
+	nuevaEscena.asignarVolver(rutaVolver)
 	get_tree().root.add_child(nuevaEscena)
 	get_tree().root.remove_child(self)
 

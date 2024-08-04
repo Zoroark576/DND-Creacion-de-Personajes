@@ -7,6 +7,12 @@ extends Control
 @export var efectosDote2 : HBoxContainer
 @export var nEsPermanente : CheckBox
 
+@export var botonesVolver : HBoxContainer
+
+func asignarVolver(ruta):
+	botonesVolver.rutaVolver = ruta
+	botonesVolver.rutaSiguiente = ruta
+
 func _on_option_button_2_item_selected(index):
 	for atributo in contAtributos.get_children():
 		var nombre = atributo.name

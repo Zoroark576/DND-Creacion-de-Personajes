@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bogrotirh5jqu"]
+[gd_scene load_steps=10 format=3 uid="uid://bogrotirh5jqu"]
 
 [ext_resource type="Script" path="res://Scripts/MenuPersonaje/MenuPersonaje.gd" id="1_05xx8"]
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_lqapc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bjq5lv5ucphu" path="res://Iconos/158107.png" id="3_krmvk"]
 [ext_resource type="Texture2D" uid="uid://cj8vj8oxyf64e" path="res://Iconos/6134688.png" id="4_ebyyf"]
 [ext_resource type="Texture2D" uid="uid://byxvlh8rpy70" path="res://Iconos/13421-200.png" id="5_jriwc"]
+[ext_resource type="Texture2D" uid="uid://r6jv8nhr345l" path="res://Iconos/25637.png" id="5_sjn3q"]
 
 [sub_resource type="Theme" id="Theme_gcger"]
 default_font_size = 25
@@ -23,7 +24,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPersonaje" type="Control" node_paths=PackedStringArray("nXP", "nNivel", "nAP")]
+[node name="MenuPersonaje" type="Control" node_paths=PackedStringArray("nNombre", "nXP", "nNivel", "nAP")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,6 +36,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_gcger")
 script = ExtResource("1_05xx8")
+nNombre = NodePath("MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo/Titulo")
 nXP = NodePath("MarginContainer/VBoxContainer/XP Y AP/SXP")
 nNivel = NodePath("MarginContainer/VBoxContainer/XP Y AP/SNivel")
 nAP = NodePath("MarginContainer/VBoxContainer/XP Y AP/SAP")
@@ -97,7 +99,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "..."
+text = "Ver Lore..."
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -187,6 +189,14 @@ text = "Batalla"
 icon = ExtResource("3_krmvk")
 icon_alignment = 1
 
+[node name="Subir Estadisticas" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "Subir 
+Estad."
+icon = ExtResource("5_sjn3q")
+icon_alignment = 1
+
 [node name="Contadores" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
 visible = false
 custom_minimum_size = Vector2(128, 128)
@@ -218,4 +228,5 @@ text = "Volver"
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SNivel" to="GuardarValores" method="_on_s_nivel_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SAP" to="GuardarValores" method="_on_sap_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Batalla" to="." method="_on_batalla_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Subir Estadisticas" to="." method="_on_subir_estadisticas_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
