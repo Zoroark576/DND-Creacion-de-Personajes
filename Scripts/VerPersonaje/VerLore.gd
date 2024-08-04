@@ -1,17 +1,20 @@
 extends Control
 
 @export var contDatos : GridContainer
+@export var nNombre : LineEdit
 
 func _ready():
 	for dato in contDatos.get_children():
-		if dato is LineEdit:
+		if dato.name == "Nombre":
+			nNombre.text = Personaje.nombre
+		elif dato is LineEdit:
 			dato.text = Personaje.lore[dato.name]
-		if dato is opcionRazaClase:
+		elif dato is opcionRazaClase:
 			if dato.name == "Raza":
 				dato.seleccionarOpcion(Personaje.nombreRaza)
 			elif dato.name == "Clase":
 				dato.seleccionarOpcion(Personaje.nombreClase)
-		if dato is SpinBox:
+		elif dato is SpinBox:
 			dato.value = Personaje.lore[dato.name]
-		if dato is TextEdit:
+		elif dato is TextEdit:
 			dato.text = Personaje.lore[dato.name]

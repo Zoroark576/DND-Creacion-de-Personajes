@@ -6,7 +6,7 @@ extends Control
 var verHabilidades = preload("res://Escenas/VerPersonaje/VerHabilidadesYDefensas(Batalla).tscn")
 var verPoderes = preload("res://Escenas/VerPersonaje/VerPoderes(Batalla).tscn")
 var verInventario = preload("res://Escenas/VerPersonaje/VerEquipamiento(Batalla).tscn")
-var menuPrincipal = preload("res://Escenas/MenuPrincipal/menu_principal.tscn")
+var menuPrincipal = preload("res://Escenas/MenuPersonaje/MenuPersonaje.tscn")
 
 func _on_habilidades_pressed():
 	guardarValores()

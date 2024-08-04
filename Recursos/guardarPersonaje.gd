@@ -1,10 +1,10 @@
 extends Resource
 class_name guardarPersonaje
-
+var archivos = []
 
 func guardarPersonaje():
 	var archivoConfig = ConfigFile.new()
-	var nombre = Personaje.nombre+"," + "Nv. " + str(Personaje.nivel) + ","+Personaje.nombreClase+","+Personaje.nombreRaza+","+str(Personaje.id)
+	var nombre = Personaje.nombre + ","+Personaje.nombreClase+","+Personaje.nombreRaza+","+str(Personaje.id)
 	archivoConfig.set_value(nombre,"Nombre",Personaje.nombre)
 	archivoConfig.set_value(nombre,"ID",Personaje.id)
 	archivoConfig.set_value(nombre,"Clase",Personaje.nombreClase)
@@ -43,3 +43,53 @@ func guardarPersonaje():
 	if error:
 		print("An error happened while saving data: ", error)
 
+func cargarPersonaje(rutaArchivo : String):
+	var nombre = rutaArchivo.trim_suffix(".ini")
+	var archivoConfig = ConfigFile.new()
+	var error = archivoConfig.load("user://"+ rutaArchivo)
+	if error != OK:
+		print(error)
+		return error
+	Personaje.nombre = archivoConfig.get_value(nombre,"Nombre")
+	Personaje.id = archivoConfig.get_value(nombre,"ID")
+	Personaje.nombreClase = archivoConfig.get_value(nombre,"Clase")
+	Personaje.nombreRaza = archivoConfig.get_value(nombre,"Raza")
+	Personaje.lore = archivoConfig.get_value(nombre,"Lore")
+	Personaje.estadisticas = archivoConfig.get_value(nombre,"Estadisticas")
+	Personaje.experiencia = archivoConfig.get_value(nombre,"Experiencia")
+	Personaje.nivel = archivoConfig.get_value(nombre,"Nivel")
+	Personaje.habilidadesEntrenadas = archivoConfig.get_value(nombre,"Habilidades Entrenadas")
+	Personaje.bonusVelocidad = archivoConfig.get_value(nombre,"Bonus Velocidad")
+	Personaje.inventario = archivoConfig.get_value(nombre,"Inventario")
+	Personaje.oro = archivoConfig.get_value(nombre,"Oro")
+	Personaje.armadura = archivoConfig.get_value(nombre,"Armadura")
+	Personaje.armaduraProficiente = archivoConfig.get_value(nombre,"Armadura Proficiente")
+	Personaje.primeraMano = archivoConfig.get_value(nombre,"Primera Mano")
+	Personaje.primeraManoProficiente = archivoConfig.get_value(nombre,"Primera Mano Proficiente")
+	Personaje.segundaMano = archivoConfig.get_value(nombre,"Segunda Mano")
+	Personaje.segundaManoProficiente = archivoConfig.get_value(nombre,"Segunda Mano Proficiente")
+	Personaje.poderes = archivoConfig.get_value(nombre,"Poderes")
+	Personaje.dotes = archivoConfig.get_value(nombre,"Dotes")
+	Personaje.rasgosDeClase = archivoConfig.get_value(nombre,"Rasgos De Clase")
+	Personaje.notas = archivoConfig.get_value(nombre,"Notas")
+	Personaje.familiar = archivoConfig.get_value(nombre,"Familiar")
+	Personaje.vidaTemp = archivoConfig.get_value(nombre,"Vida Temporal")
+	Personaje.urgTemp = archivoConfig.get_value(nombre,"Urgida Temporal")
+	Personaje.defensasTemporales = archivoConfig.get_value(nombre,"Defensas Temporales")
+	Personaje.condicionesYEfectos = archivoConfig.get_value(nombre,"Condiciones y Efectos")
+	Personaje.deathSaves = archivoConfig.get_value(nombre,"Death Saves")
+	Personaje.deathSaveMod = archivoConfig.get_value(nombre,"Death Save Mod")
+	Personaje.seUso2ndoViento = archivoConfig.get_value(nombre,"Se Uso 2ndo Viento")
+	Personaje.resistencias = archivoConfig.get_value(nombre,"Resistencias")
+	Personaje.actionPoints = archivoConfig.get_value(nombre,"Action Points")
+	Personaje.inspiracion = archivoConfig.get_value(nombre,"Inspiracion")
+	return "OK"
+
+func cargarListaDePersonajes():
+	var directorio = DirAccess.open("user://")
+	archivos = directorio.get_files()
+	return archivos
+	print(archivos)
+
+func eliminarPersonaje(rutaArchivo : String):
+	DirAccess.remove_absolute("user://"+rutaArchivo)

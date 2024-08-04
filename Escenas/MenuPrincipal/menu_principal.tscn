@@ -20,7 +20,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.788235, 0.788235, 0.788235, 1)
 
-[node name="MenuPrincipal" type="Control"]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("listaPersonajes")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,6 +32,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_7ymoi")
 script = ExtResource("1_gbq1l")
+listaPersonajes = NodePath("MarginContainer/VBoxContainer/ContPersonajes/ScrollPersonajes/Personajes")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -81,12 +82,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_a640d")
 [node name="ScrollPersonajes" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ContPersonajes"]
 custom_minimum_size = Vector2(600, 700)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="Personajes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPersonajes/ScrollPersonajes"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

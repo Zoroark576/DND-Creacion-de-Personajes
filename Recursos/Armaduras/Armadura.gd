@@ -11,7 +11,7 @@ var bonificadorMinimo : int
 var pruebaHabilidad : int
 var velocidad : int
 var precio : int
-var peso : String
+var peso : float
 
 
 
@@ -43,7 +43,7 @@ func valoresDefault():
 	pruebaHabilidad = 0
 	velocidad = 0
 	precio = 0
-	peso = "Ninguno"
+	peso = 0
 
 func iterarArmaduras(indice):
 	if diccionarioArmaduras.is_empty() or diccionarioArmaduras == null:

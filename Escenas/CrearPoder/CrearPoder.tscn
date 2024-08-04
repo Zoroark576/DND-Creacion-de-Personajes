@@ -197,7 +197,6 @@ popup/item_1/text = "Utilidad"
 popup/item_1/id = 1
 
 [node name="Dote o Rasgo De Clase" type="GridContainer" parent="MarginContainer/VBoxContainer/Atributos" node_paths=PackedStringArray("nOpciones1", "nOpciones2")]
-visible = false
 layout_mode = 2
 theme_override_constants/v_separation = 15
 columns = 2

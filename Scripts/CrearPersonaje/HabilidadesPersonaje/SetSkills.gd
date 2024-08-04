@@ -40,6 +40,8 @@ func _ready():
 
 
 func inicializarDatos():
+	recursoRaza._read_json()
+	recursoClase._read_json()
 	recursoRaza.obtenerRaza(Personaje.nombreRaza)
 	recursoClase.obtenerClase(Personaje.nombreClase)
 	bonusHabilidades = recursoRaza.bonificadoresDeHabilidad

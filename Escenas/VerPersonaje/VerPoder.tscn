@@ -46,6 +46,9 @@ editable = false
 [node name="UInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad" index="1"]
 disabled = true
 
+[node name="Dote o Rasgo De Clase" parent="MarginContainer/VBoxContainer/Atributos" index="1"]
+visible = false
+
 [node name="CheckBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="1"]
 disabled = true
 

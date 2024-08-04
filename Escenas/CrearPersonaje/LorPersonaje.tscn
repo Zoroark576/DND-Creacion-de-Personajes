@@ -203,7 +203,7 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 placeholder_text = "Descripcion"
 
-[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contenedorInputs", "opcionesClase", "opcionesRaza")]
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contenedorInputs", "opcionesClase", "opcionesRaza", "error", "nNombre")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 10
@@ -212,6 +212,8 @@ script = ExtResource("4_7hiec")
 contenedorInputs = NodePath("../Datos")
 opcionesClase = NodePath("../Datos/Clase/BotonOpcion")
 opcionesRaza = NodePath("../Datos/Raza/BotonOpcion")
+error = NodePath("../../../AcceptDialog")
+nNombre = NodePath("../Datos/Nombre")
 rutaVolver = "res://Escenas/MenuPrincipal/menu_principal.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 
@@ -225,6 +227,14 @@ text = "Volver"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Siguiente"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = "ERROR"
+initial_position = 1
+size = Vector2i(353, 139)
+dialog_text = "No se introdujo un nombre, 
+favor de introducir uno
+"
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion" to="." method="_on_boton_opcion_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="MarginContainer/VBoxContainer/Botones" method="_on_volver_pressed"]

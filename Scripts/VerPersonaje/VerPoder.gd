@@ -54,7 +54,7 @@ func detallesPoder():
 	nUtilidad.select(seleccionarOpcion(nUtilidad,poder["Tipo"]))
 
 func detallesDoteRasgo():
-	nAfectaEstadistica.button_pressed = poder.has("Permanente")
+	nAfectaEstadistica.button_pressed = poder["Afecta"]
 	nEfectoPermanente.button_pressed = poder["Permanente"]
 	var indexEncontrado = -1
 	for llavePoder in poder.keys():

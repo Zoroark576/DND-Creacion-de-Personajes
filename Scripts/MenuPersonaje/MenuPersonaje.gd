@@ -1,21 +1,21 @@
 extends Control
-var verLore = preload("res://Escenas/VerPersonaje/VerLore.tscn")
-var verHabDefensas = preload("res://Escenas/VerPersonaje/VerHabilidadesYDefensas.tscn")
-var verEquipamiento = preload("res://Escenas/VerPersonaje/VerEquipamiento.tscn")
-var verPoderes = preload("res://Escenas/VerPersonaje/VerPoderes.tscn")
-var menuPersonajes = preload("res://Escenas/MenuPrincipal/menu_principal.tscn")
-var menuBatalla = preload("res://Escenas/MenuPersonaje/BatallaPersonaje.tscn")
-var subirEstadisticas = preload("res://Escenas/MenuPrincipal/EditarEstadisticas.tscn")
+var verLore = load("res://Escenas/VerPersonaje/VerLore.tscn")
+var verHabDefensas = load("res://Escenas/VerPersonaje/VerHabilidadesYDefensas.tscn")
+var verEquipamiento = load("res://Escenas/VerPersonaje/VerEquipamiento.tscn")
+var verPoderes = load("res://Escenas/VerPersonaje/VerPoderes.tscn")
+var menuPersonajes = load("res://Escenas/MenuPrincipal/menu_principal.tscn")
+var menuBatalla = load("res://Escenas/MenuPersonaje/BatallaPersonaje.tscn")
+var subirEstadisticas = load("res://Escenas/MenuPrincipal/EditarEstadisticas.tscn")
 
-var recursoGuardar = preload("res://Recursos/guardarCargarPersonaje.tres")
+var recursoGuardar : guardarPersonaje = load("res://Recursos/guardarCargarPersonaje.tres")
 
 @export var nNombre : Label
 func _ready():
 	nNombre.text = Personaje.nombre
-	recursoGuardar.guardarPersonaje()
 	asignarDatos()
 
 func _on_b_ver_lore_pressed():
+	print("LOre presionado")
 	get_tree().change_scene_to_packed(verLore)
 
 @export var nXP : SpinBox
@@ -37,6 +37,7 @@ func _on_poderes_pressed():
 	get_tree().change_scene_to_packed(verPoderes)
 
 func _on_button_pressed():
+	recursoGuardar.guardarPersonaje()
 	get_tree().change_scene_to_packed(menuPersonajes)
 
 func _on_batalla_pressed():

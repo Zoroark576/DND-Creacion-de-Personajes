@@ -190,7 +190,7 @@ text = "Inventario
 "
 
 [node name="IInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Equipamiento"]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(400, 350)
 layout_mode = 2
 placeholder_text = "Armas, Ropa, etc."
 

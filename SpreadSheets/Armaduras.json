@@ -6,6 +6,51 @@
     "Prueba": 0,
     "Velocidad": 0,
     "Precio": 1,
-    "Peso": "4 Lbs"
+    "Peso": 2
+  },
+  "Armadura de Cuero": {
+    "Tipo de Armadura": "L",
+    "Bonificador": 2,
+    "Bon. Minimo Mejora": 0,
+    "Prueba": 0,
+    "Velocidad": 0,
+    "Precio": 25,
+    "Peso": 7.5
+  },
+  "Armadura de Pîeles": {
+    "Tipo de Armadura": "L",
+    "Bonificador": 3,
+    "Bon. Minimo Mejora": 0,
+    "Prueba": -1,
+    "Velocidad": 0,
+    "Precio": 30,
+    "Peso": 12.5
+  },
+  "Cota de Malla": {
+    "Tipo de Armadura": "P",
+    "Bonificador": 6,
+    "Bon. Minimo Mejora": 0,
+    "Prueba": -1,
+    "Velocidad": -1,
+    "Precio": 40,
+    "Peso": 20
+  },
+  "Cota de Escamas": {
+    "Tipo de Armadura": "P",
+    "Bonificador": 7,
+    "Bon. Minimo Mejora": 0,
+    "Prueba": 0,
+    "Velocidad": -1,
+    "Precio": 45,
+    "Peso": 22.5
+  },
+  "Armadura Completa": {
+    "Tipo de Armadura": "P",
+    "Bonificador": 8,
+    "Bon. Minimo Mejora": 0,
+    "Prueba": -2,
+    "Velocidad": -1,
+    "Precio": 50,
+    "Peso": 25
   }
 }

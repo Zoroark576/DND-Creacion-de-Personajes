@@ -1,5 +1,7 @@
 extends Control
 
+var recursoGuardado = preload("res://Recursos/guardarCargarPersonaje.tres")
+
 #Lore
 var id : int = 0
 var nombre : String = " "
@@ -41,7 +43,7 @@ var inspiracion : int = 0
 
 func resetearValores():
 	id = 0
-	nombre = " "
+	nombre = ""
 	nombreRaza = ""
 	nombreClase = ""
 	lore = {}
@@ -77,3 +79,12 @@ func resetearValores():
 	resistencias = ""
 	actionPoints = 1
 	inspiracion = 0
+
+func _ready():
+	get_tree().auto_accept_quit = false
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		if !nombre.is_empty():
+			recursoGuardado.guardarPersonaje()
+		get_tree().quit()

@@ -44,6 +44,7 @@ func guardarDoteRasgo(tipo):
 	diccionario["Permanente"] = nCheckPermanente.button_pressed
 	var estaActivo = nCheckPermanente.button_pressed
 	diccionario["Activo"] = estaActivo
+	diccionario["Afecta"] = nCheckEfecto.button_pressed
 	if nCheckEfecto.button_pressed:
 		diccionario[nOpcionEstad.get_item_text(nOpcionEstad.get_selected_id())] = nValorEstad.value
 		diccionario[nOpcionEstad2.get_item_text(nOpcionEstad2.get_selected_id())] = nValorEstad2.value

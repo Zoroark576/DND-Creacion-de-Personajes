@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contDatos")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contDatos", "nNombre")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,6 +33,7 @@ size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
 script = ExtResource("2_ibbrv")
 contDatos = NodePath("MarginContainer/VBoxContainer/Datos")
+nNombre = NodePath("MarginContainer/VBoxContainer/Datos/Nombre")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0

@@ -1,26 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg0kkp7fpp05x"]
+[gd_scene load_steps=3 format=3 uid="uid://dg0kkp7fpp05x"]
 
 [ext_resource type="Texture2D" uid="uid://byey8nh5co516" path="res://Iconos/trash-bin-icon-1024x1024-b8uy9bpj.png" id="1_l05so"]
+[ext_resource type="Script" path="res://Scripts/MenuPrincipal/botonPersonaje.gd" id="1_m05i3"]
 
-[node name="BotonPersonaje" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="HBoxContainer" type="HBoxContainer" node_paths=PackedStringArray("nNombre", "confirmacion")]
+custom_minimum_size = Vector2(0, 60)
 offset_right = 467.0
 offset_bottom = 49.0
+size_flags_horizontal = 3
+script = ExtResource("1_m05i3")
+nNombre = NodePath("Personaje")
+confirmacion = NodePath("ConfirmationDialog")
 
-[node name="Personaje" type="Button" parent="HBoxContainer"]
+[node name="Personaje" type="Button" parent="."]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Nombre, Clase, Nv:"
 
-[node name="Borrar" type="Button" parent="HBoxContainer"]
+[node name="Borrar" type="Button" parent="."]
 layout_mode = 2
 icon = ExtResource("1_l05so")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Seguro?"
+initial_position = 1
+size = Vector2i(328, 106)
+ok_button_text = "ELIMINAR"
+dialog_text = "Seguro que desea eliminar el personaje:
+
+"
+cancel_button_text = "Cancelar"
+
+[connection signal="pressed" from="Personaje" to="." method="_on_personaje_pressed"]
+[connection signal="pressed" from="Borrar" to="." method="_on_borrar_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

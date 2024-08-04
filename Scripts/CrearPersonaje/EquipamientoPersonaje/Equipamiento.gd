@@ -53,5 +53,6 @@ func itemDosManos(nombre,index):
 		recursoArmas.obtenerArma(nMano1.get_item_text(nMano1.get_selected_id()))
 		if dosManos == true:
 			nMano2.select(0)
+			nMano2.item_selected.emit(0)
 			dosManos = false
 	
