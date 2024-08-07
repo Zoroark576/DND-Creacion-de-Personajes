@@ -27,6 +27,46 @@ func _on_siguiente_pressed():
 			Personaje.id = id
 		Personaje.nombreClase = opcionesClase.get_item_text(opcionesClase.get_selected_id())
 		Personaje.nombreRaza = opcionesRaza.get_item_text(opcionesRaza.get_selected_id())
+		aplicarDotesYRasgos()
 		super()
 	else:
 		error.visible = true
+
+var recursoClase : Clase = load("res://Recursos/Clases/Clase.tres")
+var recursoRaza : Raza = load("res://Recursos/Razas/Raza.tres")
+func aplicarDotesYRasgos():
+	recursoClase._read_json()
+	recursoRaza._read_json()
+	recursoClase.obtenerClase(Personaje.nombreClase)
+	recursoRaza.obtenerRaza(Personaje.nombreRaza)
+	
+	for dote in recursoRaza.habilidades:
+		var diccionarioDote : Dictionary = {}
+		diccionarioDote["Nombre"] = dote
+		diccionarioDote["Categoria"] = "Dote"
+		diccionarioDote["Frecuencia"] = "Voluntad"
+		diccionarioDote["Descripcion"] = str(recursoRaza.habilidades.get(dote))
+		if diccionarioDote["Descripcion"].contains("#"):
+			diccionarioDote["Permanente"] = false
+		else:
+			diccionarioDote["Permanente"] = true
+		diccionarioDote["Afecta"] = diccionarioDote["Permanente"]
+		diccionarioDote["Activo"] = diccionarioDote["Permanente"]
+		diccionarioDote["Inicial"] = true
+		for bonificador in recursoRaza.otrosBonificadoresDeHabilidad:
+			diccionarioDote[bonificador] = recursoRaza.otrosBonificadoresDeHabilidad.get(bonificador)
+		Personaje.dotes[dote] = diccionarioDote
+	for rasgo in recursoClase.rasgos:
+		var diccionarioRasgo : Dictionary = {}
+		diccionarioRasgo["Nombre"] = rasgo
+		diccionarioRasgo["Categoria"] = "Rasgo De Clase"
+		diccionarioRasgo["Frecuencia"] = "Voluntad"
+		diccionarioRasgo["Descripcion"] = str(recursoClase.rasgos.get(rasgo))
+		if diccionarioRasgo["Descripcion"].contains("#"):
+			diccionarioRasgo["Permanente"] = false
+		else:
+			diccionarioRasgo["Permanente"] = true
+		diccionarioRasgo["Afecta"] = diccionarioRasgo["Permanente"]
+		diccionarioRasgo["Activo"] = diccionarioRasgo["Permanente"]
+		diccionarioRasgo["Inicial"] = true
+		Personaje.rasgosDeClase[rasgo] = diccionarioRasgo

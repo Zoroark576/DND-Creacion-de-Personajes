@@ -37,9 +37,10 @@ func _aplicarClase():
 	competenciasArmas = claseSeleccionada["Comp. Armas y Utensilios"]
 
 func _obtenerRasgos():
+	rasgos.clear()
 	for indice in claseSeleccionada.size():
 		if claseSeleccionada.has("Nombre " + str(indice)) and claseSeleccionada["Nombre " + str(indice)] != "":
-			rasgos[str(indice)] = claseSeleccionada["Rasgo " + str(indice)]
+			rasgos[claseSeleccionada.get("Nombre " + str(indice))] = claseSeleccionada["Rasgo " + str(indice)]
 			#if claseSeleccionada["Rasgo " + str(indice)]
 
 func _obtenerHabilidadesEntrenadas():

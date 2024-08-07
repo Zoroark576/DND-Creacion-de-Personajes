@@ -4,11 +4,11 @@
 
 [node name="MenuPrincipal" instance=ExtResource("1_etmtp")]
 
+[node name="Titulo" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo" index="0"]
+text = "Habilidades"
+
 [node name="Advertencia" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 visible = false
-
-[node name="Botones" parent="MarginContainer/VBoxContainer" index="3"]
-rutaSiguiente = "res://Escenas/MenuPersonaje/MenuPersonaje.tscn"
 
 [node name="Volver" parent="MarginContainer/VBoxContainer/Botones" index="0"]
 visible = false

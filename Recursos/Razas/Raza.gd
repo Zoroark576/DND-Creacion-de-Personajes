@@ -24,9 +24,10 @@ func _aplicarRaza():
 
 func _obtenerHabilidades():
 	otrosBonificadoresDeHabilidad.clear()
+	habilidades.clear()
 	for indice in razaSeleccionada.size():
 		if razaSeleccionada.has("Nombre " + str(indice)) and razaSeleccionada["Nombre " + str(indice)] != "":
-			habilidades[indice] = razaSeleccionada["Habilidad " + str(indice)]
+			habilidades[razaSeleccionada.get("Nombre " + str(indice))] = razaSeleccionada["Habilidad " + str(indice)]
 			if !razaSeleccionada["Habilidad " + str(indice)].contains("#"):
 				var diccTemp = _dividirString(razaSeleccionada["Habilidad " + str(indice)])
 				otrosBonificadoresDeHabilidad.merge(diccTemp)

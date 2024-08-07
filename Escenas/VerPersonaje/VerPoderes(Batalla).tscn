@@ -74,12 +74,12 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_6jraq")
 script = ExtResource("2_5gjer")
-contPVoluntad = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PVoluntad/Voluntad")
-contPEncuentro = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro/Encuentro")
-contPDiarios = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario/Diario")
-contPUtilidad = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad/Utilidad")
-contDotes = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes/Dotes")
-contRasgosClase = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase/Rasgos")
+contPVoluntad = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PVoluntad/ScrollContainer/Voluntad")
+contPEncuentro = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro/ScrollContainer/Encuentro")
+contPDiarios = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario/ScrollContainer/Diario")
+contPUtilidad = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad/ScrollContainer/Utilidad")
+contDotes = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes/ScrollContainer/Dotes")
+contRasgosClase = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase/ScrollContainer/Rasgos")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -167,7 +167,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_id5am")
 
-[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PVoluntad"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PVoluntad"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Voluntad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PVoluntad/ScrollContainer"]
 layout_mode = 2
 
 [node name="PEncuentro" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes"]
@@ -175,7 +179,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1i4y")
 
-[node name="Encuentro" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Encuentro" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PEncuentro/ScrollContainer"]
 layout_mode = 2
 
 [node name="PDiario" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes"]
@@ -183,7 +191,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1a6fy")
 
-[node name="Diario" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Diario" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContPoderes/ContPoderes/PDiario/ScrollContainer"]
 layout_mode = 2
 
 [node name="Titulos de D_R" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
@@ -225,7 +237,11 @@ custom_minimum_size = Vector2(223, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_roj50")
 
-[node name="Utilidad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Utilidad" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad/ScrollContainer"]
 layout_mode = 2
 
 [node name="Dotes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos"]
@@ -233,7 +249,11 @@ custom_minimum_size = Vector2(223, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ou8g4")
 
-[node name="Dotes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Dotes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes/ScrollContainer"]
 layout_mode = 2
 
 [node name="RasgosClase" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos"]
@@ -241,7 +261,11 @@ custom_minimum_size = Vector2(223, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xnejo")
 
-[node name="Rasgos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Rasgos" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase/ScrollContainer"]
 layout_mode = 2
 
 [node name="Crear" type="Button" parent="MarginContainer/VBoxContainer"]

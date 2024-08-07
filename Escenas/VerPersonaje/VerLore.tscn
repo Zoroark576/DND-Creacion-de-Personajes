@@ -69,7 +69,7 @@ alignment = 1
 [node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "DND Creador de Personajes"
+text = "Historia y Personaje"
 horizontal_alignment = 1
 
 [node name="Datos" type="GridContainer" parent="MarginContainer/VBoxContainer"]

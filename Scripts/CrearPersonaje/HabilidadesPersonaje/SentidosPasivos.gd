@@ -26,12 +26,27 @@ func obtenerVelocidad():
 	velocidad += recursoArmadura.velocidad
 	if recursoRaza.otrosBonificadoresDeHabilidad.has("Velocidad"):
 		velocidad += recursoRaza.otrosBonificadoresDeHabilidad.get("Velocidad")
+	velocidad += sumarBonusRasgosDotes("Velocidad")
 	nVelocidad.asignarValor(velocidad)
 
 func obtenerIniciativa():
-	var modIniciativa = floor((Personaje.estadisticas["DEX"] - 10)/2)
+	var dexRasgo = sumarBonusRasgosDotes("DEX")
+	var modIniciativa = floor(((Personaje.estadisticas["DEX"] + dexRasgo) - 10)/2)
 	var iniciativa = modIniciativa
 	iniciativa += floor(Personaje.nivel/2)
 	if recursoRaza.otrosBonificadoresDeHabilidad.has("Iniciativa"):
 		iniciativa += recursoRaza.otrosBonificadoresDeHabilidad.get("Iniciativa")
+	iniciativa += sumarBonusRasgosDotes("Iniciativa")
 	nIniciativa.asignarValor(iniciativa)
+
+func sumarBonusRasgosDotes(nombre):
+	var valorFinal = 0
+	for dote in Personaje.dotes:
+		if Personaje.dotes[dote].has(nombre) and !Personaje.dotes[dote].has("Inicial") and Personaje.dotes[dote]["Activo"] == true:
+			valorFinal += Personaje.dotes[dote].get(nombre)
+	for rasgo in Personaje.rasgosDeClase:
+		if Personaje.rasgosDeClase[rasgo].has(nombre) and !Personaje.rasgosDeClase[rasgo].has("Inicial"):
+			valorFinal += Personaje.rasgosDeClase[rasgo].get(nombre)
+	return valorFinal
+
+

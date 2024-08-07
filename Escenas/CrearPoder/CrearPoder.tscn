@@ -20,7 +20,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contAtributos", "opcionesTipo", "checkAfectaDote", "efectosDote", "efectosDote2", "nEsPermanente", "botonesVolver")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contAtributos", "opcionesTipo", "checkAfectaDote", "efectosDote", "efectosDote2", "nLEsPermanente", "nEsPermanente", "nLEfectos", "nLEfectos2", "botonesVolver")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,7 +37,10 @@ opcionesTipo = NodePath("MarginContainer/VBoxContainer/GridContainer/OpcionesTip
 checkAfectaDote = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox")
 efectosDote = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput")
 efectosDote2 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2")
+nLEsPermanente = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EfectoPermanente")
 nEsPermanente = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox2")
+nLEfectos = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/Efectos")
+nLEfectos2 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/Efectos2")
 botonesVolver = NodePath("MarginContainer/VBoxContainer/Botones")
 
 [node name="BG" type="ColorRect" parent="."]
@@ -127,7 +130,7 @@ layout_mode = 2
 text = "Descripcion"
 
 [node name="DInput" type="TextEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
@@ -151,7 +154,7 @@ layout_mode = 2
 text = "Palabras Clave"
 
 [node name="FInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
@@ -160,6 +163,7 @@ Acción estándar Cuerpo a cuerpo arma
 Objetivo: una criatura
 Ataque: Fuerza contra AC
 "
+wrap_mode = 1
 
 [node name="Impacto" type="GridContainer" parent="MarginContainer/VBoxContainer/Atributos/Poder"]
 layout_mode = 2
@@ -197,6 +201,7 @@ popup/item_1/text = "Utilidad"
 popup/item_1/id = 1
 
 [node name="Dote o Rasgo De Clase" type="GridContainer" parent="MarginContainer/VBoxContainer/Atributos" node_paths=PackedStringArray("nOpciones1", "nOpciones2")]
+visible = false
 layout_mode = 2
 theme_override_constants/v_separation = 15
 columns = 2
@@ -212,25 +217,27 @@ text = "Afecta Alguna Estadistica?"
 layout_mode = 2
 
 [node name="EfectoPermanente" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase"]
+visible = false
 layout_mode = 2
 text = "Es Efecto Permanente?"
 
 [node name="CheckBox2" type="CheckBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase"]
+visible = false
 layout_mode = 2
-disabled = true
 
 [node name="Efectos" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase"]
+visible = false
 layout_mode = 2
 text = "Efectos:"
 
 [node name="EInput" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput"]
 layout_mode = 2
-disabled = true
-item_count = 23
+item_count = 29
 selected = 0
 popup/item_0/text = "STR"
 popup/item_0/id = 0
@@ -278,6 +285,18 @@ popup/item_21/text = "Sanar"
 popup/item_21/id = 21
 popup/item_22/text = "Sigilo"
 popup/item_22/id = 22
+popup/item_23/text = "Fortaleza"
+popup/item_23/id = 23
+popup/item_24/text = "Voluntad"
+popup/item_24/id = 24
+popup/item_25/text = "Reflejos"
+popup/item_25/id = 25
+popup/item_26/text = "Velocidad"
+popup/item_26/id = 26
+popup/item_27/text = "Iniciativa"
+popup/item_27/id = 27
+popup/item_28/text = "HealingSurge"
+popup/item_28/id = 28
 
 [node name="Sumador" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput"]
 layout_mode = 2
@@ -285,19 +304,19 @@ text = "+"
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput"]
 layout_mode = 2
-editable = false
 
 [node name="Efectos2" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase"]
+visible = false
 layout_mode = 2
 
 [node name="EInput2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2"]
 layout_mode = 2
-disabled = true
-item_count = 24
+item_count = 30
 selected = 0
 popup/item_0/text = "Ninguno"
 popup/item_0/id = 0
@@ -347,6 +366,18 @@ popup/item_22/text = "Sanar"
 popup/item_22/id = 22
 popup/item_23/text = "Sigilo"
 popup/item_23/id = 23
+popup/item_24/text = "Fortaleza"
+popup/item_24/id = 24
+popup/item_25/text = "Voluntad"
+popup/item_25/id = 25
+popup/item_26/text = "Reflejos"
+popup/item_26/id = 26
+popup/item_27/text = "Velocidad"
+popup/item_27/id = 27
+popup/item_28/text = "Iniciativa"
+popup/item_28/id = 28
+popup/item_29/text = "HealingSurge"
+popup/item_29/id = 29
 
 [node name="Sumador" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2"]
 layout_mode = 2
@@ -354,7 +385,6 @@ text = "+"
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2"]
 layout_mode = 2
-editable = false
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nNombre", "nTipo", "nFrecuencia", "nDescripcion", "popUp", "nPalabrasClave", "nImpacto", "nTipoPoder", "nCheckPermanente", "nCheckEfecto", "nOpcionEstad", "nValorEstad", "nOpcionEstad2", "nValorEstad2")]
 layout_mode = 2

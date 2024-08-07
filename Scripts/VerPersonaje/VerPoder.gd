@@ -9,6 +9,7 @@ extends "res://Scripts/CrearPersonaje/PoderesPersonaje/CrearPoder.gd"
 @export var nFuncionalidad : TextEdit
 @export var nImpacto : TextEdit
 @export var nUtilidad : OptionButton
+@export var nEstadisticas : VBoxContainer
 @export_subgroup("Dote O Rasgo")
 @export var nAfectaEstadistica : CheckBox
 @export var nEfectoPermanente : CheckBox
@@ -17,6 +18,7 @@ extends "res://Scripts/CrearPersonaje/PoderesPersonaje/CrearPoder.gd"
 @export var nNombreEfecto2 : OptionButton
 @export var nValorEfecto2 : SpinBox
 @export var nEfectoActivo : CheckBox
+@export var nLEfectoActivo : Label
 
 @export var botonVolver : HBoxContainer
 
@@ -45,6 +47,7 @@ func mirarPoder(nombre : String,poderSet : Dictionary):
 	nDescripcion.text = poder["Descripcion"]
 	if nTipo.get_item_text(nTipo.get_selected_id()) == "Poder":
 		detallesPoder()
+		nEstadisticas.visible = true
 	else:
 		detallesDoteRasgo()
 
@@ -55,6 +58,9 @@ func detallesPoder():
 
 func detallesDoteRasgo():
 	nAfectaEstadistica.button_pressed = poder["Afecta"]
+	_on_check_box_toggled(nAfectaEstadistica.button_pressed)
+	nEfectoActivo.visible = nAfectaEstadistica.button_pressed
+	nLEfectoActivo.visible = nAfectaEstadistica.button_pressed
 	nEfectoPermanente.button_pressed = poder["Permanente"]
 	var indexEncontrado = -1
 	for llavePoder in poder.keys():

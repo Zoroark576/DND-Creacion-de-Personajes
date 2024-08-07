@@ -9,9 +9,11 @@ extends HBoxContainer
 var recursoArmadura : Armadura = preload("res://Recursos/Armaduras/Armadura.tres")
 var recursoEscudo : Escudo = preload("res://Recursos/Escudos/Escudo.tres")
 var recursoClase : Clase = preload("res://Recursos/Clases/Clase.tres")
+var recursoRaza : Raza = preload("res://Recursos/Razas/Raza.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	recursoClase.obtenerClase(Personaje.nombreClase)
+	recursoRaza.obtenerRaza(Personaje.nombreRaza)
 	var bonificacionArmadura
 	var bonificacionEscudo 
 	bonificacionArmadura = obtenerBonificadoresArmadura()
@@ -42,40 +44,77 @@ func obtenerBonificadoresEscudo():
 func calcularAC(bonus):
 	var acValor = 10 + floor(Personaje.nivel/2)
 	acValor += bonus
-	var modDex = floor((Personaje.estadisticas["DEX"] - 10)/2)
-	var modCon = floor((Personaje.estadisticas["CON"] - 10)/2)
+	var dexDote = sumasBonusCaracteristicasRasgosDotes("DEX")
+	var conDote = sumasBonusCaracteristicasRasgosDotes("CON")
+	var modDex = floor(((Personaje.estadisticas["DEX"] + dexDote) - 10)/2)
+	var modCon = floor(((Personaje.estadisticas["CON"] + conDote) - 10)/2)
 	if recursoArmadura.tipoArmadura == "L":
 		acValor += compararValores(modDex,modCon)
 	aC.asignarValor(acValor)
 
 func calcularFortaleza():
-	var modFue = floor((Personaje.estadisticas["STR"] - 10)/2)
-	var modCon = floor((Personaje.estadisticas["CON"] - 10)/2)
+	var fueDote = sumasBonusCaracteristicasRasgosDotes("STR")
+	var conDote = sumasBonusCaracteristicasRasgosDotes("CON")
+	var modFue = floor(((Personaje.estadisticas["STR"] + fueDote) - 10)/2)
+	var modCon = floor(((Personaje.estadisticas["CON"] + conDote) - 10)/2)
 	var fortValor = 10 + floor(Personaje.nivel/2)
 	fortValor += (compararValores(modFue,modCon))
 	if recursoClase.defensas.has("Fortaleza"):
 		fortValor += recursoClase.defensas.get("Fortaleza")
+	if recursoRaza.otrosBonificadoresDeHabilidad.has("Fortaleza"):
+		fortValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Fortaleza")
+	fortValor += sumarBonusRasgosDotes("Fortaleza")
 	fortaleza.asignarValor(fortValor)
 
 func calcularReflejos(bonusEscudo):
 	var reflValor = 10 + floor(Personaje.nivel/2)
-	var modDex = floor((Personaje.estadisticas["DEX"] - 10)/2)
-	var modInt = floor((Personaje.estadisticas["INT"] - 10)/2)
+	var dexDote = sumasBonusCaracteristicasRasgosDotes("DEX")
+	var intDote = sumasBonusCaracteristicasRasgosDotes("INT")
+	var modDex = floor(((Personaje.estadisticas["DEX"] + dexDote) - 10)/2)
+	var modInt = floor(((Personaje.estadisticas["INT"] + intDote) - 10)/2)
 	reflValor += bonusEscudo + compararValores(modDex,modInt)
 	if recursoClase.defensas.has("Reflejos"):
 		reflValor += recursoClase.defensas.get("Reflejos")
+	if recursoRaza.otrosBonificadoresDeHabilidad.has("Reflejos"):
+		reflValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Reflejos")
 	if !Personaje.armaduraProficiente:
 		reflValor -= 2
+	reflValor += sumarBonusRasgosDotes("Reflejos")
 	reflejos.asignarValor(reflValor)
 
 func calcularVoluntad():
 	var volValor = 10 + floor(Personaje.nivel/2)
-	var modSab = floor((Personaje.estadisticas["WIS"] - 10)/2)
-	var modCar = floor((Personaje.estadisticas["CHA"] - 10)/2)
+	var wisDote = sumasBonusCaracteristicasRasgosDotes("WIS")
+	var chaDote = sumasBonusCaracteristicasRasgosDotes("CHA")
+	var modSab = floor(((Personaje.estadisticas["WIS"] + wisDote) - 10)/2)
+	var modCar = floor(((Personaje.estadisticas["CHA"] + chaDote) - 10)/2)
 	volValor += compararValores(modSab,modCar)
 	if recursoClase.defensas.has("Voluntad"):
 		volValor += recursoClase.defensas.get("Voluntad")
+	if recursoRaza.otrosBonificadoresDeHabilidad.has("Voluntad"):
+		volValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Voluntad")
+	volValor += sumarBonusRasgosDotes("Voluntad")
 	voluntad.asignarValor(volValor)
+
+func sumarBonusRasgosDotes(nombre):
+	var valorFinal = 0
+	for dote in Personaje.dotes:
+		if Personaje.dotes[dote].has(nombre) and !Personaje.dotes[dote].has("Inicial") and Personaje.dotes[dote]["Activo"] == true:
+			valorFinal += Personaje.dotes[dote].get(nombre)
+	for rasgo in Personaje.rasgosDeClase:
+		if Personaje.rasgosDeClase[rasgo].has(nombre) and !Personaje.rasgosDeClase[rasgo].has("Inicial"):
+			valorFinal += Personaje.rasgosDeClase[rasgo].get(nombre)
+	return valorFinal
+
+func sumasBonusCaracteristicasRasgosDotes(nombre):
+	var modRasgoDote = 0
+	for rasgo in Personaje.rasgosDeClase:
+		if Personaje.rasgosDeClase[rasgo].has(nombre) and !Personaje.rasgosDeClase[rasgo].has("Inicial") and Personaje.rasgosDeClase[rasgo].get("Activo") == true:
+			modRasgoDote += Personaje.rasgosDeClase[rasgo].get(nombre)
+	for dote in Personaje.dotes:
+		if Personaje.dotes[dote].has(nombre) and !Personaje.dotes[dote].has("Inicial") and Personaje.dotes[dote].get("Activo") == true:
+			modRasgoDote += Personaje.dotes[dote].get(nombre)
+	return modRasgoDote
 
 func compararValores(valor1,valor2):
 	if valor1 >= valor2:

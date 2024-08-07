@@ -2,8 +2,10 @@ extends GridContainer
 
 var recursoRaza : Raza = preload("res://Recursos/Razas/Raza.tres")
 var recursoClase : Clase = preload("res://Recursos/Clases/Clase.tres")
+var recursoArmadura : Armadura = preload("res://Recursos/Armaduras/Armadura.tres")
 
 var bonusHabilidades
+var otrosBonusHabilidad
 var habilidadesQueSePuedenEntrenar : PackedStringArray
 var maxHabilidadesEntrenadas : int 
 var numHabilidadesEntrenadasActuales : int
@@ -18,11 +20,7 @@ func _ready():
 	asignarNombres()
 	inicializarDatos()
 	for boton : botonHabilidad in get_children():
-			var mod = floor((Personaje.estadisticas.get(boton.modificadorAsociado) - 10) /2)
-			var valorFinal : int = mod
-			if bonusHabilidades.has(boton.obtenerNombreCorto()):
-				var bonusHabilidad = bonusHabilidades.get(boton.obtenerNombreCorto())
-				valorFinal += bonusHabilidad
+			var valorFinal = aplicarBonusYPenalizaciones(boton)
 			var habilidadYaEntrenada = false
 			if !Personaje.habilidadesEntrenadas.is_empty():
 				if Personaje.habilidadesEntrenadas.has(boton.obtenerNombreCorto()):
@@ -38,13 +36,42 @@ func _ready():
 			if bonusHabilidades.has("ANY"):
 				boton.setBonus(true,bonusHabilidades.get("ANY"))
 
+func aplicarBonusYPenalizaciones(boton):
+	var modRasgoDote = 0
+	for rasgo in Personaje.rasgosDeClase:
+		if Personaje.rasgosDeClase[rasgo].has(boton.modificadorAsociado) and !Personaje.rasgosDeClase[rasgo].has("Inicial") and Personaje.rasgosDeClase[rasgo].get("Activo") == true:
+			modRasgoDote += Personaje.rasgosDeClase[rasgo].get(boton.modificadorAsociado)
+	for dote in Personaje.dotes:
+		if Personaje.dotes[dote].has(boton.modificadorAsociado) and !Personaje.dotes[dote].has("Inicial") and Personaje.dotes[dote].get("Activo") == true:
+			modRasgoDote += Personaje.dotes[dote].get(boton.modificadorAsociado)
+	var mod = floor(((Personaje.estadisticas.get(boton.modificadorAsociado) + modRasgoDote)- 10) /2)
+	var valorFinal : int = mod + floor(Personaje.nivel/2)
+	if bonusHabilidades.has(boton.obtenerNombreCorto()):
+		var bonusHabilidad = bonusHabilidades.get(boton.obtenerNombreCorto())
+		valorFinal += bonusHabilidad
+	if otrosBonusHabilidad.has(boton.obtenerNombreCorto()):
+		var bonusHabilidad = otrosBonusHabilidad.get(boton.obtenerNombreCorto())
+		valorFinal += bonusHabilidad
+	if boton.modificadorAsociado == "STR" or boton.modificadorAsociado == "DEX" or boton.modificadorAsociado == "CON":
+		valorFinal += recursoArmadura.pruebaHabilidad
+	for dote in Personaje.dotes:
+		if Personaje.dotes[dote].has(boton.nombreHabilidad.text) and !Personaje.dotes[dote].has("Inicial") and Personaje.dotes[dote]["Activo"] == true:
+			valorFinal += Personaje.dotes[dote].get(boton.nombreHabilidad.text)
+	for rasgo in Personaje.rasgosDeClase:
+		if Personaje.rasgosDeClase[rasgo].has(boton.nombreHabilidad.text) and !Personaje.rasgosDeClase[rasgo].has("Inicial"):
+			valorFinal += Personaje.rasgosDeClase[rasgo].get(boton.nombreHabilidad.text)
+	
+	return valorFinal
 
 func inicializarDatos():
 	recursoRaza._read_json()
 	recursoClase._read_json()
+	recursoArmadura._read_json()
 	recursoRaza.obtenerRaza(Personaje.nombreRaza)
 	recursoClase.obtenerClase(Personaje.nombreClase)
+	recursoArmadura.obtenerArmadura(Personaje.armadura)
 	bonusHabilidades = recursoRaza.bonificadoresDeHabilidad
+	otrosBonusHabilidad = recursoRaza.otrosBonificadoresDeHabilidad
 	habilidadesQueSePuedenEntrenar = recursoClase.habilidadesEntrenadas
 	maxHabilidadesEntrenadas = recursoClase.numHabEntrenadas
 	habilidadesObligatorias = recursoClase.habilidadesObligatorias

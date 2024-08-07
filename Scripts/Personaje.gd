@@ -17,11 +17,11 @@ var bonusVelocidad : int
 #Cosas que guarda el personaje
 var inventario : String
 var oro : float
-var armadura : String
+var armadura : String = "Ninguno"
 var armaduraProficiente : bool
-var primeraMano : String
+var primeraMano : String = "Ninguno"
 var primeraManoProficiente : bool
-var segundaMano : String
+var segundaMano : String = "Ninguno"
 var segundaManoProficiente : bool
 var poderes : Dictionary 
 var dotes : Dictionary

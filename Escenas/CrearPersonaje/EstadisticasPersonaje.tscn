@@ -369,6 +369,6 @@ layout_mode = 2
 script = ExtResource("8_s5mpj")
 contValores = NodePath("../Estadisticas/CenterContainer/HBoxContainer/StatsFinales/HBoxContainer/GridContainer")
 rutaVolver = "res://Escenas/CrearPersonaje/LorPersonaje.tscn"
-rutaSiguiente = "res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn"
+rutaSiguiente = "res://Escenas/CrearPersonaje/HabilidadesPersonaje.tscn"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Aleatorio" to="MarginContainer/VBoxContainer/Estadisticas" method="_on_aleatorio_pressed"]

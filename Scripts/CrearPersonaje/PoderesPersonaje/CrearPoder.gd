@@ -5,7 +5,10 @@ extends Control
 @export var checkAfectaDote : CheckBox
 @export var efectosDote : HBoxContainer
 @export var efectosDote2 : HBoxContainer
+@export var nLEsPermanente : Label
 @export var nEsPermanente : CheckBox
+@export var nLEfectos : Label
+@export var nLEfectos2 : Label
 
 @export var botonesVolver : HBoxContainer
 
@@ -22,14 +25,10 @@ func _on_option_button_2_item_selected(index):
 			atributo.visible = false
 
 func _on_check_box_toggled(toggled_on):
-	for efecto in efectosDote.get_children():
-		if efecto is BaseButton:
-			efecto.disabled = !toggled_on
-		if efecto is Range:
-			efecto.editable = toggled_on
-	for efecto in efectosDote2.get_children():
-		if efecto is BaseButton:
-			efecto.disabled = !toggled_on
-		if efecto is Range:
-			efecto.editable = toggled_on
-	nEsPermanente.disabled = !toggled_on
+	nLEfectos.visible = toggled_on
+	nLEfectos2.visible = toggled_on
+	efectosDote.visible = toggled_on
+	efectosDote2.visible = toggled_on
+	nLEsPermanente.visible = toggled_on
+	nEsPermanente.visible = toggled_on
+	

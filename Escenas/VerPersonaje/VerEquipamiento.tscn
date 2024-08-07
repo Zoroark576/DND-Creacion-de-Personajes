@@ -69,7 +69,7 @@ alignment = 1
 [node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Crear Personaje (Equipamiento)"
+text = "Equipamiento"
 horizontal_alignment = 1
 
 [node name="ClaseYProficiencias" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -199,17 +199,18 @@ custom_minimum_size = Vector2(400, 350)
 layout_mode = 2
 placeholder_text = "Armas, Ropa, etc."
 
-[node name="EstadisticasEquipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contArmadura", "contMano1", "contMano2", "opcionArmadura", "opcionMano1", "opcionMano2")]
+[node name="EstadisticasEquipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contArmadura", "contMano1", "contMano2", "contNombresEscudo", "opcionArmadura", "opcionMano1", "opcionMano2")]
 layout_mode = 2
 theme_override_constants/v_separation = 15
 columns = 2
 script = ExtResource("4_me6d0")
-contArmadura = NodePath("")
-contMano1 = NodePath("")
-contMano2 = NodePath("")
-opcionArmadura = NodePath("")
-opcionMano1 = NodePath("")
-opcionMano2 = NodePath("")
+contArmadura = NodePath("Estadisticas/Valores")
+contMano1 = NodePath("Estadisticas2/Valores")
+contMano2 = NodePath("Estadisticas3/Valores")
+contNombresEscudo = NodePath("Estadisticas3/NombresEscudo")
+opcionArmadura = NodePath("../Equipamiento/AInput")
+opcionMano1 = NodePath("../Equipamiento/AInput2")
+opcionMano2 = NodePath("../Equipamiento/AInput3")
 
 [node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
 layout_mode = 2
@@ -393,6 +394,44 @@ text = "2da Mano: "
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="NombresEscudo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/NombresEscudo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Bonificador"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/NombresEscudo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Prueba"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/NombresEscudo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Velocidad"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/NombresEscudo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Peso"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/NombresEscudo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Precio"
+horizontal_alignment = 1
+
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
 layout_mode = 2
 
@@ -452,9 +491,13 @@ rutaSiguiente = "res://Escenas/MenuPersonaje/MenuPersonaje.tscn"
 visible = false
 
 [node name="Siguiente" parent="MarginContainer/Botones" index="1"]
+size_flags_horizontal = 2
 text = "Volver"
 
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_2_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_2_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput3" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_3_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput3" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_3_item_selected"]
 
 [editable path="MarginContainer/Botones"]

@@ -2,6 +2,8 @@ extends Resource
 class_name Arma
 
 @export var directorioJSON : String
+@export var directorioJSON2 : String
+@export var directorioJSON3 : String
 var diccionarioArmas : Dictionary
 var armaSeleccionada : Dictionary
 var nombre : String
@@ -43,7 +45,7 @@ func valoresDefault():
 	competencia = 0
 	manos = 1 
 	rango = "null"
-	daño = "null"
+	daño = "1 D4"
 	alcance = "null"
 	precio = 0
 	peso = 0
@@ -62,6 +64,18 @@ func _read_json():
 	var json_object = JSON.new()
 	var parse_err = json_object.parse(f.get_as_text())
 	diccionarioArmas = json_object.get_data()
+	
+	var f2 = FileAccess.open(directorioJSON2,FileAccess.READ)
+	var json_object2 = JSON.new()
+	var parse_err2 = json_object2.parse(f2.get_as_text())
+	var diccionario2 = json_object2.get_data()
+	diccionarioArmas.merge(diccionario2)
+	
+	var f3 = FileAccess.open(directorioJSON3,FileAccess.READ)
+	var json_object3 = JSON.new()
+	var parse_err3 = json_object3.parse(f3.get_as_text())
+	var diccionario3 = json_object3.get_data()
+	diccionarioArmas.merge(diccionario3)
 
 func _dividirString(string : String):
 	var diccionario : Dictionary

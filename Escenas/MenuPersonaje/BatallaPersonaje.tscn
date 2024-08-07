@@ -107,6 +107,8 @@ nMaxNumEsfuerzos = NodePath("VBoxContainer/Valores/NumUrgidasMax")
 
 [node name="VidaAct" type="SpinBox" parent="MarginContainer/VBoxContainer/Vida"]
 layout_mode = 2
+allow_greater = true
+allow_lesser = true
 
 [node name="Division" type="Label" parent="MarginContainer/VBoxContainer/Vida"]
 layout_mode = 2

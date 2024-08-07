@@ -5,3 +5,5 @@
 [resource]
 script = ExtResource("1_cksfb")
 directorioJSON = "res://SpreadSheets/Armas.json"
+directorioJSON2 = "res://SpreadSheets/Armas2.json"
+directorioJSON3 = "res://SpreadSheets/Armas3.json"

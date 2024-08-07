@@ -348,8 +348,8 @@ alignment = 1
 script = ExtResource("7_gv7vq")
 contBotonesHabilidad = NodePath("../Datos/Habilidades/CenterContainer/ContBotonesHabilidades")
 bonusVelocidad = NodePath("../Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Velocidad/MarginContainer/HBoxContainer/VBoxContainer/Bonus")
-rutaVolver = "res://Escenas/CrearPersonaje/EquipamientoPersonaje.tscn"
-rutaSiguiente = "res://Escenas/CrearPersonaje/PoderesPersonaje.tscn"
+rutaVolver = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
+rutaSiguiente = "res://Escenas/MenuPersonaje/MenuPersonaje.tscn"
 
 [node name="Volver" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
 layout_mode = 2

@@ -1,0 +1,57 @@
+{
+  "Espada Bastarda": {
+	"Competencia": 3,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D10",
+	"Alcance": "",
+	"Precio": 30,
+	"Peso": 3,
+	"Grupo": "Hoja Pesada",
+	"Propiedades": "Versátil"
+  },
+  "Espada Ropera": {
+	"Competencia": 3,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D8",
+	"Alcance": "",
+	"Precio": 25,
+	"Peso": 1,
+	"Grupo": "Hoja Ligera",
+	"Propiedades": "Mas Crítico (18-20)"
+  },
+  "Katar": {
+	"Competencia": 3,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D6",
+	"Alcance": "",
+	"Precio": 3,
+	"Peso": 0.5,
+	"Grupo": "Hoja Ligera",
+	"Propiedades": "Crítico Elevado, Mano Torpe"
+  },
+  "Shuriken (5)": {
+	"Competencia": 3,
+	"Manos": 1,
+	"Rango": "Dist",
+	"Daño": "1 D4",
+	"Alcance": "6,12",
+	"Precio": 1,
+	"Peso": 0.25,
+	"Grupo": "Hoja Ligera",
+	"Propiedades": "Lanzamiento Leve"
+  },
+  "Cadena Armada": {
+	"Competencia": 3,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "2 D4",
+	"Alcance": "",
+	"Precio": 30,
+	"Peso": 5,
+	"Grupo": "Mangual",
+	"Propiedades": "Alcance"
+  }
+}

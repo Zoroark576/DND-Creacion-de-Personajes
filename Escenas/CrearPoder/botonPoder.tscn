@@ -14,6 +14,7 @@ border_width_right = 2
 border_width_bottom = 2
 
 [node name="BotonPoder" type="HBoxContainer" node_paths=PackedStringArray("botonPoder", "usado")]
+custom_minimum_size = Vector2(208, 0)
 offset_right = 268.0
 offset_bottom = 53.0
 script = ExtResource("1_pvobg")
@@ -25,6 +26,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_lil74")
 text = "NombrePoder"
+text_overrun_behavior = 3
 
 [node name="CheckBox" type="CheckBox" parent="."]
 custom_minimum_size = Vector2(40, 0)

@@ -1,0 +1,211 @@
+{
+  "Cimitarra": {
+	"Competencia": 2,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D8",
+	"Alcance": "",
+	"Precio": 10,
+	"Peso": 2,
+	"Grupo": "Hoja Pesada",
+	"Propiedades": "Crítico Elevado"
+  },
+  "Espada Corta": {
+	"Competencia": 3,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D6",
+	"Alcance": "",
+	"Precio": 10,
+	"Peso": 1,
+	"Grupo": "Hoja Lijera",
+	"Propiedades": "Mano Torpe"
+  },
+  "Espada Larga": {
+	"Competencia": 3,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D8",
+	"Alcance": "",
+	"Precio": 15,
+	"Peso": 2,
+	"Grupo": "Hoja Pesada",
+	"Propiedades": "Versátil"
+  },
+  "Hacha de Batalla": {
+	"Competencia": 2,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D10",
+	"Alcance": "",
+	"Precio": 15,
+	"Peso": 3,
+	"Grupo": "Hacha",
+	"Propiedades": "Versátil"
+  },
+  "Hacha de Mano": {
+	"Competencia": 2,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D6",
+	"Alcance": "5,10",
+	"Precio": 5,
+	"Peso": 1.5,
+	"Grupo": "Hacha",
+	"Propiedades": "Lanzamiento Potente, Mano Torpe"
+  },
+  "Mangual": {
+	"Competencia": 2,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D10",
+	"Alcance": "",
+	"Precio": 10,
+	"Peso": 2.5,
+	"Grupo": "Mangual",
+	"Propiedades": "Versátil"
+  },
+  "Martillo Arrojadizo": {
+	"Competencia": 2,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D6",
+	"Alcance": "5,10",
+	"Precio": 5,
+	"Peso": 1,
+	"Grupo": "Martillo",
+	"Propiedades": "Lanzamiento Potente, Mano Torpe"
+  },
+  "Martillo de Guerra": {
+	"Competencia": 2,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D10",
+	"Alcance": "",
+	"Precio": 15,
+	"Peso": 2.5,
+	"Grupo": "Martillo",
+	"Propiedades": "Versátil"
+  },
+  "Pico de Guerra": {
+	"Competencia": 2,
+	"Manos": 1,
+	"Rango": "CaC",
+	"Daño": "1 D8",
+	"Alcance": "",
+	"Precio": 15,
+	"Peso": 3,
+	"Grupo": "Pico",
+	"Propiedades": "Crítico Elevado, Versátil"
+  },
+  "Alabarda": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "1 D10",
+	"Alcance": "",
+	"Precio": 25,
+	"Peso": 6,
+	"Grupo": "Asta, Hacha",
+	"Propiedades": "Alcance"
+  },
+  "Alafajón": {
+	"Competencia": 3,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "2 D4",
+	"Alcance": "",
+	"Precio": 25,
+	"Peso": 3.5,
+	"Grupo": "Hoja Pesada",
+	"Propiedades": "Crítico Elevado"
+  },
+  "Atarraga": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "2 D6",
+	"Alcance": "",
+	"Precio": 30,
+	"Peso": 6,
+	"Grupo": "Martillo",
+	"Propiedades": ""
+  },
+  "Mandoble": {
+	"Competencia": 3,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "1 D10",
+	"Alcance": "",
+	"Precio": 30,
+	"Peso": 4,
+	"Grupo": "Hoja Pesada",
+	"Propiedades": "Mas Crítico (19-20)"
+  },
+  "Gran Hacha": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "1 D12",
+	"Alcance": "",
+	"Precio": 30,
+	"Peso": 6,
+	"Grupo": "Hacha",
+	"Propiedades": "Crítico Elevado"
+  },
+  "Guja": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "2 D4",
+	"Alcance": "",
+	"Precio": 25,
+	"Peso": 5,
+	"Grupo": "Asta, Hoja Pesada",
+	"Propiedades": "Alcance"
+  },
+  "Lanza Larga": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "1 D10",
+	"Alcance": "",
+	"Precio": 10,
+	"Peso": 4.5,
+	"Grupo": "Asta, Lanza",
+	"Propiedades": "Alcance"
+  },
+  "Mangual Pesado": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "CaC",
+	"Daño": "2 D6",
+	"Alcance": "",
+	"Precio": 25,
+	"Peso": 5,
+	"Grupo": "Mangual",
+	"Propiedades": ""
+  },
+  "Arco Corto": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "Dist",
+	"Daño": "1 D8",
+	"Alcance": "15,30",
+	"Precio": 25,
+	"Peso": 1,
+	"Grupo": "Arco",
+	"Propiedades": "Pequeña, Recarga Gratuita"
+  },
+  "Arco Largo": {
+	"Competencia": 2,
+	"Manos": 2,
+	"Rango": "Dist",
+	"Daño": "1 D10",
+	"Alcance": "20,40",
+	"Precio": 30,
+	"Peso": 1.5,
+	"Grupo": "Arco",
+	"Propiedades": "Recarga Gratuita"
+  }
+}

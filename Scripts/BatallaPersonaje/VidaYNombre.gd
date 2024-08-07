@@ -24,7 +24,7 @@ func declararVida():
 	var vida
 	for valor in recursoClase.vidaInicial:
 		vida = recursoClase.vidaInicial[valor]
-		vida += Personaje.estadisticas[valor]
+		vida += Personaje.estadisticas[valor] + sumarBonusRasgosDotes(valor)
 		vida += recursoClase.vidaXNivel * (Personaje.nivel - 1)
 		break
 	nVidaMax.text = str(vida)
@@ -45,6 +45,9 @@ func declararOtrosValoresVida(vida):
 		numEsfuerzo = recursoClase.numEsfuerzosCurativos[valor]
 		numEsfuerzo += floor((Personaje.estadisticas[valor] - 10)/2)
 		break
+	if recursoRaza.otrosBonificadoresDeHabilidad.has("HealingSurge"):
+		numEsfuerzo += recursoRaza.otrosBonificadoresDeHabilidad.get("HealingSurge")
+	numEsfuerzo += sumarBonusRasgosDotes("HealingSurge")
 	nMaxNumEsfuerzos.text = str(numEsfuerzo)
 	if Personaje.urgTemp <= -1000:
 		nNumEsfuerzos.value = numEsfuerzo
@@ -53,6 +56,15 @@ func declararOtrosValoresVida(vida):
 		nNumEsfuerzos.value = Personaje.urgTemp
 		nNumEsfuerzos.max_value = numEsfuerzo
 
+func sumarBonusRasgosDotes(nombre):
+	var valorFinal = 0
+	for dote in Personaje.dotes:
+		if Personaje.dotes[dote].has(nombre) and !Personaje.dotes[dote].has("Inicial") and Personaje.dotes[dote]["Activo"] == true:
+			valorFinal += Personaje.dotes[dote].get(nombre)
+	for rasgo in Personaje.rasgosDeClase:
+		if Personaje.rasgosDeClase[rasgo].has(nombre) and !Personaje.rasgosDeClase[rasgo].has("Inicial"):
+			valorFinal += Personaje.rasgosDeClase[rasgo].get(nombre)
+	return valorFinal
 func reiniciarValores():
 	Personaje.vidaTemp = -1000
 	Personaje.urgTemp = -1000

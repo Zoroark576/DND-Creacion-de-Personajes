@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg6bchndv8tc2"]
+[gd_scene load_steps=5 format=3 uid="uid://cg6bchndv8tc2"]
 
 [ext_resource type="PackedScene" uid="uid://cnocb4peikdwe" path="res://Escenas/CrearPoder/CrearPoder.tscn" id="1_puxi0"]
 [ext_resource type="Script" path="res://Scripts/VerPersonaje/VerPoder.gd" id="2_68lfv"]
+[ext_resource type="Script" path="res://Scripts/VerPersonaje/VerEstadisticasEnPoder.gd" id="3_illru"]
 [ext_resource type="Script" path="res://Scripts/VerPersonaje/BotonVolverVerPoder.gd" id="3_vq42q"]
 
-[node name="MenuPrincipal" node_paths=PackedStringArray("nNombre", "nTipo", "nFrecuencia", "nDescripcion", "nFuncionalidad", "nImpacto", "nUtilidad", "nAfectaEstadistica", "nEfectoPermanente", "nNombreEfecto1", "nValorEfecto1", "nNombreEfecto2", "nValorEfecto2", "nEfectoActivo", "botonVolver") instance=ExtResource("1_puxi0")]
+[node name="MenuPrincipal" node_paths=PackedStringArray("nNombre", "nTipo", "nFrecuencia", "nDescripcion", "nFuncionalidad", "nImpacto", "nUtilidad", "nEstadisticas", "nAfectaEstadistica", "nEfectoPermanente", "nNombreEfecto1", "nValorEfecto1", "nNombreEfecto2", "nValorEfecto2", "nEfectoActivo", "nLEfectoActivo", "botonVolver") instance=ExtResource("1_puxi0")]
 script = ExtResource("2_68lfv")
 nNombre = NodePath("MarginContainer/VBoxContainer/GridContainer/NInput")
 nTipo = NodePath("MarginContainer/VBoxContainer/GridContainer/OpcionesTipo")
@@ -13,6 +14,7 @@ nDescripcion = NodePath("MarginContainer/VBoxContainer/GridContainer/DInput")
 nFuncionalidad = NodePath("MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad/FInput")
 nImpacto = NodePath("MarginContainer/VBoxContainer/Atributos/Poder/Impacto/IEInput")
 nUtilidad = NodePath("MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad/UInput")
+nEstadisticas = NodePath("MarginContainer/VBoxContainer/Estadisticas")
 nAfectaEstadistica = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox")
 nEfectoPermanente = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox2")
 nNombreEfecto1 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput/OptionButton")
@@ -20,6 +22,7 @@ nValorEfecto1 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo D
 nNombreEfecto2 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2/OptionButton")
 nValorEfecto2 = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2/SpinBox")
 nEfectoActivo = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CEfectoActivo")
+nLEfectoActivo = NodePath("MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EfectoActivo")
 botonVolver = NodePath("MarginContainer/VBoxContainer/Botones")
 
 [node name="Titulo" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo" index="0"]
@@ -46,10 +49,8 @@ editable = false
 [node name="UInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad" index="1"]
 disabled = true
 
-[node name="Dote o Rasgo De Clase" parent="MarginContainer/VBoxContainer/Atributos" index="1"]
-visible = false
-
 [node name="CheckBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="1"]
+size_flags_horizontal = 3
 disabled = true
 
 [node name="EfectoActivo" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="8"]
@@ -59,9 +60,187 @@ text = "El Efecto Se Encuentra Activo?"
 [node name="CEfectoActivo" type="CheckBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="9"]
 layout_mode = 2
 
-[node name="Botones" parent="MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("nEfectoActivo")]
+[node name="Estadisticas" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="3" node_paths=PackedStringArray("contEstadisticas", "contEstadisticasNivel", "nombreMano1", "dadoMano1", "compMano1", "nombreMano2", "dadoMano2", "compMano2")]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("3_illru")
+contEstadisticas = NodePath("Estadisticas")
+contEstadisticasNivel = NodePath("Estadisticas2")
+nombreMano1 = NodePath("Manos/PrimeraManoNombre")
+dadoMano1 = NodePath("Manos/PrimeraManoDado")
+compMano1 = NodePath("Manos/PrimeraManoCompetente")
+nombreMano2 = NodePath("Manos/SegundaManoNombre")
+dadoMano2 = NodePath("Manos/SegundaManoDado")
+compMano2 = NodePath("Manos/SegundaManoCompetente")
+
+[node name="Estadisticas" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas" index="0"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 10
+columns = 13
+
+[node name="LDaño" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="0"]
+layout_mode = 2
+text = "Daño:"
+
+[node name="LSTR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="1"]
+layout_mode = 2
+text = "STR:"
+
+[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="2"]
+layout_mode = 2
+text = "0"
+
+[node name="LCON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="3"]
+layout_mode = 2
+text = "CON:"
+
+[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="4"]
+layout_mode = 2
+text = "0"
+
+[node name="LDEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="5"]
+layout_mode = 2
+text = "DEX:"
+
+[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="6"]
+layout_mode = 2
+text = "0"
+
+[node name="LINT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="7"]
+layout_mode = 2
+text = "INT:"
+
+[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="8"]
+layout_mode = 2
+text = "0"
+
+[node name="LWIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="9"]
+layout_mode = 2
+text = "WIS:"
+
+[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="10"]
+layout_mode = 2
+text = "0"
+
+[node name="LCHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="11"]
+layout_mode = 2
+text = "CHA:"
+
+[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="12"]
+layout_mode = 2
+text = "0"
+
+[node name="Estadisticas2" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas" index="1"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 10
+columns = 13
+
+[node name="LDaño" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="0"]
+layout_mode = 2
+text = "D20:"
+
+[node name="Dummy" type="Control" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="1"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+
+[node name="STR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="2"]
+layout_mode = 2
+text = "0"
+
+[node name="Dummy2" type="Control" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="3"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="CON" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="4"]
+layout_mode = 2
+text = "0"
+
+[node name="Dummy3" type="Control" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="5"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+
+[node name="DEX" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="6"]
+layout_mode = 2
+text = "0"
+
+[node name="Dummy4" type="Control" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="7"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="INT" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="8"]
+layout_mode = 2
+text = "0"
+
+[node name="Dummy5" type="Control" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="9"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="WIS" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="10"]
+layout_mode = 2
+text = "0"
+
+[node name="Dummy6" type="Control" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="11"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+
+[node name="CHA" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="12"]
+layout_mode = 2
+text = "0"
+
+[node name="Manos" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas" index="2"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 15
+columns = 4
+
+[node name="PrimeraMano" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="0"]
+layout_mode = 2
+text = "1ra Mano:"
+
+[node name="PrimeraManoNombre" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="1"]
+layout_mode = 2
+
+[node name="PrimeraManoDado" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="2"]
+layout_mode = 2
+
+[node name="PrimeraManoCompetente" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="3"]
+layout_mode = 2
+
+[node name="SegundaMano" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="4"]
+layout_mode = 2
+text = "2da Mano:"
+
+[node name="SegundaManoNombre" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="5"]
+layout_mode = 2
+
+[node name="SegundaManoDado" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="6"]
+layout_mode = 2
+
+[node name="SegundaManoCompetente" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="7"]
+layout_mode = 2
+
+[node name="Botones" parent="MarginContainer/VBoxContainer" index="4" node_paths=PackedStringArray("nEfectoActivo", "nNotificacionBorrarPoder")]
 script = ExtResource("3_vq42q")
 nEfectoActivo = NodePath("../Atributos/Dote o Rasgo De Clase/CEfectoActivo")
+nNotificacionBorrarPoder = NodePath("../../../BorrarPoder")
+rutaSiguiente = "res://Escenas/VerPersonaje/VerPoderes.tscn"
 
 [node name="Crear" parent="MarginContainer/VBoxContainer/Botones" index="1"]
 visible = false
+
+[node name="BorrarPoder" type="Button" parent="MarginContainer/VBoxContainer/Botones" index="2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Borrar"
+
+[node name="BorrarPoder" type="ConfirmationDialog" parent="." index="3"]
+initial_position = 1
+dialog_text = "Seguro que quieres eliminar este poder/dote/rasgo?"
+cancel_button_text = "Cancelar"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/BorrarPoder" to="MarginContainer/VBoxContainer/Botones" method="_on_borrar_poder_pressed"]
+[connection signal="confirmed" from="BorrarPoder" to="MarginContainer/VBoxContainer/Botones" method="_on_borrar_poder_confirmed"]
