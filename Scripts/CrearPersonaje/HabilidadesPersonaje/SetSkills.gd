@@ -26,6 +26,10 @@ func _ready():
 				if Personaje.habilidadesEntrenadas.has(boton.obtenerNombreCorto()):
 					habilidadYaEntrenada = true
 					numHabilidadesEntrenadasActuales += 1
+			if !Personaje.habilidadesConBonus.is_empty():
+				if Personaje.habilidadesConBonus.has(boton.obtenerNombreCorto()):
+					boton.nodoBonus.button_pressed = true
+					bonusAnyActivado(true)
 			checarLimiteNumHabilidadesEntrenadas()
 			boton.habilidadYaEntrenada = habilidadYaEntrenada
 			if habilidadesObligatorias.has(boton.obtenerNombreCorto()):

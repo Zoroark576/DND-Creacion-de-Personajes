@@ -7,6 +7,7 @@ var menuPersonajes = load("res://Escenas/MenuPrincipal/menu_principal.tscn")
 var menuBatalla = load("res://Escenas/MenuPersonaje/BatallaPersonaje.tscn")
 var subirEstadisticas = load("res://Escenas/MenuPrincipal/EditarEstadisticas.tscn")
 var menuNotas = load("res://Escenas/MenuPersonaje/Notas/Notas.tscn")
+var menuRituales = load("res://Escenas/MenuPersonaje/Rituales/Rituales.tscn")
 
 var recursoGuardar : guardarPersonaje = load("res://Recursos/guardarCargarPersonaje.tres")
 
@@ -49,3 +50,6 @@ func _on_subir_estadisticas_pressed():
 
 func _on_notas_pressed():
 	get_tree().change_scene_to_packed(menuNotas)
+
+func _on_rituales_pressed():
+	get_tree().change_scene_to_packed(menuRituales)

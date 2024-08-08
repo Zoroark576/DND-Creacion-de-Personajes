@@ -14,6 +14,7 @@ func guardarPersonaje():
 	archivoConfig.set_value(nombre,"Experiencia",Personaje.experiencia)
 	archivoConfig.set_value(nombre,"Nivel",Personaje.nivel)
 	archivoConfig.set_value(nombre,"Habilidades Entrenadas",Personaje.habilidadesEntrenadas)
+	archivoConfig.set_value(nombre,"Habilidades Con Bonus",Personaje.habilidadesConBonus)
 	archivoConfig.set_value(nombre,"Bonus Velocidad",Personaje.bonusVelocidad)
 	archivoConfig.set_value(nombre,"Inventario",Personaje.inventario)
 	archivoConfig.set_value(nombre,"Oro",Personaje.oro)
@@ -38,6 +39,8 @@ func guardarPersonaje():
 	archivoConfig.set_value(nombre,"Resistencias",Personaje.resistencias)
 	archivoConfig.set_value(nombre,"Action Points",Personaje.actionPoints)
 	archivoConfig.set_value(nombre,"Inspiracion",Personaje.inspiracion)
+	archivoConfig.set_value(nombre,"Rituales",Personaje.rituales)
+	archivoConfig.set_value(nombre,"Notas",Personaje.notas)
 	
 	var error := archivoConfig.save("user://" + nombre +".ini")
 	if error:
@@ -59,6 +62,7 @@ func cargarPersonaje(rutaArchivo : String):
 	Personaje.experiencia = archivoConfig.get_value(nombre,"Experiencia")
 	Personaje.nivel = archivoConfig.get_value(nombre,"Nivel")
 	Personaje.habilidadesEntrenadas = archivoConfig.get_value(nombre,"Habilidades Entrenadas")
+	Personaje.habilidadesConBonus = archivoConfig.get_value(nombre,"Habilidades Con Bonus")
 	Personaje.bonusVelocidad = archivoConfig.get_value(nombre,"Bonus Velocidad")
 	Personaje.inventario = archivoConfig.get_value(nombre,"Inventario")
 	Personaje.oro = archivoConfig.get_value(nombre,"Oro")
@@ -83,6 +87,8 @@ func cargarPersonaje(rutaArchivo : String):
 	Personaje.resistencias = archivoConfig.get_value(nombre,"Resistencias")
 	Personaje.actionPoints = archivoConfig.get_value(nombre,"Action Points")
 	Personaje.inspiracion = archivoConfig.get_value(nombre,"Inspiracion")
+	Personaje.rituales = archivoConfig.get_value(nombre,"Rituales")
+	Personaje.notas = archivoConfig.get_value(nombre,"Notas")
 	return "OK"
 
 func cargarListaDePersonajes():

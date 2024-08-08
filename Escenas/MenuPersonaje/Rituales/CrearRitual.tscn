@@ -1,0 +1,226 @@
+[gd_scene load_steps=4 format=3 uid="uid://diinp0sco1oc1"]
+
+[ext_resource type="Script" path="res://Scripts/MenuPersonaje/Rituales/CrearRitual.gd" id="1_bxihv"]
+
+[sub_resource type="Theme" id="Theme_gcger"]
+default_font_size = 25
+BoxContainer/constants/separation = 4
+GridContainer/constants/h_separation = 4
+GridContainer/constants/v_separation = 20
+HBoxContainer/constants/separation = 6
+Label/font_sizes/font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scc2i"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.686275, 0.686275, 0.686275, 1)
+
+[node name="MenuPersonaje" type="Control" node_paths=PackedStringArray("nTitulo", "nNivel", "nTiempo", "nCoste", "nHabilidadClave", "nTextoFlorido", "nContenido", "nDominado", "nAccept")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_gcger")
+script = ExtResource("1_bxihv")
+nTitulo = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/Titulo/Titulo")
+nNivel = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/Titulo/Nivel")
+nTiempo = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo/Tiempo")
+nCoste = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo/PrecioCompo")
+nHabilidadClave = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo2/Tiempo")
+nTextoFlorido = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/TextoFlavor")
+nContenido = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/Contenido")
+nDominado = NodePath("MarginContainer/VBoxContainer/Rituales/ContNota/ContDominado/Dominado")
+nAccept = NodePath("ConfirmationDialog")
+
+[node name="GuardarValores" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -362.0
+offset_top = -642.0
+offset_right = 362.0
+offset_bottom = 640.0
+color = Color(0, 0.00392157, 0.0509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -358.0
+offset_top = -640.0
+offset_right = 358.0
+offset_bottom = 638.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CabezaTitulo" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scc2i")
+
+[node name="ContTitulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CabezaTitulo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Rituales"
+horizontal_alignment = 1
+
+[node name="Rituales" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 700)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Rituales"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Rituales/PanelContainer"]
+layout_mode = 2
+
+[node name="ContRituales" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Rituales/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ContNota" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Rituales"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+layout_mode = 2
+
+[node name="LTitulo" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota/Titulo"]
+layout_mode = 2
+text = "Titulo:"
+
+[node name="Titulo" type="LineEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota/Titulo"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LNivel" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota/Titulo"]
+layout_mode = 2
+text = "Nvl:"
+
+[node name="Nivel" type="SpinBox" parent="MarginContainer/VBoxContainer/Rituales/ContNota/Titulo"]
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 1.0
+max_value = 30.0
+value = 1.0
+
+[node name="ContNivelTiempo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+layout_mode = 2
+
+[node name="LTiempo" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo"]
+layout_mode = 2
+text = "Tiempo:"
+
+[node name="Tiempo" type="LineEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LPrecioCompo" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo"]
+layout_mode = 2
+text = "Coste:"
+
+[node name="PrecioCompo" type="LineEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="ContNivelTiempo2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+layout_mode = 2
+
+[node name="LPrecioMercado" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo2"]
+layout_mode = 2
+text = "Habilidad Clave:"
+
+[node name="Tiempo" type="LineEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo2"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContDominado" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+layout_mode = 2
+
+[node name="LDominado" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContDominado"]
+layout_mode = 2
+text = "Dominado:"
+
+[node name="Dominado" type="CheckBox" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContDominado"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LTextoFlavor" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+layout_mode = 2
+text = "Texto Florido:"
+
+[node name="TextoFlavor" type="TextEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+wrap_mode = 1
+
+[node name="LContenido" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+layout_mode = 2
+text = "Ritual:"
+
+[node name="Contenido" type="TextEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+layout_mode = 2
+size_flags_vertical = 3
+wrap_mode = 1
+
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CrearRitual" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Crear Nota"
+
+[node name="BorrarRitual" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "Borrar Nota"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+text = "Crear Ritual"
+
+[node name="ConfirmationDialog" type="AcceptDialog" parent="."]
+title = "Seguro?"
+initial_position = 1
+dialog_text = "Falta nombre/Nombre ya existe, favor de elegir uno/otro..."
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/CrearRitual" to="." method="_on_crear_nota_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/BorrarRitual" to="." method="_on_borrar_nota_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

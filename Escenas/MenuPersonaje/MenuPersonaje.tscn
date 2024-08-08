@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bjq5lv5ucphu" path="res://Iconos/158107.png" id="3_krmvk"]
 [ext_resource type="Script" path="res://Scripts/MenuPersonaje/XP Y AP.gd" id="4_0krk4"]
 [ext_resource type="Texture2D" uid="uid://cj8vj8oxyf64e" path="res://Iconos/6134688.png" id="4_ebyyf"]
-[ext_resource type="Texture2D" uid="uid://byxvlh8rpy70" path="res://Iconos/13421-200.png" id="5_jriwc"]
 [ext_resource type="Texture2D" uid="uid://r6jv8nhr345l" path="res://Iconos/25637.png" id="5_sjn3q"]
+[ext_resource type="Texture2D" uid="uid://cuk4e5n1x87os" path="res://Iconos/177293.png" id="8_t5m0t"]
 
 [sub_resource type="Theme" id="Theme_gcger"]
 default_font_size = 25
@@ -210,12 +210,11 @@ text = "Notas"
 icon = ExtResource("4_ebyyf")
 icon_alignment = 1
 
-[node name="Familiares" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
-visible = false
+[node name="Rituales" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-text = "Familiar"
-icon = ExtResource("5_jriwc")
+text = "Rituales"
+icon = ExtResource("8_t5m0t")
 icon_alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -236,4 +235,5 @@ text = "Volver"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Batalla" to="." method="_on_batalla_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Subir Estadisticas" to="." method="_on_subir_estadisticas_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Notas" to="." method="_on_notas_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Rituales" to="." method="_on_rituales_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

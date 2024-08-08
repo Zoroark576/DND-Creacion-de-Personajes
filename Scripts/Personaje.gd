@@ -13,6 +13,7 @@ var estadisticas : Dictionary = {"STR" : 0,"CON" : 0,"DEX" : 0, "INT" : 0,"WIS" 
 var experiencia : int = 0
 var nivel : int = 1
 var habilidadesEntrenadas = []
+var habilidadesConBonus = []
 var bonusVelocidad : int
 #Cosas que guarda el personaje
 var inventario : String
@@ -25,6 +26,7 @@ var segundaMano : String = "Ninguno"
 var segundaManoProficiente : bool
 var poderes : Dictionary 
 var dotes : Dictionary
+var rituales : Dictionary
 var rasgosDeClase : Dictionary
 var notas : Dictionary
 var familiar : Dictionary
@@ -52,6 +54,7 @@ func resetearValores():
 	experiencia = 0
 	nivel = 1
 	habilidadesEntrenadas = []
+	habilidadesConBonus = []
 	bonusVelocidad = 0
 	#Cosas que guarda el personaje
 	inventario = ""
@@ -64,6 +67,7 @@ func resetearValores():
 	segundaManoProficiente = false
 	poderes = {} 
 	dotes = {}
+	rituales = {}
 	rasgosDeClase = {}
 	notas = {}
 	familiar = {}

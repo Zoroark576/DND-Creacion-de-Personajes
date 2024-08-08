@@ -132,6 +132,7 @@ text = "Contenido:"
 [node name="Contenido" type="TextEdit" parent="MarginContainer/VBoxContainer/Notas/ContNota"]
 layout_mode = 2
 size_flags_vertical = 3
+wrap_mode = 1
 
 [node name="CrearNota" type="Button" parent="MarginContainer/VBoxContainer"]
 visible = false

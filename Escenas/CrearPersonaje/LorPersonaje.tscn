@@ -112,6 +112,9 @@ text = "Raza"
 layout_mode = 2
 tipoOpcion = "raza"
 
+[node name="BotonMas" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos/Raza" index="1"]
+visible = false
+
 [node name="LClase" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Clase"
@@ -119,6 +122,9 @@ text = "Clase"
 [node name="Clase" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos" instance=ExtResource("2_7p1ef")]
 layout_mode = 2
 tipoOpcion = "clase"
+
+[node name="BotonMas" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos/Clase" index="1"]
+visible = false
 
 [node name="LTamaño" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
