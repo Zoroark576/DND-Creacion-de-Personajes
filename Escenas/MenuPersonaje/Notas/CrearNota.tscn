@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://by330gabxuaeu"]
+[gd_scene load_steps=4 format=3 uid="uid://1r8adkrq1shp"]
 
-[ext_resource type="Script" path="res://Scripts/MenuPersonaje/Notas/MenuNotas.gd" id="1_y3j2v"]
+[ext_resource type="Script" path="res://Scripts/MenuPersonaje/Notas/CrearNota.gd" id="1_gt38r"]
 
 [sub_resource type="Theme" id="Theme_gcger"]
 default_font_size = 25
@@ -18,7 +18,7 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.686275, 0.686275, 0.686275, 1)
 
-[node name="MenuPersonaje" type="Control" node_paths=PackedStringArray("nTitulo", "nFecha", "nContenido", "nAccept", "contNotas")]
+[node name="MenuPersonaje" type="Control" node_paths=PackedStringArray("nTitulo", "nFecha", "nContenido", "nAccept")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,12 +29,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_gcger")
-script = ExtResource("1_y3j2v")
+script = ExtResource("1_gt38r")
 nTitulo = NodePath("MarginContainer/VBoxContainer/Notas/ContNota/Titulo/Titulo")
 nFecha = NodePath("MarginContainer/VBoxContainer/Notas/ContNota/ContFecha/Fecha")
 nContenido = NodePath("MarginContainer/VBoxContainer/Notas/ContNota/Contenido")
-nAccept = NodePath("ConfirmationDialog")
-contNotas = NodePath("MarginContainer/VBoxContainer/Notas/PanelContainer/ScrollContainer/ContNotas")
+nAccept = NodePath("AcceptDialog")
 
 [node name="GuardarValores" type="Control" parent="."]
 anchors_preset = 0
@@ -75,16 +74,17 @@ alignment = 1
 [node name="Titulo" type="Label" parent="MarginContainer/VBoxContainer/CabezaTitulo/ContTitulo"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Notas"
+text = "Crear Nota"
 horizontal_alignment = 1
 
 [node name="Notas" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 700)
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Notas"]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -112,7 +112,6 @@ text = "Titulo:"
 [node name="Titulo" type="LineEdit" parent="MarginContainer/VBoxContainer/Notas/ContNota/Titulo"]
 layout_mode = 2
 size_flags_horizontal = 3
-editable = false
 
 [node name="ContFecha" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Notas/ContNota"]
 layout_mode = 2
@@ -124,7 +123,7 @@ text = "Fecha:"
 [node name="Fecha" type="LineEdit" parent="MarginContainer/VBoxContainer/Notas/ContNota/ContFecha"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-editable = false
+placeholder_text = "10/OCT/2024"
 
 [node name="LContenido" type="Label" parent="MarginContainer/VBoxContainer/Notas/ContNota"]
 layout_mode = 2
@@ -133,40 +132,23 @@ text = "Contenido:"
 [node name="Contenido" type="TextEdit" parent="MarginContainer/VBoxContainer/Notas/ContNota"]
 layout_mode = 2
 size_flags_vertical = 3
-editable = false
-context_menu_enabled = false
-wrap_mode = 1
 
-[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="CrearNota" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
+[node name="CrearNota" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(150, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Crear Nota"
 
-[node name="BorrarNota" type="Button" parent="MarginContainer/VBoxContainer/Botones"]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 8
-text = "Borrar Nota"
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="GuardarNota" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
-text = "Volver"
+text = "Crear Nota"
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-title = "Seguro?"
-initial_position = 1
-dialog_text = "Seguro que desea eliminar esta nota?"
-cancel_button_text = "Cancelar"
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = "Error!"
+dialog_text = "Nombre ya existente/Falta nombre, favor de elegir otro..."
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/CrearNota" to="." method="_on_crear_nota_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/BorrarNota" to="." method="_on_borrar_nota_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GuardarNota" to="." method="_on_guardar_nota_pressed"]

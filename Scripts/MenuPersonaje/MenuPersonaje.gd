@@ -6,6 +6,7 @@ var verPoderes = load("res://Escenas/VerPersonaje/VerPoderes.tscn")
 var menuPersonajes = load("res://Escenas/MenuPrincipal/menu_principal.tscn")
 var menuBatalla = load("res://Escenas/MenuPersonaje/BatallaPersonaje.tscn")
 var subirEstadisticas = load("res://Escenas/MenuPrincipal/EditarEstadisticas.tscn")
+var menuNotas = load("res://Escenas/MenuPersonaje/Notas/Notas.tscn")
 
 var recursoGuardar : guardarPersonaje = load("res://Recursos/guardarCargarPersonaje.tres")
 
@@ -45,3 +46,6 @@ func _on_batalla_pressed():
 
 func _on_subir_estadisticas_pressed():
 	get_tree().change_scene_to_packed(subirEstadisticas)
+
+func _on_notas_pressed():
+	get_tree().change_scene_to_packed(menuNotas)

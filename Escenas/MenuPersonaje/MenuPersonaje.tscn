@@ -203,7 +203,7 @@ Estad."
 icon = ExtResource("5_sjn3q")
 icon_alignment = 1
 
-[node name="Contadores" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
+[node name="Notas" type="Button" parent="MarginContainer/VBoxContainer/Opciones"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 text = "Notas"
@@ -235,4 +235,5 @@ text = "Volver"
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/XP Y AP/SAP" to="GuardarValores" method="_on_sap_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Batalla" to="." method="_on_batalla_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Subir Estadisticas" to="." method="_on_subir_estadisticas_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Opciones/Notas" to="." method="_on_notas_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

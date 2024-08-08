@@ -1,9 +1,14 @@
-[gd_scene format=3 uid="uid://ck7nfxv4io2hl"]
+[gd_scene load_steps=2 format=3 uid="uid://ck7nfxv4io2hl"]
 
-[node name="BotonNota" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://Scripts/MenuPersonaje/Notas/BotonNota.gd" id="1_8y56f"]
+
+[node name="BotonNota" type="Button"]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 318.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+text = "NombreNota"
+text_overrun_behavior = 3
+script = ExtResource("1_8y56f")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
