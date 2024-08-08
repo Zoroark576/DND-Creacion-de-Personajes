@@ -205,6 +205,7 @@ text = "Personalidad"
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 placeholder_text = "Personalidad"
+wrap_mode = 1
 
 [node name="LDescripcion" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
@@ -214,6 +215,7 @@ text = "Descripcion"
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 placeholder_text = "Descripcion"
+wrap_mode = 1
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contenedorInputs", "opcionesClase", "opcionesRaza", "error", "nNombre")]
 custom_minimum_size = Vector2(0, 100)

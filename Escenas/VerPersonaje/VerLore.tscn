@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/VerPersonaje/VerLore.gd" id="2_ibbrv"]
 [ext_resource type="PackedScene" uid="uid://bknqfi0yc6xe0" path="res://Escenas/CrearPersonaje/opcionRazaYClase.tscn" id="2_yxb4a"]
-[ext_resource type="Script" path="res://Scripts/CrearPersonaje/LorePersonaje/BotonesVovlerSiguiente.gd" id="3_v0h64"]
+[ext_resource type="Script" path="res://Scripts/VerPersonaje/VerLoreBotonVolver.gd" id="3_jqwat"]
 
 [sub_resource type="Theme" id="Theme_uon3e"]
 default_font_size = 23
@@ -32,8 +32,8 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_uon3e")
 script = ExtResource("2_ibbrv")
-contDatos = NodePath("MarginContainer/VBoxContainer/Datos")
-nNombre = NodePath("MarginContainer/VBoxContainer/Datos/Nombre")
+contDatos = NodePath("MarginContainer/VBoxContainer/ScrollContainer/Datos")
+nNombre = NodePath("MarginContainer/VBoxContainer/ScrollContainer/Datos/Nombre")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -72,151 +72,154 @@ theme_override_font_sizes/font_size = 30
 text = "Historia y Personaje"
 horizontal_alignment = 1
 
-[node name="Datos" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 650)
+layout_mode = 2
+
+[node name="Datos" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="LNombre" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LNombre" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Nombre"
 
-[node name="Nombre" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Nombre" type="LineEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 editable = false
 
-[node name="LAlineamiento" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LAlineamiento" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Alineamiento"
 
-[node name="Alineamiento" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Alineamiento" type="LineEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 placeholder_text = "Verdadero Neutral"
-editable = false
 
-[node name="LRaza" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LRaza" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Raza"
 
-[node name="Raza" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_yxb4a")]
+[node name="Raza" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos" instance=ExtResource("2_yxb4a")]
 layout_mode = 2
 tipoOpcion = "raza"
 
-[node name="BotonOpcion" parent="MarginContainer/VBoxContainer/Datos/Raza" index="0"]
+[node name="BotonOpcion" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos/Raza" index="0"]
 disabled = true
 
-[node name="LClase" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="BotonMas" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos/Raza" index="1"]
+visible = false
+
+[node name="LClase" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Clase"
 
-[node name="Clase" parent="MarginContainer/VBoxContainer/Datos" instance=ExtResource("2_yxb4a")]
+[node name="Clase" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos" instance=ExtResource("2_yxb4a")]
 layout_mode = 2
 tipoOpcion = "clase"
 
-[node name="BotonOpcion" parent="MarginContainer/VBoxContainer/Datos/Clase" index="0"]
+[node name="BotonOpcion" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos/Clase" index="0"]
 disabled = true
 
-[node name="LTamaño" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="BotonMas" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos/Clase" index="1"]
+visible = false
+
+[node name="LTamaño" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Tamaño"
 
-[node name="Tamaño" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Tamaño" type="LineEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 size_flags_horizontal = 0
 placeholder_text = "SS"
 editable = false
 
-[node name="LEdad" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LEdad" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Edad"
 
-[node name="Edad" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Edad" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 size_flags_horizontal = 0
 rounded = true
-editable = false
 
-[node name="LGenero" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LGenero" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Genero"
 
-[node name="Genero" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Genero" type="LineEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 size_flags_horizontal = 0
 editable = false
 
-[node name="LAltura" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LAltura" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Altura"
 
-[node name="Altura" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Altura" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 size_flags_horizontal = 0
 step = 0.01
-editable = false
-suffix = "KG"
+suffix = "Mts"
 
-[node name="LPeso" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LPeso" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Peso"
 
-[node name="Peso" type="SpinBox" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Peso" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 size_flags_horizontal = 0
 max_value = 1000.0
-editable = false
 suffix = "KG"
 
-[node name="LLenguajes" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LLenguajes" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Lenguajes Conocidos
 "
 
-[node name="Lenguajes" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Lenguajes" type="LineEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-editable = false
 
-[node name="LVision" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LVision" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Vision"
 
-[node name="Vision" type="LineEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Vision" type="LineEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-editable = false
 
-[node name="LPersonalidad" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LPersonalidad" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Personalidad"
 
-[node name="Personalidad" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Personalidad" type="TextEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 placeholder_text = "Personalidad"
-editable = false
+wrap_mode = 1
 
-[node name="LDescripcion" type="Label" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="LDescripcion" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 layout_mode = 2
 text = "Descripcion"
 
-[node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/Datos"]
+[node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 placeholder_text = "Descripcion"
-editable = false
+wrap_mode = 1
 
-[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contenedorInputs", "opcionesClase", "opcionesRaza")]
+[node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contDatos", "nNombre")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
-script = ExtResource("3_v0h64")
-contenedorInputs = NodePath("../Datos")
-opcionesClase = NodePath("../Datos/Clase/BotonOpcion")
-opcionesRaza = NodePath("../Datos/Raza/BotonOpcion")
+script = ExtResource("3_jqwat")
+contDatos = NodePath("../ScrollContainer/Datos")
+nNombre = NodePath("../ScrollContainer/Datos/Nombre")
 rutaVolver = "res://Escenas/MenuPersonaje/MenuPersonaje.tscn"
 rutaSiguiente = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 
@@ -232,9 +235,9 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Siguiente"
 
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Datos/Raza/BotonOpcion" to="." method="_on_boton_opcion_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ScrollContainer/Datos/Raza/BotonOpcion" to="." method="_on_boton_opcion_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="MarginContainer/VBoxContainer/Botones" method="_on_volver_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Siguiente" to="MarginContainer/VBoxContainer/Botones" method="_on_siguiente_pressed"]
 
-[editable path="MarginContainer/VBoxContainer/Datos/Raza"]
-[editable path="MarginContainer/VBoxContainer/Datos/Clase"]
+[editable path="MarginContainer/VBoxContainer/ScrollContainer/Datos/Raza"]
+[editable path="MarginContainer/VBoxContainer/ScrollContainer/Datos/Clase"]
