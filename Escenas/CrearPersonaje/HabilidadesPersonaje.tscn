@@ -222,17 +222,26 @@ layout_mode = 2
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortaleza/MarginContainer/HBoxContainer" index="1"]
 text = "Fortaleza"
 
+[node name="Mod" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Fortaleza/MarginContainer/HBoxContainer" index="2"]
+visible = false
+
 [node name="Reflejos" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Reflejos/MarginContainer/HBoxContainer" index="1"]
 text = "Reflejos"
 
+[node name="Mod" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Reflejos/MarginContainer/HBoxContainer" index="2"]
+visible = false
+
 [node name="Voluntad" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Voluntad/MarginContainer/HBoxContainer" index="1"]
 text = "Voluntad"
+
+[node name="Mod" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContDefensas/Defensas/CenterContainer/VBoxContainer/Voluntad/MarginContainer/HBoxContainer" index="2"]
+visible = false
 
 [node name="ContSentidos" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
 layout_mode = 2
@@ -264,6 +273,9 @@ placeholder_text = "10"
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Percepcion/MarginContainer/HBoxContainer" index="1"]
 text = "Percepcion"
 
+[node name="Mod" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Percepcion/MarginContainer/HBoxContainer" index="2"]
+visible = false
+
 [node name="Perspicacia" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer" instance=ExtResource("3_ieqk5")]
 layout_mode = 2
 
@@ -272,6 +284,9 @@ placeholder_text = "10"
 
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Perspicacia/MarginContainer/HBoxContainer" index="1"]
 text = "Perspicacia"
+
+[node name="Mod" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContSentidos/Sentidos/CenterContainer/VBoxContainer/Perspicacia/MarginContainer/HBoxContainer" index="2"]
+visible = false
 
 [node name="ContVelocidad" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos"]
 layout_mode = 2
@@ -302,7 +317,10 @@ placeholder_text = "10"
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Velocidad/MarginContainer/HBoxContainer" index="1"]
 text = "Mov."
 
-[node name="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Velocidad/MarginContainer/HBoxContainer" index="2"]
+[node name="Mod" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Velocidad/MarginContainer/HBoxContainer" index="2"]
+visible = false
+
+[node name="VBoxContainer" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Velocidad/MarginContainer/HBoxContainer" index="3"]
 visible = true
 
 [node name="Bonus" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContVelocidad/Sentidos/CenterContainer/VBoxContainer/Velocidad/MarginContainer/HBoxContainer/VBoxContainer" index="0"]
@@ -339,6 +357,9 @@ placeholder_text = "10"
 
 [node name="Label" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer/Iniciativa/MarginContainer/HBoxContainer" index="1"]
 text = "Mod DEX"
+
+[node name="Mod" parent="MarginContainer/VBoxContainer/Datos/Defensas Y Sentidos/ContIniciativa/Iniciativa/CenterContainer/VBoxContainer/Iniciativa/MarginContainer/HBoxContainer" index="2"]
+visible = false
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contBotonesHabilidad", "bonusVelocidad")]
 custom_minimum_size = Vector2(0, 80)

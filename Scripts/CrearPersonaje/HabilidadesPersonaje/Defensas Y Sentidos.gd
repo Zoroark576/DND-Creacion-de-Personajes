@@ -10,6 +10,8 @@ var recursoArmadura : Armadura = preload("res://Recursos/Armaduras/Armadura.tres
 var recursoEscudo : Escudo = preload("res://Recursos/Escudos/Escudo.tres")
 var recursoClase : Clase = preload("res://Recursos/Clases/Clase.tres")
 var recursoRaza : Raza = preload("res://Recursos/Razas/Raza.tres")
+
+var bonificacionTotal
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	recursoClase.obtenerClase(Personaje.nombreClase)
@@ -18,7 +20,7 @@ func _ready():
 	var bonificacionEscudo 
 	bonificacionArmadura = obtenerBonificadoresArmadura()
 	bonificacionEscudo = obtenerBonificadoresEscudo()
-	var bonificacionTotal = bonificacionArmadura + bonificacionEscudo
+	bonificacionTotal = bonificacionArmadura + bonificacionEscudo
 	calcularAC(bonificacionTotal)
 	calcularFortaleza()
 	calcularReflejos(bonificacionEscudo)
@@ -41,16 +43,26 @@ func obtenerBonificadoresEscudo():
 	else:
 		return 0
 
-func calcularAC(bonus):
+func calcularAC(bonus,modAsociado = "No"):
 	var acValor = 10 + floor(Personaje.nivel/2)
 	acValor += bonus
 	var dexDote = sumasBonusCaracteristicasRasgosDotes("DEX")
 	var conDote = sumasBonusCaracteristicasRasgosDotes("CON")
 	var modDex = floor(((Personaje.estadisticas["DEX"] + dexDote) - 10)/2)
 	var modCon = floor(((Personaje.estadisticas["CON"] + conDote) - 10)/2)
-	if recursoArmadura.tipoArmadura == "L":
+	var valorModModificado
+	if modAsociado != "No":
+		valorModModificado = floor(((Personaje.estadisticas[modAsociado] + sumasBonusCaracteristicasRasgosDotes(modAsociado)) - 10)/2)
+	if recursoArmadura.tipoArmadura == "L" and modAsociado == "No":
 		acValor += compararValores(modDex,modCon)
+	elif recursoArmadura.tipoArmadura == "L" and modAsociado != "No":
+		acValor += valorModModificado
+	acValor += sumarBonusRasgosDotes("AC")
+	aC.cambioMod.connect(cambioModAC)
 	aC.asignarValor(acValor)
+
+func cambioModAC(modAsociado):
+	calcularAC(bonificacionTotal,modAsociado)
 
 func calcularFortaleza():
 	var fueDote = sumasBonusCaracteristicasRasgosDotes("STR")
@@ -61,8 +73,8 @@ func calcularFortaleza():
 	fortValor += (compararValores(modFue,modCon))
 	if recursoClase.defensas.has("Fortaleza"):
 		fortValor += recursoClase.defensas.get("Fortaleza")
-	if recursoRaza.otrosBonificadoresDeHabilidad.has("Fortaleza"):
-		fortValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Fortaleza")
+	#if recursoRaza.otrosBonificadoresDeHabilidad.has("Fortaleza"):
+		#fortValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Fortaleza")
 	fortValor += sumarBonusRasgosDotes("Fortaleza")
 	fortaleza.asignarValor(fortValor)
 
@@ -75,8 +87,8 @@ func calcularReflejos(bonusEscudo):
 	reflValor += bonusEscudo + compararValores(modDex,modInt)
 	if recursoClase.defensas.has("Reflejos"):
 		reflValor += recursoClase.defensas.get("Reflejos")
-	if recursoRaza.otrosBonificadoresDeHabilidad.has("Reflejos"):
-		reflValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Reflejos")
+	#if recursoRaza.otrosBonificadoresDeHabilidad.has("Reflejos"):
+		#reflValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Reflejos")
 	if !Personaje.armaduraProficiente:
 		reflValor -= 2
 	reflValor += sumarBonusRasgosDotes("Reflejos")
@@ -91,8 +103,8 @@ func calcularVoluntad():
 	volValor += compararValores(modSab,modCar)
 	if recursoClase.defensas.has("Voluntad"):
 		volValor += recursoClase.defensas.get("Voluntad")
-	if recursoRaza.otrosBonificadoresDeHabilidad.has("Voluntad"):
-		volValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Voluntad")
+	#if recursoRaza.otrosBonificadoresDeHabilidad.has("Voluntad"):
+		#volValor += recursoRaza.otrosBonificadoresDeHabilidad.get("Voluntad")
 	volValor += sumarBonusRasgosDotes("Voluntad")
 	voluntad.asignarValor(volValor)
 

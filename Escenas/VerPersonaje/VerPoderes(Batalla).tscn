@@ -136,19 +136,19 @@ layout_mode = 2
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
+[node name="Vol" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
 layout_mode = 2
 text = "Voluntad"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
-layout_mode = 2
-text = "Diarios"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
+[node name="Enc" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
 layout_mode = 2
 text = "Encuentro"
+horizontal_alignment = 1
+
+[node name="Diar" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
+layout_mode = 2
+text = "Diarios"
 horizontal_alignment = 1
 
 [node name="ContPoderes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
@@ -203,19 +203,19 @@ layout_mode = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+[node name="Utilidad" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Pod. de Utilidad"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+[node name="Dotes" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Dotes"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+[node name="Rasgos" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Rasgos de Clase"

@@ -19,11 +19,15 @@ extends "res://Scripts/CrearPersonaje/PoderesPersonaje/CrearPoder.gd"
 @export var nValorEfecto2 : SpinBox
 @export var nEfectoActivo : CheckBox
 @export var nLEfectoActivo : Label
+@export var nNota : TextEdit
 
 @export var botonVolver : HBoxContainer
 
 var poder
-
+func _on_check_box_toggled(toggled_on):
+	super(toggled_on)
+	nEfectoActivo.visible = toggled_on
+	nLEfectoActivo.visible = toggled_on
 
 func asignarVolver(ruta):
 	if ruta != null:
@@ -31,12 +35,10 @@ func asignarVolver(ruta):
 
 func _ready():
 	botonVolver.poder = poder
-	nAfectaEstadistica.disabled = true
 	nEfectoPermanente.disabled = true
-	nNombreEfecto1.disabled = true
-	nValorEfecto1.editable = false
-	nNombreEfecto2.disabled = true
-	nValorEfecto2.editable = false
+	if nEfectoPermanente.button_pressed == true:
+		nAfectaEstadistica.disabled = true
+	
 
 func mirarPoder(nombre : String,poderSet : Dictionary):
 	poder = poderSet
@@ -57,6 +59,8 @@ func detallesPoder():
 	nUtilidad.select(seleccionarOpcion(nUtilidad,poder["Tipo"]))
 
 func detallesDoteRasgo():
+	if poder.has("Nota"):
+		nNota.text = poder["Nota"]
 	nAfectaEstadistica.button_pressed = poder["Afecta"]
 	_on_check_box_toggled(nAfectaEstadistica.button_pressed)
 	nEfectoActivo.visible = nAfectaEstadistica.button_pressed

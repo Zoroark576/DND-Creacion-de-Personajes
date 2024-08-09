@@ -24,8 +24,8 @@ func _process(delta):
 func obtenerVelocidad():
 	var velocidad = recursoRaza.velocidad
 	velocidad += recursoArmadura.velocidad
-	if recursoRaza.otrosBonificadoresDeHabilidad.has("Velocidad"):
-		velocidad += recursoRaza.otrosBonificadoresDeHabilidad.get("Velocidad")
+	#if recursoRaza.otrosBonificadoresDeHabilidad.has("Velocidad"):
+		#velocidad += recursoRaza.otrosBonificadoresDeHabilidad.get("Velocidad")
 	velocidad += sumarBonusRasgosDotes("Velocidad")
 	nVelocidad.asignarValor(velocidad)
 
@@ -34,8 +34,8 @@ func obtenerIniciativa():
 	var modIniciativa = floor(((Personaje.estadisticas["DEX"] + dexRasgo) - 10)/2)
 	var iniciativa = modIniciativa
 	iniciativa += floor(Personaje.nivel/2)
-	if recursoRaza.otrosBonificadoresDeHabilidad.has("Iniciativa"):
-		iniciativa += recursoRaza.otrosBonificadoresDeHabilidad.get("Iniciativa")
+	#if recursoRaza.otrosBonificadoresDeHabilidad.has("Iniciativa"):
+		#iniciativa += recursoRaza.otrosBonificadoresDeHabilidad.get("Iniciativa")
 	iniciativa += sumarBonusRasgosDotes("Iniciativa")
 	nIniciativa.asignarValor(iniciativa)
 

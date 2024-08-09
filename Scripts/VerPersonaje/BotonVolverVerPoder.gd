@@ -3,10 +3,24 @@ extends "res://Scripts/CrearPersonaje/PoderesPersonaje/CrearPoderVolverSiguiente
 @export var nEfectoActivo : CheckBox
 var poder
 @export var nNotificacionBorrarPoder : ConfirmationDialog
+@export var nNota : TextEdit
+@export var nNombreEfecto1 : OptionButton
+@export var nNombreEfecto2 : OptionButton
+@export var nValorEfecto1 : SpinBox
+@export var nValorEfecto2 : SpinBox
+@export var nAfecta : CheckBox
 
 func _on_volver_pressed():
 	super()
+	for index in nNombreEfecto1.item_count:
+		if poder.has(nNombreEfecto1.get_item_text(index)):
+			poder.erase(nNombreEfecto1.get_item_text(index))
+	poder[nNombreEfecto1.get_item_text(nNombreEfecto1.get_item_index(nNombreEfecto1.get_selected_id()))] = nValorEfecto1.value
+	if nNombreEfecto2.get_selected_id() != 0:
+		poder[nNombreEfecto2.get_item_text(nNombreEfecto2.get_item_index(nNombreEfecto2.get_selected_id()))] = nValorEfecto2.value
+	poder["Afecta"] = nAfecta.button_pressed
 	poder["Activo"] = nEfectoActivo.button_pressed
+	poder["Nota"] = nNota.text
 
 
 func _on_borrar_poder_pressed():

@@ -6,6 +6,7 @@ var menuCrear = preload("res://Escenas/CrearPoder/CrearPoder.tscn")
 @export var contPUtilidad : VBoxContainer
 @export var contDotes : VBoxContainer
 @export var contRasgosClase : VBoxContainer
+@export var nContadoresPoderes : ScrollContainer
 
 var botonPoder = preload("res://Escenas/CrearPoder/botonPoder.tscn")
 
@@ -13,6 +14,7 @@ func _ready():
 	asignarPoderes()
 	asignarDotes()
 	asignarRasgosDeClase()
+	nContadoresPoderes.numeroDePoderes()
 
 func asignarPoderes():
 		for nombrePoder in Personaje.poderes:

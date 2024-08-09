@@ -52,7 +52,6 @@ func aplicarDotesYRasgos():
 			diccionarioDote["Permanente"] = true
 		diccionarioDote["Afecta"] = diccionarioDote["Permanente"]
 		diccionarioDote["Activo"] = diccionarioDote["Permanente"]
-		diccionarioDote["Inicial"] = true
 		for bonificador in recursoRaza.otrosBonificadoresDeHabilidad:
 			diccionarioDote[bonificador] = recursoRaza.otrosBonificadoresDeHabilidad.get(bonificador)
 		Personaje.dotes[dote] = diccionarioDote
@@ -68,5 +67,4 @@ func aplicarDotesYRasgos():
 			diccionarioRasgo["Permanente"] = true
 		diccionarioRasgo["Afecta"] = diccionarioRasgo["Permanente"]
 		diccionarioRasgo["Activo"] = diccionarioRasgo["Permanente"]
-		diccionarioRasgo["Inicial"] = true
 		Personaje.rasgosDeClase[rasgo] = diccionarioRasgo

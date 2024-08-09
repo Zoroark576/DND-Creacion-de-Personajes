@@ -53,9 +53,9 @@ func aplicarBonusYPenalizaciones(boton):
 	if bonusHabilidades.has(boton.obtenerNombreCorto()):
 		var bonusHabilidad = bonusHabilidades.get(boton.obtenerNombreCorto())
 		valorFinal += bonusHabilidad
-	if otrosBonusHabilidad.has(boton.obtenerNombreCorto()):
-		var bonusHabilidad = otrosBonusHabilidad.get(boton.obtenerNombreCorto())
-		valorFinal += bonusHabilidad
+	#if otrosBonusHabilidad.has(boton.obtenerNombreCorto()):
+		#var bonusHabilidad = otrosBonusHabilidad.get(boton.obtenerNombreCorto())
+		#valorFinal += bonusHabilidad
 	if boton.modificadorAsociado == "STR" or boton.modificadorAsociado == "DEX" or boton.modificadorAsociado == "CON":
 		valorFinal += recursoArmadura.pruebaHabilidad
 	for dote in Personaje.dotes:

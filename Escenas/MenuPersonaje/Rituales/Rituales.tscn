@@ -142,7 +142,6 @@ text = "Tmpo:"
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "8 Horas"
 editable = false
 
 [node name="LPrecioCompo" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo"]
@@ -152,7 +151,6 @@ text = "Coste:"
 [node name="PrecioCompo" type="LineEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota/ContNivelTiempo"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-placeholder_text = "20 Oro"
 editable = false
 
 [node name="ContNivelTiempo2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
@@ -166,7 +164,6 @@ text = "Habilidad Clave:"
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Sanar (S.P)"
 editable = false
 
 [node name="ContDominado" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]

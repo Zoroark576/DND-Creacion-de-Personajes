@@ -62,7 +62,7 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0.156863, 0.678431, 1)
 
-[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contPVoluntad", "contPEncuentro", "contPDiarios", "contPUtilidad", "contDotes", "contRasgosClase")]
+[node name="MenuPrincipal" type="Control" node_paths=PackedStringArray("contPVoluntad", "contPEncuentro", "contPDiarios", "contPUtilidad", "contDotes", "contRasgosClase", "nContadoresPoderes")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,6 +80,7 @@ contPDiarios = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes
 contPUtilidad = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/PoderesDeUtilidad/ScrollContainer/Utilidad")
 contDotes = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/Dotes/ScrollContainer/Dotes")
 contRasgosClase = NodePath("MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/ContDotes,Rasgos/DotesRasgos/RasgosClase/ScrollContainer/Rasgos")
+nContadoresPoderes = NodePath("MarginContainer/VBoxContainer/ContPoderes")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -137,19 +138,19 @@ layout_mode = 2
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
+[node name="Voluntad" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
 layout_mode = 2
 text = "Voluntad"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
-layout_mode = 2
-text = "Diarios"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
+[node name="Diarios" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
 layout_mode = 2
 text = "Encuentro"
+horizontal_alignment = 1
+
+[node name="Encuentro" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de Poderes"]
+layout_mode = 2
+text = "Diarios"
 horizontal_alignment = 1
 
 [node name="ContPoderes" type="PanelContainer" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos"]
@@ -204,19 +205,19 @@ layout_mode = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+[node name="Pod_ de Utilidad" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Pod. de Utilidad"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+[node name="Dotes" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Dotes"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
+[node name="Rasgos de Clase" type="Label" parent="MarginContainer/VBoxContainer/ContPoderes/Dotes,Poderes y Rasgos/Titulos de D_R"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Rasgos de Clase"
