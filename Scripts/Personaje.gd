@@ -4,9 +4,9 @@ var recursoGuardado = preload("res://Recursos/guardarCargarPersonaje.tres")
 
 #Lore
 var id : int = 0
-var nombre : String = " "
-var nombreRaza : String
-var nombreClase : String
+var nombre : String = ""
+var nombreRaza : String = ""
+var nombreClase : String = ""
 var lore : Dictionary
 #Estadisticas (STR,DEX,etc.)
 var estadisticas : Dictionary = {"STR" : 0,"CON" : 0,"DEX" : 0, "INT" : 0,"WIS" : 0,"CHA" : 0}

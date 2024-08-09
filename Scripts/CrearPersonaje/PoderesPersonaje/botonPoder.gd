@@ -20,8 +20,7 @@ func _on_poder_pressed():
 	var nuevaEscena = verPoder.instantiate()
 	nuevaEscena.mirarPoder(nombre,obtenerCategoria().get(nombre))
 	nuevaEscena.asignarVolver(rutaVolver)
-	get_tree().root.add_child(nuevaEscena)
-	get_tree().root.remove_child(self)
+	get_tree().root.add_child(nuevaEscena,true)
 
 func obtenerCategoria():
 	if categoria == "Voluntad" or categoria == "Diarios" or categoria == "Encuentro" or categoria == "Utilidad":

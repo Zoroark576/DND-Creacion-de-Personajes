@@ -90,3 +90,6 @@ func seleccionarOpcion(opciones : OptionButton,opcion : String):
 func _on_option_button_2_item_selected(index):
 	print("Nohace nada")
 
+func _on_botones_eliminar_escena():
+	get_tree().root.remove_child(self)
+	self.queue_free()

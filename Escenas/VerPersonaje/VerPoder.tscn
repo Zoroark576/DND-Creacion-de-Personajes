@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/VerPersonaje/VerEstadisticasEnPoder.gd" id="3_illru"]
 [ext_resource type="Script" path="res://Scripts/VerPersonaje/BotonVolverVerPoder.gd" id="3_vq42q"]
 
-[node name="MenuPrincipal" node_paths=PackedStringArray("nNombre", "nTipo", "nFrecuencia", "nDescripcion", "nFuncionalidad", "nImpacto", "nUtilidad", "nEstadisticas", "nAfectaEstadistica", "nEfectoPermanente", "nNombreEfecto1", "nValorEfecto1", "nNombreEfecto2", "nValorEfecto2", "nEfectoActivo", "nLEfectoActivo", "nNota", "botonVolver") instance=ExtResource("1_puxi0")]
+[node name="VerPoder" node_paths=PackedStringArray("nNombre", "nTipo", "nFrecuencia", "nDescripcion", "nFuncionalidad", "nImpacto", "nUtilidad", "nEstadisticas", "nAfectaEstadistica", "nEfectoPermanente", "nNombreEfecto1", "nValorEfecto1", "nNombreEfecto2", "nValorEfecto2", "nEfectoActivo", "nLEfectoActivo", "nNota", "botonVolver") instance=ExtResource("1_puxi0")]
 script = ExtResource("2_68lfv")
 nNombre = NodePath("MarginContainer/VBoxContainer/GridContainer/NInput")
 nTipo = NodePath("MarginContainer/VBoxContainer/GridContainer/OpcionesTipo")
@@ -30,27 +30,39 @@ botonVolver = NodePath("MarginContainer/VBoxContainer/Botones")
 text = "Ver Poder/Dote/Rasgo de Clase"
 
 [node name="NInput" parent="MarginContainer/VBoxContainer/GridContainer" index="1"]
+focus_mode = 0
 editable = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
 
 [node name="OpcionesTipo" parent="MarginContainer/VBoxContainer/GridContainer" index="3"]
+focus_mode = 0
 disabled = true
 
 [node name="OpcionesFrecuencia" parent="MarginContainer/VBoxContainer/GridContainer" index="5"]
+focus_mode = 0
 disabled = true
 
 [node name="DInput" parent="MarginContainer/VBoxContainer/GridContainer" index="7"]
+focus_mode = 0
 placeholder_text = ""
 editable = false
+selecting_enabled = false
 
 [node name="FInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad" index="1"]
+focus_mode = 0
 placeholder_text = ""
 editable = false
+selecting_enabled = false
 
 [node name="IEInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Impacto" index="1"]
+focus_mode = 0
 placeholder_text = ""
 editable = false
+selecting_enabled = false
 
 [node name="UInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad" index="1"]
+focus_mode = 0
 disabled = true
 
 [node name="LNota" type="Label" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="0"]
@@ -60,8 +72,10 @@ text = "Nota:"
 [node name="Nota" type="TextEdit" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="1"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 18
 wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
 
 [node name="CheckBox" parent="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" index="3"]
 size_flags_horizontal = 3
@@ -261,5 +275,6 @@ initial_position = 1
 dialog_text = "Seguro que quieres eliminar este poder/dote/rasgo?"
 cancel_button_text = "Cancelar"
 
+[connection signal="eliminarEscena" from="MarginContainer/VBoxContainer/Botones" to="." method="_on_botones_eliminar_escena"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/BorrarPoder" to="MarginContainer/VBoxContainer/Botones" method="_on_borrar_poder_pressed"]
 [connection signal="confirmed" from="BorrarPoder" to="MarginContainer/VBoxContainer/Botones" method="_on_borrar_poder_confirmed"]

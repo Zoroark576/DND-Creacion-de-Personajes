@@ -16,6 +16,7 @@ var eMenuPersonaje = load("res://Escenas/MenuPersonaje/MenuPersonaje.tscn")
 var tituloCargado = ""
 
 func _ready():
+	
 	cargarRituales()
 
 func cargarRituales():

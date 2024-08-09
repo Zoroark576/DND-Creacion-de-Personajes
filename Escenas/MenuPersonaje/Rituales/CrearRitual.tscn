@@ -217,7 +217,7 @@ text = "Crear Ritual"
 
 [node name="ConfirmationDialog" type="AcceptDialog" parent="."]
 title = "Seguro?"
-initial_position = 1
+initial_position = 2
 dialog_text = "Falta nombre/Nombre ya existe, favor de elegir uno/otro..."
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/CrearRitual" to="." method="_on_crear_nota_pressed"]

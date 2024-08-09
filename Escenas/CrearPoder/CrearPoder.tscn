@@ -133,9 +133,11 @@ text = "Descripcion"
 custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 placeholder_text = "Incrustas tu escudo en tu enemigo, le golpeas con el mango de tu arma, o le hundes el hombro en el estómago. Tu ataque no causa mucho daño, pero tu furia inspira a un aliado tuyo para igualar tu ferocidad."
 wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
 
 [node name="Atributos" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -157,13 +159,15 @@ text = "Palabras Clave"
 custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 placeholder_text = "Arma, marcial
 Acción estándar Cuerpo a cuerpo arma
 Objetivo: una criatura
 Ataque: Fuerza contra AC
 "
 wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
 
 [node name="Impacto" type="GridContainer" parent="MarginContainer/VBoxContainer/Atributos/Poder"]
 layout_mode = 2
@@ -178,9 +182,11 @@ text = "Impacto/Efecto"
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 18
 placeholder_text = "Impacto: infliges un daño igual a tu modificador de Fuerza, y tras ello eliges a un aliado adyacente a ti o al objetivo. Este aliado aplica tu modificador de Carisma como bonificador de poder a la tirada de ataque y de daño de su siguiente ataque contra el objetivo. Si el aliado no ataca al objetivo antes del final de su turno, el bonificador se pierde. "
 wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
 
 [node name="EsDeUtilidad" type="GridContainer" parent="MarginContainer/VBoxContainer/Atributos/Poder"]
 layout_mode = 2
