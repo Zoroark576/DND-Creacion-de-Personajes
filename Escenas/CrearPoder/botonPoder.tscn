@@ -24,6 +24,7 @@ usado = NodePath("CheckBox")
 [node name="Poder" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_lil74")
 text = "NombrePoder"
 text_overrun_behavior = 3

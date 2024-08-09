@@ -39,12 +39,15 @@ disabled = true
 disabled = true
 
 [node name="DInput" parent="MarginContainer/VBoxContainer/GridContainer" index="7"]
+placeholder_text = ""
 editable = false
 
 [node name="FInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad" index="1"]
+placeholder_text = ""
 editable = false
 
 [node name="IEInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Impacto" index="1"]
+placeholder_text = ""
 editable = false
 
 [node name="UInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad" index="1"]

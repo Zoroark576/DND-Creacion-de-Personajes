@@ -19,6 +19,7 @@ custom_minimum_size = Vector2(150, 80)
 
 [node name="Siguiente" parent="MarginContainer/VBoxContainer/Botones" index="1"]
 custom_minimum_size = Vector2(150, 80)
+size_flags_horizontal = 2
 text = "Volver"
 
 [editable path="MarginContainer/VBoxContainer/Datos/Habilidades/CenterContainer/ContBotonesHabilidades/BotonHabilidad"]

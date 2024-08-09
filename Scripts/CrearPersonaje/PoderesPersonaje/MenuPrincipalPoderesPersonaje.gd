@@ -14,7 +14,6 @@ func _ready():
 	asignarPoderes()
 	asignarDotes()
 	asignarRasgosDeClase()
-	nContadoresPoderes.numeroDePoderes()
 
 func asignarPoderes():
 		for nombrePoder in Personaje.poderes:
