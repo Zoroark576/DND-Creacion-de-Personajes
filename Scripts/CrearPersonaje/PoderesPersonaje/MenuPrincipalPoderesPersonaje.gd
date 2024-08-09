@@ -9,13 +9,12 @@ var menuCrear = preload("res://Escenas/CrearPoder/CrearPoder.tscn")
 @export var nContadoresPoderes : ScrollContainer
 
 var botonPoder = preload("res://Escenas/CrearPoder/botonPoder.tscn")
-var recursoGuardar : guardarPersonaje = load("res://Recursos/guardarCargarPersonaje.tres")
+
 
 func _ready():
 	asignarPoderes()
 	asignarDotes()
 	asignarRasgosDeClase()
-	recursoGuardar.guardarPersonaje()
 
 func asignarPoderes():
 		for nombrePoder in Personaje.poderes:

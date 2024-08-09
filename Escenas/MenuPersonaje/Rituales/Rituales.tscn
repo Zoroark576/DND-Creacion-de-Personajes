@@ -186,9 +186,14 @@ text = "Texto Florido:"
 [node name="TextoFlavor" type="TextEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+focus_mode = 0
 editable = false
 context_menu_enabled = false
+selecting_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
 
 [node name="LContenido" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
 layout_mode = 2
@@ -197,9 +202,14 @@ text = "Ritual:"
 [node name="Contenido" type="TextEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 editable = false
 context_menu_enabled = false
+selecting_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

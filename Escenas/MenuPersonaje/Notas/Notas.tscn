@@ -133,8 +133,11 @@ text = "Contenido:"
 [node name="Contenido" type="TextEdit" parent="MarginContainer/VBoxContainer/Notas/ContNota"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 editable = false
 context_menu_enabled = false
+selecting_enabled = false
+virtual_keyboard_enabled = false
 wrap_mode = 1
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]

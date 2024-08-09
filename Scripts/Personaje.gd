@@ -92,3 +92,6 @@ func _notification(what):
 		if !nombre.is_empty():
 			recursoGuardado.guardarPersonaje()
 		get_tree().quit()
+	if what == NOTIFICATION_APPLICATION_PAUSED:
+		if !nombre.is_empty():
+			recursoGuardado.guardarPersonaje()

@@ -5,6 +5,7 @@ var archivos = []
 func guardarPersonaje():
 	var archivoConfig = ConfigFile.new()
 	if !Personaje.nombre.is_empty():
+		print("Guardando Personaje...")
 		var nombre = Personaje.nombre + ","+Personaje.nombreClase+","+Personaje.nombreRaza+","+str(Personaje.id)
 		archivoConfig.set_value(nombre,"Nombre",Personaje.nombre)
 		archivoConfig.set_value(nombre,"ID",Personaje.id)
@@ -46,6 +47,7 @@ func guardarPersonaje():
 		var error := archivoConfig.save("user://" + nombre +".ini")
 		if error:
 			print("An error happened while saving data: ", error)
+		print("Personaje guardado...")
 
 func cargarPersonaje(rutaArchivo : String):
 	var nombre = rutaArchivo.trim_suffix(".ini")

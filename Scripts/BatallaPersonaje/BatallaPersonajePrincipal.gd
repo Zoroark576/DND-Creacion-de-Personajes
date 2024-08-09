@@ -4,8 +4,6 @@ extends Control
 @export var nContOtrosDatos : GridContainer
 var recursoGuardar : guardarPersonaje = load("res://Recursos/guardarCargarPersonaje.tres")
 
-func _ready():
-	recursoGuardar.guardarPersonaje()
 
 func reiniciarDatos():
 	nContVida.reiniciarValores()
