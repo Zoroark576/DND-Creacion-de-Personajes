@@ -22,8 +22,10 @@ var armadura : String = "Ninguno"
 var armaduraProficiente : bool
 var primeraMano : String = "Ninguno"
 var primeraManoProficiente : bool
+var primeraManoEstadistica : String
 var segundaMano : String = "Ninguno"
 var segundaManoProficiente : bool
+var segundaManoEstadistica : String
 var poderes : Dictionary 
 var dotes : Dictionary
 var rituales : Dictionary
@@ -63,8 +65,10 @@ func resetearValores():
 	armaduraProficiente = false
 	primeraMano = ""
 	primeraManoProficiente = false
+	primeraManoEstadistica = "STR"
 	segundaMano = ""
 	segundaManoProficiente = false
+	segundaManoEstadistica = "STR"
 	poderes = {} 
 	dotes = {}
 	rituales = {}

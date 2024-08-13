@@ -108,11 +108,11 @@ compMano2 = NodePath("Manos/SegundaManoCompetente")
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 10
-columns = 13
+columns = 15
 
 [node name="LDaño" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="0"]
 layout_mode = 2
-text = "Daño:"
+text = "Mods:"
 
 [node name="LSTR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="1"]
 layout_mode = 2
@@ -162,7 +162,16 @@ text = "CHA:"
 layout_mode = 2
 text = "0"
 
+[node name="LNV" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="13"]
+layout_mode = 2
+text = "NVL:"
+
+[node name="NV" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas" index="14"]
+layout_mode = 2
+text = "0"
+
 [node name="Estadisticas2" type="GridContainer" parent="MarginContainer/VBoxContainer/Estadisticas" index="1"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 10
@@ -170,10 +179,10 @@ columns = 13
 
 [node name="LDaño" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="0"]
 layout_mode = 2
-text = "D20:"
+text = "D20 Total:"
 
 [node name="Dummy" type="Control" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="1"]
-custom_minimum_size = Vector2(54, 0)
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 
 [node name="STR" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Estadisticas2" index="2"]
@@ -228,7 +237,7 @@ columns = 4
 
 [node name="PrimeraMano" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="0"]
 layout_mode = 2
-text = "1ra Mano:"
+text = "1ra M.:"
 
 [node name="PrimeraManoNombre" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="1"]
 layout_mode = 2
@@ -241,7 +250,7 @@ layout_mode = 2
 
 [node name="SegundaMano" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="4"]
 layout_mode = 2
-text = "2da Mano:"
+text = "2da M.:"
 
 [node name="SegundaManoNombre" type="Label" parent="MarginContainer/VBoxContainer/Estadisticas/Manos" index="5"]
 layout_mode = 2

@@ -17,6 +17,8 @@ func _ready():
 	nMano1.item_selected.emit(nMano1.get_item_index(nMano1.get_selected_id()))
 	nMano2.select(seleccionarOpcion(nMano2,Personaje.segundaMano))
 	nMano2.item_selected.emit(nMano2.get_item_index(nMano2.get_selected_id()))
+	nEstadMano1.select(seleccionarOpcion(nEstadMano1,Personaje.primeraManoEstadistica))
+	nEstadMano2.select(seleccionarOpcion(nEstadMano2,Personaje.segundaManoEstadistica))
 	nInventario.text = Personaje.inventario
 
 
@@ -26,3 +28,11 @@ func seleccionarOpcion(optionButton, opcion : String):
 			return index
 	return 0
 
+
+
+func _on_estad_arma_1_item_selected(index):
+	itemDosManos(nMano1.get_item_text(nMano1.get_item_index(nMano1.get_selected_id())),nMano1.get_item_index(nMano1.get_selected_id()))
+
+
+func _on_arma_proficiencia_pressed():
+	itemDosManos(nMano1.get_item_text(nMano1.get_item_index(nMano1.get_selected_id())),nMano1.get_item_index(nMano1.get_selected_id()))

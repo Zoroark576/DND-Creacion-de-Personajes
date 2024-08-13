@@ -6,6 +6,10 @@ var recursoEscudos : Escudo = preload("res://Recursos/Escudos/Escudo.tres")
 @export var nArmaduras : OptionButton
 @export var nMano1 : OptionButton
 @export var nMano2 : OptionButton
+@export var nEstadMano1 : OptionButton
+@export var nEstadMano2 : OptionButton
+@export var nProf1 : CheckBox
+@export var nProf2 : CheckBox
 
 @export var nNombreEstadMano2 : Label
 @export var nContEstadMano2 : VBoxContainer
@@ -47,9 +51,15 @@ func itemDosManos(nombre,index):
 		nMano1.select(index)
 		nMano2.select(index)
 		nMano2.disabled = true
+		nEstadMano2.select(nEstadMano1.get_item_index(nEstadMano1.get_selected_id()))
+		nEstadMano2.disabled = true
+		nProf2.button_pressed = nProf1.button_pressed
+		nProf2.disabled = true
 		dosManos = true
 	else:
 		nMano2.disabled = false
+		nEstadMano2.disabled = false
+		nProf2.disabled = false
 		recursoArmas.obtenerArma(nMano1.get_item_text(nMano1.get_selected_id()))
 		if dosManos == true:
 			nMano2.select(0)

@@ -42,6 +42,7 @@ func obtenerArma(nombreArma):
 		valoresDefault()
 
 func valoresDefault():
+	nombre = "Sin Arma"
 	competencia = 0
 	manos = 1 
 	rango = "null"
