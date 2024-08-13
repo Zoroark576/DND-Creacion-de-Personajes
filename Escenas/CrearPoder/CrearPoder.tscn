@@ -450,5 +450,6 @@ dialog_text = "Nombre ya existe/Nombre vacio, favor de elegir otro..."
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput/OptionButton" to="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase/EInput2/OptionButton" to="MarginContainer/VBoxContainer/Atributos/Dote o Rasgo De Clase" method="_on_option_button_item_selected2"]
+[connection signal="eliminarEscena" from="MarginContainer/VBoxContainer/Botones" to="." method="_on_botones_eliminar_escena"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Volver" to="MarginContainer/VBoxContainer/Botones" method="_on_volver_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Botones/Crear" to="MarginContainer/VBoxContainer/Botones" method="_on_siguiente_pressed"]

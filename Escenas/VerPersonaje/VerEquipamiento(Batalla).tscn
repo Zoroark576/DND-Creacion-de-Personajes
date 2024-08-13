@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5j81mnn7wwh7"]
+[gd_scene load_steps=9 format=3 uid="uid://cc1uoirs8doym"]
 
 [ext_resource type="PackedScene" uid="uid://bpi1wlmpddgdt" path="res://Escenas/CrearPersonaje/clase_y_raza.tscn" id="1_de4sc"]
 [ext_resource type="Script" path="res://Scripts/CrearPersonaje/EquipamientoPersonaje/Proficiencias.gd" id="2_bou62"]
@@ -119,7 +119,7 @@ theme_override_font_sizes/font_size = 18
 text = "Texto"
 autowrap_mode = 2
 
-[node name="Equipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nOro", "nProficienciaArmadura", "nProficienciaMano1", "nProficienciaMano2", "nInventario", "nArmaduras", "nMano1", "nMano2")]
+[node name="Equipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("nOro", "nProficienciaArmadura", "nProficienciaMano1", "nProficienciaMano2", "nInventario", "nArmaduras", "nMano1", "nMano2", "nEstadMano1", "nEstadMano2", "nProf1", "nProf2")]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 20
@@ -127,16 +127,20 @@ columns = 3
 script = ExtResource("3_seuet")
 nOro = NodePath("OInput")
 nProficienciaArmadura = NodePath("ArmaduraProficiencia")
-nProficienciaMano1 = NodePath("ArmaProficiencia")
-nProficienciaMano2 = NodePath("Arma2Proficiencia")
+nProficienciaMano1 = NodePath("HBoxContainer/ArmaProficiencia")
+nProficienciaMano2 = NodePath("HBoxContainer2/Arma2Proficiencia")
 nInventario = NodePath("IInput")
 nArmaduras = NodePath("AInput")
 nMano1 = NodePath("AInput2")
 nMano2 = NodePath("AInput3")
+nEstadMano1 = NodePath("HBoxContainer/Estad Arma1")
+nEstadMano2 = NodePath("HBoxContainer2/Estad Arma2")
+nProf1 = NodePath("HBoxContainer/ArmaProficiencia")
+nProf2 = NodePath("HBoxContainer2/Arma2Proficiencia")
 
 [node name="OroInicial" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
-text = "Oro Inicial"
+text = "Oro"
 
 [node name="OInput" type="SpinBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
@@ -149,7 +153,7 @@ layout_mode = 2
 
 [node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
-text = "Armadura
+text = "Armadu.
 "
 
 [node name="AInput" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento"]
@@ -163,17 +167,37 @@ text = "Proficiente"
 
 [node name="Arma" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
-text = "1ra Mano
-"
+text = "1ra Mano"
 
 [node name="AInput2" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="ArmaProficiencia" type="CheckBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Equipamiento"]
+layout_mode = 2
+
+[node name="Estad Arma1" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+item_count = 6
+selected = 0
+popup/item_0/text = "STR"
+popup/item_0/id = 0
+popup/item_1/text = "DEX"
+popup/item_1/id = 1
+popup/item_2/text = "CON"
+popup/item_2/id = 2
+popup/item_3/text = "WIS"
+popup/item_3/id = 3
+popup/item_4/text = "INT"
+popup/item_4/id = 4
+popup/item_5/text = "CHA"
+popup/item_5/id = 5
+
+[node name="ArmaProficiencia" type="CheckBox" parent="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "Proficiente"
+text = "Pro."
 
 [node name="Arma2" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
@@ -184,33 +208,57 @@ text = "2da Mano
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Arma2Proficiencia" type="CheckBox" parent="MarginContainer/VBoxContainer/Equipamiento"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Equipamiento"]
+layout_mode = 2
+
+[node name="Estad Arma2" type="OptionButton" parent="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+item_count = 6
+selected = 0
+popup/item_0/text = "STR"
+popup/item_0/id = 0
+popup/item_1/text = "DEX"
+popup/item_1/id = 1
+popup/item_2/text = "CON"
+popup/item_2/id = 2
+popup/item_3/text = "WIS"
+popup/item_3/id = 3
+popup/item_4/text = "INT"
+popup/item_4/id = 4
+popup/item_5/text = "CHA"
+popup/item_5/id = 5
+
+[node name="Arma2Proficiencia" type="CheckBox" parent="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "Proficiente"
+text = "Pro."
 
 [node name="Inventario" type="Label" parent="MarginContainer/VBoxContainer/Equipamiento"]
 layout_mode = 2
-text = "Inventario
-"
+text = "Inventario"
 
 [node name="IInput" type="TextEdit" parent="MarginContainer/VBoxContainer/Equipamiento"]
 custom_minimum_size = Vector2(400, 350)
 layout_mode = 2
 placeholder_text = "Armas, Ropa, etc."
 
-[node name="EstadisticasEquipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contArmadura", "contMano1", "contMano2", "contNombresEscudo", "opcionArmadura", "opcionMano1", "opcionMano2")]
+[node name="EstadisticasEquipamiento" type="GridContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("contArmadura", "contMano1", "contMano2", "contNombresEscudo", "opcionArmadura", "opcionMano1", "opcionMano2", "estadMano1", "estadMano2", "proficiente1", "proficiente2")]
 layout_mode = 2
 theme_override_constants/v_separation = 15
 columns = 2
 script = ExtResource("4_jrahn")
-contArmadura = NodePath("Estadisticas/Valores")
-contMano1 = NodePath("Estadisticas2/Valores")
-contMano2 = NodePath("Estadisticas3/Valores")
+contArmadura = NodePath("Estadisticas/ValoresArmadura")
+contMano1 = NodePath("Estadisticas2/Valores1raMano")
+contMano2 = NodePath("Estadisticas3/Valores2daMano")
 contNombresEscudo = NodePath("Estadisticas3/NombresEscudo")
 opcionArmadura = NodePath("../Equipamiento/AInput")
 opcionMano1 = NodePath("../Equipamiento/AInput2")
 opcionMano2 = NodePath("../Equipamiento/AInput3")
+estadMano1 = NodePath("../Equipamiento/HBoxContainer/Estad Arma1")
+estadMano2 = NodePath("../Equipamiento/HBoxContainer2/Estad Arma2")
+proficiente1 = NodePath("../Equipamiento/HBoxContainer/ArmaProficiencia")
+proficiente2 = NodePath("../Equipamiento/HBoxContainer2/Arma2Proficiencia")
 
 [node name="Armadura" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento"]
 layout_mode = 2
@@ -261,38 +309,38 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas"]
 layout_mode = 2
 
-[node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas"]
+[node name="ValoresArmadura" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas"]
 layout_mode = 2
 
-[node name="Bonificador" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 18
-text = "0"
-horizontal_alignment = 1
-
-[node name="Prueba" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+[node name="Bonificador" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/ValoresArmadura"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Velocidad" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+[node name="Prueba" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/ValoresArmadura"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+[node name="Velocidad" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/ValoresArmadura"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/Valores"]
+[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/ValoresArmadura"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+
+[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas/ValoresArmadura"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
@@ -321,7 +369,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "Comp"
+text = "D20"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Nombres"]
@@ -348,38 +396,38 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2"]
 layout_mode = 2
 
-[node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2"]
+[node name="Valores1raMano" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2"]
 layout_mode = 2
 
-[node name="Daño" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+[node name="Daño" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores1raMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "Null"
 horizontal_alignment = 1
 
-[node name="Competencia" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+[node name="D20" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores1raMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Rango" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+[node name="Rango" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores1raMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores1raMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores"]
+[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas2/Valores1raMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
@@ -395,7 +443,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="NombresEscudo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/NombresEscudo"]
@@ -436,45 +483,45 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
 layout_mode = 2
 
-[node name="Valores" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
+[node name="Valores2daMano" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3"]
 layout_mode = 2
 
-[node name="Daño" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+[node name="Daño" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores2daMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "Null"
 horizontal_alignment = 1
 
-[node name="Competencia" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+[node name="D20" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores2daMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Rango" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+[node name="Rango" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores2daMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+[node name="Peso" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores2daMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores"]
+[node name="Precio" type="Label" parent="MarginContainer/VBoxContainer/EstadisticasEquipamiento/Estadisticas3/Valores2daMano"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 1
 
-[node name="Botones" parent="MarginContainer" node_paths=PackedStringArray("oro", "armadura", "mano1", "mano2", "inventario", "nPArmadura", "nPMano1", "nPMano2") instance=ExtResource("4_bdoa2")]
+[node name="Botones" parent="MarginContainer" node_paths=PackedStringArray("oro", "armadura", "mano1", "mano2", "inventario", "nPArmadura", "nPMano1", "nPMano2", "nEMano1", "nEMano2") instance=ExtResource("4_bdoa2")]
 layout_mode = 2
 script = ExtResource("5_fpm4v")
 oro = NodePath("../VBoxContainer/Equipamiento/OInput")
@@ -483,9 +530,11 @@ mano1 = NodePath("../VBoxContainer/Equipamiento/AInput2")
 mano2 = NodePath("../VBoxContainer/Equipamiento/AInput3")
 inventario = NodePath("../VBoxContainer/Equipamiento/IInput")
 nPArmadura = NodePath("../VBoxContainer/Equipamiento/ArmaduraProficiencia")
-nPMano1 = NodePath("../VBoxContainer/Equipamiento/ArmaProficiencia")
-nPMano2 = NodePath("../VBoxContainer/Equipamiento/Arma2Proficiencia")
-rutaVolver = "res://Escenas/MenuPersonaje/BatallaPersonaje.tscn"
+nPMano1 = NodePath("../VBoxContainer/Equipamiento/HBoxContainer/ArmaProficiencia")
+nPMano2 = NodePath("../VBoxContainer/Equipamiento/HBoxContainer2/Arma2Proficiencia")
+nEMano1 = NodePath("../VBoxContainer/Equipamiento/HBoxContainer/Estad Arma1")
+nEMano2 = NodePath("../VBoxContainer/Equipamiento/HBoxContainer2/Estad Arma2")
+rutaVolver = "res://Escenas/CrearPersonaje/EstadisticasPersonaje.tscn"
 rutaSiguiente = "res://Escenas/MenuPersonaje/BatallaPersonaje.tscn"
 
 [node name="Volver" parent="MarginContainer/Botones" index="0"]
@@ -498,7 +547,13 @@ text = "Volver"
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_2_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_2_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer/Estad Arma1" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_estad_arma_1_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer/Estad Arma1" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_estad_arma_1_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer/ArmaProficiencia" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_arma_proficiencia_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer/ArmaProficiencia" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_arma_proficiencia_pressed"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput3" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_3_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput3" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_3_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer2/Estad Arma2" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_estad_arma_2_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Equipamiento/HBoxContainer2/Arma2Proficiencia" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_arma_2_proficiencia_pressed"]
 
 [editable path="MarginContainer/Botones"]

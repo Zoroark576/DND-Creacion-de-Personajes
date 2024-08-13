@@ -6,7 +6,7 @@ extends botonesVolverSiguiente
 @export var nDescripcion : TextEdit
 @export var popUp : AcceptDialog
 var diccionario : Dictionary
-
+signal eliminarEscena
 
 func _on_siguiente_pressed():
 	var tipoSeleccionado = nTipo.get_item_text(nTipo.get_selected_id())
@@ -20,6 +20,11 @@ func _on_siguiente_pressed():
 			guardarDoteRasgo(tipoSeleccionado)
 		"Rasgo De Clase":
 			guardarDoteRasgo(tipoSeleccionado)
+	eliminarEscena.emit()
+
+func _on_volver_pressed():
+	super()
+	eliminarEscena.emit()
 
 @export var nPalabrasClave : TextEdit
 @export var nImpacto : TextEdit

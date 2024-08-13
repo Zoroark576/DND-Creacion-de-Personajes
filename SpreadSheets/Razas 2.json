@@ -138,5 +138,25 @@
     "Idiomas": "Común, Primordial",
     "Visión": "Normal",
     "Tamaño": "M"
+  },
+  "Koboldo": {
+    "Velocidad": 6,
+    "Puntuaciones de Caracteristica": "CON 2,DEX/CHA 2",
+    "Bonificadores de Habilidad": "Dung 2,Hurt 2",
+    "Nombre 1": "Reptil",
+    "Habilidad 1": "#Eres considerado un reptil para propositos de efectos que se relacionen con esa palabra#",
+    "Nombre 2": "Sentido Trampero",
+    "Habilidad 2": "#Ganas un bonus +2 racial a todas las defensas contra ataques de trampas#",
+    "Nombre 3": "Maniobra Escurridiza",
+    "Habilidad 3": "#Ganas el poder \"Maniobra Escurridiza\"#",
+    "Nombre 4": "",
+    "Habilidad 4": "",
+    "Nombre 5": "",
+    "Habilidad 5": "",
+    "Nombre 6": "",
+    "Habilidad 6": "",
+    "Idiomas": "Común, Draconido",
+    "Visión": "En penumbra",
+    "Tamaño": "S"
   }
 }

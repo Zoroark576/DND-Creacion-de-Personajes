@@ -32,3 +32,6 @@ func _on_check_box_toggled(toggled_on):
 	nLEsPermanente.visible = toggled_on
 	nEsPermanente.visible = toggled_on
 	
+func _on_botones_eliminar_escena():
+	get_tree().root.remove_child(self)
+	self.queue_free()

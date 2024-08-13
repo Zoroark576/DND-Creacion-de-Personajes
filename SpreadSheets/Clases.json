@@ -592,5 +592,32 @@
     "Rasgo 6": "",
     "Nombre 7": "",
     "Rasgo 7": ""
+  },
+  "Mago de la Espada": {
+    "Defensa": "Voluntad 2",
+    "Vida Inicial": "CON 15",
+    "Vida x Nivel": 6,
+    "Esfuerzos Curativos": "CON 8",
+    "Num Hab. Entrenadas": 3,
+    "Habilidades Entrenadas": "*Arca,Atle,Dipl,Agua,Hist,Pers,Inti",
+    "Rol": "Defensor",
+    "Fuente de Poder": "Arcano",
+    "Stats recomendados": "INT, STR, CON",
+    "Comp. Armaduras y escudos": "Tela, Cuero",
+    "Comp. Armas y Utensilios": "Senc. CaC, Espad. Luz Mili, Espad. P. Mili, Senc. a Dist.",
+    "Nombre 1": "Proficiencias de Utensilio",
+    "Rasgo 1": "#Cualquier Sable Ligero o Pesado.\nTu espada agrega su bonificación de mejora a las tiradas de ataque y daño y a cualquier daño adicional otorgado por una propiedad (si corresponde) cuando se usa como utensilio. No obtienes tu bonificación de competencia con armas en la tirada de ataque cuando usas tu espada como utensilio.#",
+    "Nombre 2": "Enlace de Espada",
+    "Rasgo 2": "#Al pasar 1 hora de meditación con una espada ligera o pesada elegida, forjas un vínculo especial con el arma. Como acción estándar, puedes llamar tu arma vinculada a tu mano desde una distancia de hasta 10 casillas.\nPuedes forjar un vínculo con una espada diferente usando el mismo proceso de meditación (por ejemplo, si adquieres una nueva espada que tiene habilidades mágicas). Si forjas un vínculo con una hoja diferente, el vínculo antiguo se disipa.\nSi tu arma vinculada está rota o dañada, puedes dedicar 1 hora de meditación para recrear el arma a partir de un fragmento. (Este proceso destruye automáticamente cualquier otro fragmento del arma existente, por lo que no puedes usarlo para crear múltiples copias de un arma rota).#",
+    "Nombre 3": "Egida del Mago de la Espada",
+    "Rasgo 3": "#Elige uno de los siguientes poderes a voluntad: \"Egida de asalto\", \"Egida de trampa\"o \"Egida de protección\". Cada uno de estos tres poderes marca un objetivo y permite al mago de la espada realizar una acción inmediata que se activa cuando el objetivo golpea con un ataque que no incluía al mago de la espada como objetivo. La elección entre estos poderes también afecta a algunos otros poderes de clase.#",
+    "Nombre 4": "Proteccion del Mago de la Espada",
+    "Rasgo 4": "#Otorga al mago de la espada una bonificación de +1 a la AC mientras está consciente y empuña una espada ligera o una espada pesada. Esta bonificación aumenta a +3 si el mago de la espada empuña la espada en una mano y tiene la otra libre, es decir, no lleva un escudo, un arma de mano izquierda, un arma de dos manos o cualquier otra cosa.#",
+    "Nombre 5": "",
+    "Rasgo 5": "",
+    "Nombre 6": "",
+    "Rasgo 6": "",
+    "Nombre 7": "",
+    "Rasgo 7": ""
   }
 }

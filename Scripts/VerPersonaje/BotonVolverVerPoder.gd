@@ -9,7 +9,6 @@ var poder
 @export var nValorEfecto1 : SpinBox
 @export var nValorEfecto2 : SpinBox
 @export var nAfecta : CheckBox
-signal eliminarEscena
 
 func _ready():
 	print(get_parent())
@@ -25,7 +24,6 @@ func _on_volver_pressed():
 	poder["Activo"] = nEfectoActivo.button_pressed
 	poder["Nota"] = nNota.text
 	super()
-	eliminarEscena.emit()
 	
 
 
