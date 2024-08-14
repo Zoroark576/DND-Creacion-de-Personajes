@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://diinp0sco1oc1"]
+[gd_scene load_steps=5 format=3 uid="uid://diinp0sco1oc1"]
 
 [ext_resource type="Script" path="res://Scripts/MenuPersonaje/Rituales/CrearRitual.gd" id="1_bxihv"]
+[ext_resource type="PackedScene" uid="uid://q7q8ru0ndyb3" path="res://Escenas/boton_pegar_clipboard.tscn" id="2_ttscs"]
 
 [sub_resource type="Theme" id="Theme_gcger"]
 default_font_size = 25
@@ -180,16 +181,27 @@ text = "Texto Florido:"
 [node name="TextoFlavor" type="TextEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 wrap_mode = 1
+
+[node name="BotonPegarClipboard2" parent="MarginContainer/VBoxContainer/Rituales/ContNota" node_paths=PackedStringArray("nCajaDeTexto") instance=ExtResource("2_ttscs")]
+layout_mode = 2
+nCajaDeTexto = NodePath("../TextoFlavor")
 
 [node name="LContenido" type="Label" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
 layout_mode = 2
 text = "Ritual:"
 
 [node name="Contenido" type="TextEdit" parent="MarginContainer/VBoxContainer/Rituales/ContNota"]
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
 wrap_mode = 1
+
+[node name="BotonPegarClipboard" parent="MarginContainer/VBoxContainer/Rituales/ContNota" node_paths=PackedStringArray("nCajaDeTexto") instance=ExtResource("2_ttscs")]
+layout_mode = 2
+nCajaDeTexto = NodePath("../Contenido")
 
 [node name="Botones" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 visible = false

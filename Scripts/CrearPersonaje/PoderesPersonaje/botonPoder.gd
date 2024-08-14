@@ -23,7 +23,7 @@ func _on_poder_pressed():
 	get_tree().root.add_child(nuevaEscena,true)
 
 func obtenerCategoria():
-	if categoria == "Voluntad" or categoria == "Diarios" or categoria == "Encuentro" or categoria == "Utilidad":
+	if categoria == "Voluntad" or categoria == "Diario" or categoria == "Encuentro" or categoria == "Utilidad":
 		return Personaje.poderes
 	elif categoria == "Dotes":
 		return Personaje.dotes

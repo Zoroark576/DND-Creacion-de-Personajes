@@ -11,7 +11,7 @@ signal eliminarEscena
 func _on_siguiente_pressed():
 	var tipoSeleccionado = nTipo.get_item_text(nTipo.get_selected_id())
 	diccionario["Categoria"] = tipoSeleccionado
-	diccionario["Frecuencia"] = nFrecuencia.text
+	diccionario["Frecuencia"] = nFrecuencia.get_item_text(nFrecuencia.get_item_index(nFrecuencia.get_selected_id()))
 	diccionario["Descripcion"] = nDescripcion.text
 	match tipoSeleccionado:
 		"Poder":
