@@ -20,7 +20,7 @@ func _on_siguiente_pressed():
 			guardarDoteRasgo(tipoSeleccionado)
 		"Rasgo De Clase":
 			guardarDoteRasgo(tipoSeleccionado)
-	eliminarEscena.emit()
+	
 
 func _on_volver_pressed():
 	super()
@@ -38,6 +38,7 @@ func guardarPoder():
 	else:
 		Personaje.poderes[nNombre.text] = diccionario
 		super._on_siguiente_pressed()
+		eliminarEscena.emit()
 
 @export var nCheckPermanente : CheckBox
 @export var nCheckEfecto : CheckBox
@@ -59,12 +60,14 @@ func guardarDoteRasgo(tipo):
 		else:
 			Personaje.dotes[nNombre.text] = diccionario
 			super._on_siguiente_pressed()
+			eliminarEscena.emit()
 	elif tipo == "Rasgo De Clase":
 		if Personaje.rasgosDeClase.has(nNombre.text) or nNombre.text.is_empty():
 			popUp.visible = true
 		else:
 			Personaje.rasgosDeClase[nNombre.text] = diccionario
 			super._on_siguiente_pressed()
+			eliminarEscena.emit()
 
 
 
