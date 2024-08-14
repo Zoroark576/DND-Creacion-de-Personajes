@@ -202,7 +202,7 @@ layout_mode = 2
 text = "Personalidad"
 
 [node name="Personalidad" type="TextEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 placeholder_text = "Personalidad"
 wrap_mode = 1
@@ -212,7 +212,7 @@ layout_mode = 2
 text = "Descripcion"
 
 [node name="Descripcion" type="TextEdit" parent="MarginContainer/VBoxContainer/ScrollContainer/Datos"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 placeholder_text = "Descripcion"
 wrap_mode = 1

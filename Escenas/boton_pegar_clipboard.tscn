@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://q7q8ru0ndyb3"]
+
+[ext_resource type="Script" path="res://Scripts/BotonPegarClipboard.gd" id="1_icael"]
+
+[node name="BotonPegarClipboard" type="Button"]
+offset_right = 53.0
+offset_bottom = 31.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Pegar"
+script = ExtResource("1_icael")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

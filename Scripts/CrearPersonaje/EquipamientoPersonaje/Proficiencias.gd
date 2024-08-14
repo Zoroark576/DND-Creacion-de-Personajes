@@ -1,10 +1,13 @@
 extends GridContainer
 
-var recursoClase : Clase = preload("res://Recursos/Clases/Clase.tres")
+var recursoClase : Clase = load("res://Recursos/Clases/Clase.tres")
 @export var nodoArmaduras : Label
 @export var nodoArmas : Label
 
 func _ready():
+	recursoClase._read_json()
 	recursoClase.obtenerClase(Personaje.nombreClase)
-	nodoArmaduras.text = recursoClase.competenciasArmaduras
-	nodoArmas.text = recursoClase.competenciasArmas
+	var comp = recursoClase.competenciasArmaduras
+	nodoArmaduras.text = comp
+	var armComp = recursoClase.competenciasArmas
+	nodoArmas.text =  armComp

@@ -39,30 +39,61 @@ selecting_enabled = false
 focus_mode = 0
 disabled = true
 
+[node name="FrecuenciaDeUso" parent="MarginContainer/VBoxContainer/GridContainer" index="4"]
+text = "Frec. de Uso"
+
 [node name="OpcionesFrecuencia" parent="MarginContainer/VBoxContainer/GridContainer" index="5"]
 focus_mode = 0
 disabled = true
 
 [node name="DInput" parent="MarginContainer/VBoxContainer/GridContainer" index="7"]
+custom_minimum_size = Vector2(0, 100)
 focus_mode = 0
 placeholder_text = ""
 editable = false
 selecting_enabled = false
 virtual_keyboard_enabled = false
+
+[node name="BotonPegarClipboard3" parent="MarginContainer/VBoxContainer/GridContainer" index="9"]
+visible = false
+
+[node name="Funcionalidad" parent="MarginContainer/VBoxContainer/Atributos/Poder" index="0"]
+theme_override_constants/h_separation = 10
+
+[node name="Funcionalidad" parent="MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad" index="0"]
+custom_minimum_size = Vector2(0, 0)
+text = "Palabras 
+Clave"
 
 [node name="FInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad" index="1"]
+custom_minimum_size = Vector2(0, 150)
 focus_mode = 0
 placeholder_text = ""
 editable = false
 selecting_enabled = false
 virtual_keyboard_enabled = false
 
+[node name="BotonPegarClipboard" parent="MarginContainer/VBoxContainer/Atributos/Poder/Funcionalidad" index="3"]
+visible = false
+
+[node name="Impacto" parent="MarginContainer/VBoxContainer/Atributos/Poder" index="1"]
+theme_override_constants/h_separation = 10
+
+[node name="Impacto_Efecto" parent="MarginContainer/VBoxContainer/Atributos/Poder/Impacto" index="0"]
+custom_minimum_size = Vector2(0, 0)
+text = "Impacto/
+Efecto"
+
 [node name="IEInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/Impacto" index="1"]
+custom_minimum_size = Vector2(0, 250)
 focus_mode = 0
 placeholder_text = ""
 editable = false
 selecting_enabled = false
 virtual_keyboard_enabled = false
+
+[node name="BotonPegarClipboard2" parent="MarginContainer/VBoxContainer/Atributos/Poder/Impacto" index="3"]
+visible = false
 
 [node name="UInput" parent="MarginContainer/VBoxContainer/Atributos/Poder/EsDeUtilidad" index="1"]
 focus_mode = 0

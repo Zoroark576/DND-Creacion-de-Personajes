@@ -29,6 +29,7 @@ func _ready():
 			if !Personaje.habilidadesConBonus.is_empty():
 				if Personaje.habilidadesConBonus.has(boton.obtenerNombreCorto()):
 					boton.nodoBonus.button_pressed = true
+					valorFinal += recursoRaza.bonificadoresDeHabilidad.get("ANY")
 					bonusAnyActivado(true)
 			checarLimiteNumHabilidadesEntrenadas()
 			boton.habilidadYaEntrenada = habilidadYaEntrenada

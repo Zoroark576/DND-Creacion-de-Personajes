@@ -542,7 +542,7 @@ visible = false
 
 [node name="Siguiente" parent="MarginContainer/Botones" index="1"]
 size_flags_horizontal = 2
-text = "Volver"
+text = "Volver Y Guardar"
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput" to="MarginContainer/VBoxContainer/EstadisticasEquipamiento" method="_on_a_input_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Equipamiento/AInput2" to="MarginContainer/VBoxContainer/Equipamiento" method="_on_a_input_2_item_selected"]

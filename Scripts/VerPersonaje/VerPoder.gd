@@ -59,6 +59,7 @@ func detallesPoder():
 	nUtilidad.select(seleccionarOpcion(nUtilidad,poder["Tipo"]))
 
 func detallesDoteRasgo():
+	nDescripcion.set_custom_minimum_size(Vector2(0,360))
 	if poder.has("Nota"):
 		nNota.text = poder["Nota"]
 	nAfectaEstadistica.button_pressed = poder["Afecta"]
